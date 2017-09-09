@@ -6,19 +6,21 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>web 文件操作 | hbzyin/blog</title>
+  <title>oAuth 认证机制 | hbzyin/blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="1. Html5 二进制数据操作接口 Javascript中对二进制数据进行操作的API 1.str.charCodeAt(index):获取字符串str中某个字符的Unicode编码； 2.window.Blob：javascript中代表二进制数据的基本对象，html 5中新增对二进制数据进行处理API;一个Blob对象就是一个包含有只读原始数据的类文件对象。Blob对象中的数据并不一定得是J">
-<meta name="keywords" content="文本,file">
+  <meta name="description" content="这段时间公司开发项目用到oAuth2协议，现在做一下梳理。 CORS即Cross Origin Resouce Share，跨域资源共享；是W3C为防止脚本攻击，而制定的安全标准之一，它允许浏览器向跨域服务器发送XMLHttpRequest请求；跨域域问题，伴随而来的就是前端项目中的权限认证问题。  1. 基本逻辑： 跨域请求分为两种：简单请求、非简单请求，两种情景处理具体细节不同，但实现逻辑">
+<meta name="keywords" content="secrect">
 <meta property="og:type" content="article">
-<meta property="og:title" content="web 文件操作">
-<meta property="og:url" content="http://yoursite.com/2017/09/09/ECMAScript5-API/index.html">
+<meta property="og:title" content="oAuth 认证机制">
+<meta property="og:url" content="http://yoursite.com/2017/09/09/oAuth-md/index.html">
 <meta property="og:site_name" content="hbzyin&#x2F;blog">
-<meta property="og:description" content="1. Html5 二进制数据操作接口 Javascript中对二进制数据进行操作的API 1.str.charCodeAt(index):获取字符串str中某个字符的Unicode编码； 2.window.Blob：javascript中代表二进制数据的基本对象，html 5中新增对二进制数据进行处理API;一个Blob对象就是一个包含有只读原始数据的类文件对象。Blob对象中的数据并不一定得是J">
-<meta property="og:updated_time" content="2017-09-09T05:16:56.000Z">
+<meta property="og:description" content="这段时间公司开发项目用到oAuth2协议，现在做一下梳理。 CORS即Cross Origin Resouce Share，跨域资源共享；是W3C为防止脚本攻击，而制定的安全标准之一，它允许浏览器向跨域服务器发送XMLHttpRequest请求；跨域域问题，伴随而来的就是前端项目中的权限认证问题。  1. 基本逻辑： 跨域请求分为两种：简单请求、非简单请求，两种情景处理具体细节不同，但实现逻辑">
+<meta property="og:image" content="http://images2015.cnblogs.com/blog/1034075/201707/1034075-20170720022456411-1386626362.png">
+<meta property="og:updated_time" content="2017-09-09T07:33:12.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="web 文件操作">
-<meta name="twitter:description" content="1. Html5 二进制数据操作接口 Javascript中对二进制数据进行操作的API 1.str.charCodeAt(index):获取字符串str中某个字符的Unicode编码； 2.window.Blob：javascript中代表二进制数据的基本对象，html 5中新增对二进制数据进行处理API;一个Blob对象就是一个包含有只读原始数据的类文件对象。Blob对象中的数据并不一定得是J">
+<meta name="twitter:title" content="oAuth 认证机制">
+<meta name="twitter:description" content="这段时间公司开发项目用到oAuth2协议，现在做一下梳理。 CORS即Cross Origin Resouce Share，跨域资源共享；是W3C为防止脚本攻击，而制定的安全标准之一，它允许浏览器向跨域服务器发送XMLHttpRequest请求；跨域域问题，伴随而来的就是前端项目中的权限认证问题。  1. 基本逻辑： 跨域请求分为两种：简单请求、非简单请求，两种情景处理具体细节不同，但实现逻辑">
+<meta name="twitter:image" content="http://images2015.cnblogs.com/blog/1034075/201707/1034075-20170720022456411-1386626362.png">
   
     <link rel="alternative" href="/atom.xml" title="hbzyin/blog" type="application/atom+xml">
   
@@ -148,32 +150,63 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-ECMAScript5-API" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-oAuth-md" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      web 文件操作
+      oAuth 认证机制
     </h1>
   
 
         
-        <a href="/2017/09/09/ECMAScript5-API/" class="archive-article-date">
-  	<time datetime="2017-09-09T05:19:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-09</time>
+        <a href="/2017/09/09/oAuth-md/" class="archive-article-date">
+  	<time datetime="2017-09-09T07:31:39.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-09</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h4 id="1-Html5-二进制数据操作接口"><a href="#1-Html5-二进制数据操作接口" class="headerlink" title="1. Html5 二进制数据操作接口"></a>1. Html5 二进制数据操作接口</h4><blockquote>
-<p>Javascript中对二进制数据进行操作的API</p>
-<p>1.<code>str.charCodeAt(index)</code>:获取字符串str中某个字符的Unicode编码；</p>
-<p>2.<code>window.Blob</code>：javascript中代表二进制数据的基本对象，html 5中新增对二进制数据进行处理API;<br>一个Blob对象就是一个包含有只读原始数据的类文件对象。<br>Blob对象中的数据并不一定得是JavaScript中的原生形式。<br>File接口基于Blob，继承了Blob的功能,并且扩展支持了用户计算机上的本地文件，<a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Blob" target="_blank" rel="external">官方文档传送门</a>;</p>
+        <blockquote>
+<p> 这段时间公司开发项目用到oAuth2协议，现在做一下梳理。</p>
+<p>CORS即Cross Origin Resouce Share，跨域资源共享；是W3C为防止脚本攻击，而制定的安全标准之一，它允许浏览器向跨域服务器发送XMLHttpRequest请求；<br>跨域域问题，伴随而来的就是前端项目中的权限认证问题。</p>
 </blockquote>
-<h4 id="2-charCodeAt"><a href="#2-charCodeAt" class="headerlink" title="2.charCodeAt()"></a>2.charCodeAt()</h4><h4 id="3-Blob对象"><a href="#3-Blob对象" class="headerlink" title="3.Blob对象"></a>3.Blob对象</h4>
+<h2 id="1-基本逻辑："><a href="#1-基本逻辑：" class="headerlink" title="1. 基本逻辑："></a>1. 基本逻辑：</h2><blockquote>
+<p>跨域请求分为两种：简单请求、非简单请求，两种情景处理具体细节不同，但实现逻辑相同</p>
+<pre><code>1. 用户使用用户名、密码登录；
+2. 后台校验用户信息；
+3. 跳转至oAuth认证接口，返回token、refresh token、token expires;（此处token一般有有效期）
+4. 用户携带token值与后台DB服务通过http/https交互；
+5. token 值到期后；用户携带refresh token请求oAuth token刷新接口更新token并通过响应发送至客户；
+6. 重复第4、第5步，保证token有效可用状态下，与后台进行交互
+</code></pre></blockquote>
+<p><img src="http://images2015.cnblogs.com/blog/1034075/201707/1034075-20170720022456411-1386626362.png" alt=""></p>
+<h2 id="oAuth2的协议-里面有两个比较常用的接口"><a href="#oAuth2的协议-里面有两个比较常用的接口" class="headerlink" title="oAuth2的协议.里面有两个比较常用的接口."></a>oAuth2的协议.里面有两个比较常用的接口.</h2><h3 id="1-获取token"><a href="#1-获取token" class="headerlink" title="1. 获取token"></a>1. 获取token</h3><p>接口:  <code>/oauth/token?</code></p>
+<p>参数: (grant_type是写规定好的,其它的两个自定义)</p>
+<ul>
+<li>grant_type=password</li>
+<li>username=development@sometech.com</li>
+<li>password=oQd-BfT-cer-7LP</li>
+</ul>
+<p>完整的样例:<code>http://localhost:9000/oauth/token?grant_type=password&amp;username=development@sometech.com&amp;password=oQd-BfT-cer-7LP</code></p>
+<p>返回结果样例:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    &quot;access_token&quot;: &quot;beeaa54e-8391-4de0-8ba6-ce145b3fb812&quot;,</div><div class="line">    &quot;token_type&quot;: &quot;bearer&quot;,</div><div class="line">    &quot;refresh_token&quot;: &quot;8129769a-d804-46c7-856a-3bacd409b650&quot;,</div><div class="line">    &quot;expires_in&quot;: 3599,</div><div class="line">    &quot;scope&quot;: &quot;read write&quot;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="2-刷新token"><a href="#2-刷新token" class="headerlink" title="2. 刷新token"></a>2. 刷新token</h3><p>接口:<code>http://localhost:9000/oauth/token?</code></p>
+<p>参数:(refresh_token是根据1中的来定的.其它参数是固定的)</p>
+<ul>
+<li>client_id=dashboard</li>
+<li>client_secret=secret</li>
+<li>grant_type=refresh_token</li>
+<li>refresh_token=43dca105-627e-4f50-86e8-0c22c2f3abe9</li>
+</ul>
+<p>样例: <code>http://localhost:9000/oauth/token?client_id=dashboard&amp;client_secret=secret&amp;grant_type=refresh_token&amp;refresh_token=43dca105-627e-4f50-86e8-0c22c2f3abe9</code></p>
+<p>返回结果<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    &quot;access_token&quot;: &quot;0135c92b-12ab-4af9-88f4-97ef85115e71&quot;,</div><div class="line">    &quot;token_type&quot;: &quot;bearer&quot;,</div><div class="line">    &quot;refresh_token&quot;: &quot;75d209b5-a30d-43a8-abcd-850e7fb62e76&quot;,</div><div class="line">    &quot;expires_in&quot;: 3599,</div><div class="line">    &quot;scope&quot;: &quot;read write&quot;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h3 id="3-oAuth2仅仅是实现跨域请求的一种，还有其他多种方案，如"><a href="#3-oAuth2仅仅是实现跨域请求的一种，还有其他多种方案，如" class="headerlink" title="3. oAuth2仅仅是实现跨域请求的一种，还有其他多种方案，如"></a>3. oAuth2仅仅是实现跨域请求的一种，还有其他多种方案，如</h3><p>jsonp、document.domain、window.name、window.postMessage、CSST(css text Transformation)、flash等。</p>
+<p>–end</p>
+
       
 
       
@@ -212,11 +245,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">文本</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">file</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">secrect</a>
         		</li>
       		
 		</ul>
@@ -272,7 +301,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/09/09/ECMAScript5-API/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/09/09/oAuth-md/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -286,18 +315,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2017/09/09/frontend-skills/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          Front end
-        
-      </div>
-    </a>
   
-  
-    <a href="/2017/09/09/angularCLI/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Angular2 cli</div>
+    <a href="/2017/09/09/git-workflow/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">workflow--项目工作流程</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -327,7 +347,7 @@
   
 
   
-  <div id="SOHUCS" sid="ECMAScript5-API" ></div> 
+  <div id="SOHUCS" sid="oAuth-md" ></div> 
 <script type="text/javascript"> 
 window.YiliaChangyanWrap = function() {
     var appid = "true"; 

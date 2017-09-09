@@ -148,6 +148,115 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-oAuth-md" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/09/09/oAuth-md/">oAuth 认证机制</a>
+    </h1>
+  
+
+        
+        <a href="/2017/09/09/oAuth-md/" class="archive-article-date">
+  	<time datetime="2017-09-09T07:31:39.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-09</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p> 这段时间公司开发项目用到oAuth2协议，现在做一下梳理。</p>
+<p>CORS即Cross Origin Resouce Share，跨域资源共享；是W3C为防止脚本攻击，而制定的安全标准之一，它允许浏览器向跨域服务器发送XMLHttpRequest请求；<br>跨域域问题，伴随而来的就是前端项目中的权限认证问题。</p>
+</blockquote>
+<h2 id="1-基本逻辑："><a href="#1-基本逻辑：" class="headerlink" title="1. 基本逻辑："></a>1. 基本逻辑：</h2><blockquote>
+<p>跨域请求分为两种：简单请求、非简单请求，两种情景处理具体细节不同，但实现逻辑相同</p>
+<pre><code>1. 用户使用用户名、密码登录；
+2. 后台校验用户信息；
+3. 跳转至oAuth认证接口，返回token、refresh token、token expires;（此处token一般有有效期）
+4. 用户携带token值与后台DB服务通过http/https交互；
+5. token 值到期后；用户携带refresh token请求oAuth token刷新接口更新token并通过响应发送至客户；
+6. 重复第4、第5步，保证token有效可用状态下，与后台进行交互
+</code></pre></blockquote>
+<p><img src="http://images2015.cnblogs.com/blog/1034075/201707/1034075-20170720022456411-1386626362.png" alt=""></p>
+<h2 id="oAuth2的协议-里面有两个比较常用的接口"><a href="#oAuth2的协议-里面有两个比较常用的接口" class="headerlink" title="oAuth2的协议.里面有两个比较常用的接口."></a>oAuth2的协议.里面有两个比较常用的接口.</h2><h3 id="1-获取token"><a href="#1-获取token" class="headerlink" title="1. 获取token"></a>1. 获取token</h3><p>接口:  <code>/oauth/token?</code></p>
+<p>参数: (grant_type是写规定好的,其它的两个自定义)</p>
+<ul>
+<li>grant_type=password</li>
+<li>username=development@sometech.com</li>
+<li>password=oQd-BfT-cer-7LP</li>
+</ul>
+<p>完整的样例:<code>http://localhost:9000/oauth/token?grant_type=password&amp;username=development@sometech.com&amp;password=oQd-BfT-cer-7LP</code></p>
+<p>返回结果样例:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    &quot;access_token&quot;: &quot;beeaa54e-8391-4de0-8ba6-ce145b3fb812&quot;,</div><div class="line">    &quot;token_type&quot;: &quot;bearer&quot;,</div><div class="line">    &quot;refresh_token&quot;: &quot;8129769a-d804-46c7-856a-3bacd409b650&quot;,</div><div class="line">    &quot;expires_in&quot;: 3599,</div><div class="line">    &quot;scope&quot;: &quot;read write&quot;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="2-刷新token"><a href="#2-刷新token" class="headerlink" title="2. 刷新token"></a>2. 刷新token</h3><p>接口:<code>http://localhost:9000/oauth/token?</code></p>
+<p>参数:(refresh_token是根据1中的来定的.其它参数是固定的)</p>
+<ul>
+<li>client_id=dashboard</li>
+<li>client_secret=secret</li>
+<li>grant_type=refresh_token</li>
+<li>refresh_token=43dca105-627e-4f50-86e8-0c22c2f3abe9</li>
+</ul>
+<p>样例: <code>http://localhost:9000/oauth/token?client_id=dashboard&amp;client_secret=secret&amp;grant_type=refresh_token&amp;refresh_token=43dca105-627e-4f50-86e8-0c22c2f3abe9</code></p>
+<p>返回结果<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    &quot;access_token&quot;: &quot;0135c92b-12ab-4af9-88f4-97ef85115e71&quot;,</div><div class="line">    &quot;token_type&quot;: &quot;bearer&quot;,</div><div class="line">    &quot;refresh_token&quot;: &quot;75d209b5-a30d-43a8-abcd-850e7fb62e76&quot;,</div><div class="line">    &quot;expires_in&quot;: 3599,</div><div class="line">    &quot;scope&quot;: &quot;read write&quot;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h3 id="3-oAuth2仅仅是实现跨域请求的一种，还有其他多种方案，如"><a href="#3-oAuth2仅仅是实现跨域请求的一种，还有其他多种方案，如" class="headerlink" title="3. oAuth2仅仅是实现跨域请求的一种，还有其他多种方案，如"></a>3. oAuth2仅仅是实现跨域请求的一种，还有其他多种方案，如</h3><p>jsonp、document.domain、window.name、window.postMessage、CSST(css text Transformation)、flash等。</p>
+<p>–end</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">secrect</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/09/09/oAuth-md/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-git-workflow" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -279,582 +388,6 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2017/09/09/git-workflow/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-frontend-skills" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/09/09/frontend-skills/">Front end</a>
-    </h1>
-  
-
-        
-        <a href="/2017/09/09/frontend-skills/" class="archive-article-date">
-  	<time datetime="2017-09-09T05:20:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-09</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="1-设计模式相关"><a href="#1-设计模式相关" class="headerlink" title="1. 设计模式相关"></a>1. 设计模式相关</h1><blockquote>
-<ol>
-<li>响应式/函数式编程：Rxjs-Reactive extention for javascript</li>
-<li>面向对象式编程：   OOP -Object Oriented Programming</li>
-<li>迭代器模式编程：   Iterator Pattern（ES6中可迭代对象：Array、String、Map、Set、DOM data structures）</li>
-</ol>
-</blockquote>
-<h2 id="2-Back-end"><a href="#2-Back-end" class="headerlink" title="2. Back-end"></a>2. Back-end</h2><table>
-<thead>
-<tr>
-<th>序号</th>
-<th>范围</th>
-<th>名称</th>
-<th>作用</th>
-<th>使用场景</th>
-<th>相关信息</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>1</td>
-<td>数据库</td>
-<td>mySQL</td>
-<td>后台数据库</td>
-<td>暂无</td>
-<td><a href="https://www.mysql.com/cn/" target="_blank" rel="external">官网</a></td>
-</tr>
-<tr>
-<td>2</td>
-<td>数据库</td>
-<td>php</td>
-<td>数据库脚本</td>
-<td></td>
-<td><a href="http://php.net/" target="_blank" rel="external">官网</a></td>
-</tr>
-<tr>
-<td>3</td>
-<td>数据库</td>
-<td>Nodejs</td>
-<td>数据库脚本</td>
-<td>事件驱动、非阻塞I/O模型</td>
-<td><a href="https://nodejs.org/zh-cn/" target="_blank" rel="external">官网</a></td>
-</tr>
-</tbody>
-</table>
-<p>  2.1 后端框架</p>
-<table>
-<thead>
-<tr>
-<th>序号</th>
-<th>名 称</th>
-<th>所属语言</th>
-<th>模板引擎</th>
-<th>相关技术</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>1</td>
-<td>Laravel</td>
-<td>php</td>
-<td>blade</td>
-<td></td>
-</tr>
-<tr>
-<td>2</td>
-<td>SpringMVC</td>
-<td>JAVA</td>
-<td>thymeleaf</td>
-<td></td>
-</tr>
-<tr>
-<td>3</td>
-<td>Express</td>
-<td>Nodejs</td>
-<td>jade、ejs、handlerbar</td>
-<td>热部署工具<a href="http://pm2.keymetrics.io/" target="_blank" rel="external">PM2</a>、<a href="http://blog.fens.me/nodejs-server-forever/" target="_blank" rel="external">Forever</a>、strongloopPM</td>
-</tr>
-<tr>
-<td>4</td>
-<td>KOA</td>
-<td>Nodejs</td>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
-<blockquote>
-<p><a href="http://www.cnblogs.com/souvenir/p/6039990.html" target="_blank" rel="external">KOA 、Express、Hapi三大框架对比</a></p>
-</blockquote>
-<h2 id="3-前端构建工具"><a href="#3-前端构建工具" class="headerlink" title="3. 前端构建工具"></a>3. 前端构建工具</h2><table>
-<thead>
-<tr>
-<th>序号</th>
-<th>类别</th>
-<th>名称</th>
-<th>作用(范围)</th>
-<th style="text-align:right">star</th>
-<th>特点</th>
-<th>官网</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>1</td>
-<td>JS包管理器</td>
-<td>npm</td>
-<td>JavaScript包管理器</td>
-<td style="text-align:right">13,284+</td>
-<td></td>
-<td><a href="https://www.npmjs.com/" target="_blank" rel="external">官网</a></td>
-</tr>
-<tr>
-<td>2</td>
-<td>JS包管理器</td>
-<td>yarn</td>
-<td>JavaScript包管理器</td>
-<td style="text-align:right">26,461+</td>
-<td></td>
-<td><a href="https://yarnpkg.com/lang/en/" target="_blank" rel="external">官网</a></td>
-</tr>
-<tr>
-<td>3</td>
-<td>前端项目打包压缩</td>
-<td>webpack</td>
-<td>所有资源</td>
-<td style="text-align:right">30,423+</td>
-<td></td>
-<td><a href="https://webpack.js.org/" target="_blank" rel="external">官网</a></td>
-</tr>
-<tr>
-<td>4</td>
-<td>前端项目打包压缩</td>
-<td>gulp</td>
-<td>js、css、html</td>
-<td style="text-align:right">26,924+</td>
-<td></td>
-<td><a href="https://gulpjs.com/" target="_blank" rel="external">官网</a></td>
-</tr>
-<tr>
-<td>5</td>
-<td>前端项目打包压缩</td>
-<td>grunt</td>
-<td>js、css、html</td>
-<td style="text-align:right">11,508+</td>
-<td></td>
-<td><a href="https://gruntjs.com/" target="_blank" rel="external">官网</a></td>
-</tr>
-<tr>
-<td>6</td>
-<td>前端项目打包压缩</td>
-<td>bower</td>
-<td>js、css、html</td>
-<td style="text-align:right">15,171+</td>
-<td></td>
-<td><a href="https://bower.io/" target="_blank" rel="external">官网</a></td>
-</tr>
-<tr>
-<td>7</td>
-<td>前端项目打包压缩</td>
-<td>browserify</td>
-<td>js、css、html</td>
-<td style="text-align:right">11,201+</td>
-<td></td>
-<td><a href="http://browserify.org/" target="_blank" rel="external">官网</a></td>
-</tr>
-</tbody>
-</table>
-<h2 id="4-Front-end"><a href="#4-Front-end" class="headerlink" title="4. Front-end"></a>4. Front-end</h2><h3 id="4-1-前端框架"><a href="#4-1-前端框架" class="headerlink" title="4.1 前端框架"></a>4.1 前端框架</h3><blockquote>
-<p>不同框架性能对比测试，<a href="https://rawgit.com/krausest/js-framework-benchmark/master/webdriver-ts/table.html" target="_blank" rel="external">传送门</a></p>
-</blockquote>
-<table>
-<thead>
-<tr>
-<th>序号</th>
-<th>名称</th>
-<th>团队</th>
-<th>设计模式</th>
-<th style="text-align:right">star</th>
-<th style="text-align:right">包大小(gzip)</th>
-<th>学习曲线</th>
-<th>相关技术</th>
-<th>相关信息</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>1</td>
-<td>angularjs</td>
-<td>谷歌</td>
-<td>双向数据绑定</td>
-<td style="text-align:right">56,105+</td>
-<td style="text-align:right"></td>
-<td>陡峭</td>
-<td>MVC</td>
-<td><a href="https://angularjs.org/" target="_blank" rel="external">官网</a></td>
-</tr>
-<tr>
-<td>2</td>
-<td>angular</td>
-<td>谷歌</td>
-<td>双向数据绑定</td>
-<td style="text-align:right">26,225+</td>
-<td style="text-align:right">237.41kb/v4.1.3</td>
-<td>陡峭</td>
-<td>MVC、组件化、Rxjs</td>
-<td><a href="https://angular.io/" target="_blank" rel="external">官网</a></td>
-</tr>
-<tr>
-<td>3</td>
-<td>react</td>
-<td>facebook</td>
-<td>单向数据绑定</td>
-<td style="text-align:right">71,926+</td>
-<td style="text-align:right">46.45kb/v15.5.4</td>
-<td>适中</td>
-<td>MVC、组件化、React+Flux+JSX状态存储</td>
-<td><a href="https://facebook.github.io/react/" target="_blank" rel="external">官网</a></td>
-</tr>
-<tr>
-<td>4</td>
-<td>vue.js</td>
-<td>尤雨溪（国内个人)</td>
-<td>双向数据绑定</td>
-<td style="text-align:right">61,363+</td>
-<td style="text-align:right">28.90kb/v2.3.4</td>
-<td>简单</td>
-<td>MVC、组件化、</td>
-<td><a href="https://cn.vuejs.org/" target="_blank" rel="external">官网</a></td>
-</tr>
-<tr>
-<td>5</td>
-<td>Polymer</td>
-<td>谷歌赞助</td>
-<td></td>
-<td style="text-align:right">17,815+</td>
-<td style="text-align:right">129.89kb/v2.13.3</td>
-<td></td>
-<td>组件化，类似vue</td>
-<td><a href="https://www.polymer-project.org/" target="_blank" rel="external">官网</a></td>
-</tr>
-<tr>
-<td>6</td>
-<td>ember</td>
-<td></td>
-<td></td>
-<td style="text-align:right">17,956+</td>
-<td style="text-align:right">129.89kb/v2.13.3</td>
-<td>陡峭</td>
-<td>全能框架、大量约定</td>
-<td><a href="https://www.emberjs.com/" target="_blank" rel="external">官网</a></td>
-</tr>
-<tr>
-<td>7</td>
-<td>Riot.js</td>
-<td></td>
-<td></td>
-<td style="text-align:right">12,042+</td>
-<td style="text-align:right"></td>
-<td></td>
-<td>轻量级</td>
-<td><a href="http://riotjs.com/" target="_blank" rel="external">官网</a></td>
-</tr>
-<tr>
-<td>8</td>
-<td>knockout.js</td>
-<td><em>可学习,不推荐使用</em></td>
-<td></td>
-<td style="text-align:right">8,249+</td>
-<td style="text-align:right"></td>
-<td>适中</td>
-<td>MVVM</td>
-<td><a href="http://knockoutjs.com/" target="_blank" rel="external">官网</a>,兼容IE9,</td>
-</tr>
-</tbody>
-</table>
-<h3 id="4-2-模板引擎技术"><a href="#4-2-模板引擎技术" class="headerlink" title="4.2 模板引擎技术"></a>4.2 模板引擎技术</h3><ul>
-<li>ejs       Javascript模板–<a href="http://ejs.co/" target="_blank" rel="external">官网</a></li>
-<li>jade      js+html模板—–<a href="http://jade-lang.com/" target="_blank" rel="external">官网</a></li>
-<li>blade     php 模板——–<a href="https://laravel.com/docs/5.4/blade" target="_blank" rel="external">官网</a></li>
-<li>Smarty    php 模板——–<a href="https://github.com/smarty-php/smarty" target="_blank" rel="external">官网</a></li>
-<li>thymeleaf JAVA模板——–<a href="http://www.thymeleaf.org/" target="_blank" rel="external">官网</a></li>
-</ul>
-<p>各路模板比拼：<br><img src="/sources/imgs/template.png" alt=""></p>
-<h3 id="4-2-css及icon类库"><a href="#4-2-css及icon类库" class="headerlink" title="4.2 css及icon类库"></a>4.2 css及icon类库</h3><blockquote>
-<p>css样式兼容性测试，<a href="http://caniuse.com/" target="_blank" rel="external">传送门</a></p>
-</blockquote>
-<table>
-<thead>
-<tr>
-<th>序号</th>
-<th>名称</th>
-<th>类别</th>
-<th>说明</th>
-<th>相关信息</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>1</td>
-<td>sass</td>
-<td></td>
-<td>样式文件、CSS预处理器</td>
-<td><a href="http://sass.bootcss.com/" target="_blank" rel="external">官网</a>、<a href="http://www.ruanyifeng.com/blog/2012/06/sass.html" target="_blank" rel="external">入门1</a>、<a href="https://www.oschina.net/question/12_44255" target="_blank" rel="external">入门2</a></td>
-</tr>
-<tr>
-<td>2</td>
-<td>fontawesome</td>
-<td>图标、样式库</td>
-<td>50,716+</td>
-<td><a href="http://fontawesome.io/" target="_blank" rel="external">官网</a>、<a href="http://fontawesome.dashgame.com/" target="_blank" rel="external">中文官网</a></td>
-</tr>
-<tr>
-<td>3</td>
-<td>iconfont</td>
-<td>图标、样式库</td>
-<td>阿里出品</td>
-<td><a href="http://www.iconfont.cn/" target="_blank" rel="external">官网</a></td>
-</tr>
-<tr>
-<td>4</td>
-<td>gliphyicon</td>
-<td>图标、样式库</td>
-<td>Author:Jan Kovarik</td>
-<td><a href="http://glyphicons.com/" target="_blank" rel="external">官网</a></td>
-</tr>
-</tbody>
-</table>
-<h3 id="4-3-动画类库"><a href="#4-3-动画类库" class="headerlink" title="4.3 动画类库"></a>4.3 动画类库</h3><table>
-<thead>
-<tr>
-<th>序号</th>
-<th>名称</th>
-<th style="text-align:right">技术类型</th>
-<th>Star指数</th>
-<th>备注</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>1</td>
-<td>animate.css</td>
-<td style="text-align:right">CSS (55.2kB)</td>
-<td>42,557+</td>
-<td>63种纯CSS过度动画效果</td>
-<td><a href="https://daneden.github.io/animate.css/" target="_blank" rel="external">案例</a></td>
-</tr>
-<tr>
-<td>2</td>
-<td>hover.css</td>
-<td style="text-align:right">CSS</td>
-<td>16,828+</td>
-<td>丰富的悬停效果amazing</td>
-<td><a href="http://ianlunn.github.io/Hover/" target="_blank" rel="external">案例</a></td>
-</tr>
-<tr>
-<td>3</td>
-<td>magic.css</td>
-<td style="text-align:right">CSS (36.5kB)</td>
-<td>4,915+</td>
-<td>丰富的渐变效果</td>
-<td><a href="https://minimamente.com/example/magic_animations/" target="_blank" rel="external">案例</a></td>
-</tr>
-<tr>
-<td>4</td>
-<td>Dyncss.css</td>
-<td style="text-align:right">CSS</td>
-<td>386+</td>
-<td>页面滚动动画</td>
-<td><a href="http://www.vittoriozaccaria.net/dyncss-example/" target="_blank" rel="external">案例</a></td>
-</tr>
-<tr>
-<td>5</td>
-<td>favico.js</td>
-<td style="text-align:right">JavaScript</td>
-<td>7,538+</td>
-<td>添加各种徽章效果</td>
-<td><a href="https://github.com/ejci/favico.js/tree/v0.4.0" target="_blank" rel="external">github</a></td>
-</tr>
-<tr>
-<td>6</td>
-<td>Textillate.js</td>
-<td style="text-align:right">JavaScript</td>
-<td>2,985+</td>
-<td>添加各种文字动画效果</td>
-<td><a href="http://textillate.js.org/" target="_blank" rel="external">案列</a>,依赖:<a href="https://daneden.github.io/animate.css/" target="_blank" rel="external">animate.css</a>、<a href="http://letteringjs.com/" target="_blank" rel="external">lettering.js</a></td>
-</tr>
-<tr>
-<td>7</td>
-<td>bounce.js</td>
-<td style="text-align:right">JavaScript</td>
-<td>5,056+</td>
-<td>提供强大的弹性css动画</td>
-<td><a href="http://bouncejs.com/" target="_blank" rel="external">案例</a></td>
-</tr>
-<tr>
-<td>8</td>
-<td>Move.js</td>
-<td style="text-align:right">JavaScript</td>
-<td>4,042+</td>
-<td>css动画</td>
-<td><a href="http://visionmedia.github.io/move.js/" target="_blank" rel="external">案例</a></td>
-</tr>
-<tr>
-<td>9</td>
-<td>AniJS.js</td>
-<td style="text-align:right">JavaScript</td>
-<td>3,087+</td>
-<td>事件动画效果</td>
-<td><a href="http://anijs.github.io/" target="_blank" rel="external">案例</a></td>
-</tr>
-<tr>
-<td>…</td>
-<td>pace.js</td>
-<td style="text-align:right">JavaScript</td>
-<td>12,053+</td>
-<td>网页交互进度提示：ajax/http进度条</td>
-<td><a href="http://github.hubspot.com/pace/docs/welcome/" target="_blank" rel="external">案例</a></td>
-</tr>
-</tbody>
-</table>
-<h2 id="4-可视化工具"><a href="#4-可视化工具" class="headerlink" title="4 可视化工具"></a>4 可视化工具</h2><table>
-<thead>
-<tr>
-<th>序号</th>
-<th>名称</th>
-<th>团队</th>
-<th>技术基础</th>
-<th style="text-align:right">star指数</th>
-<th>备注</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>1</td>
-<td>D3.js</td>
-<td></td>
-<td></td>
-<td style="text-align:right"></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>2</td>
-<td>hightcharts</td>
-<td>歪果仁</td>
-<td>Javascript</td>
-<td style="text-align:right"></td>
-<td><a href="https://www.highcharts.com/" target="_blank" rel="external">官网</a></td>
-<td></td>
-</tr>
-<tr>
-<td>3</td>
-<td>Chart.js</td>
-<td>google</td>
-<td>js+canvas</td>
-<td style="text-align:right">+30,737</td>
-<td><a href="http://www.chartjs.org/" target="_blank" rel="external">官网</a></td>
-<td></td>
-</tr>
-<tr>
-<td>4</td>
-<td>Echarts2</td>
-<td>百度</td>
-<td>js</td>
-<td style="text-align:right">+18,719</td>
-<td><a href="http://echarts.baidu.com/echarts2/" target="_blank" rel="external">官网</a></td>
-<td></td>
-</tr>
-<tr>
-<td>5</td>
-<td>G2</td>
-<td>阿里—蚂蚁金服</td>
-<td>js</td>
-<td style="text-align:right">+592</td>
-<td><a href="https://antv.alipay.com/" target="_blank" rel="external">官网</a>、<a href="https://github.com/antvis" target="_blank" rel="external">gihub</a></td>
-<td>G6/G2-mobile</td>
-</tr>
-</tbody>
-</table>
-<p><a href="https://www.zhihu.com/question/19929609" target="_blank" rel="external">简单粗暴的动车通道</a></p>
-<h2 id="5-Program-tools"><a href="#5-Program-tools" class="headerlink" title="5. Program tools"></a>5. Program tools</h2><ol>
-<li>Jquery     ——前端入门级别插件库，主要用于调用DOM操作 <a href="https://jquery.com/" target="_blank" rel="external">英文官方网站链接</a>，<a href="http://hemin.cn/jq/" target="_blank" rel="external">中文推荐非官方链接</a></li>
-<li>Underscore ——函数式编程的功能集，提供一系列远超过map、filter、invoke等方法，涵盖函数绑定、js模板、创建索引，强类型测试等，<a href="http://underscorejs.org/" target="_blank" rel="external">英文官方网站链接</a> ，<a href="http://www.bootcss.com/p/underscore/" target="_blank" rel="external">中文官方链接</a></li>
-<li>moment.js  ——JS时间处理插件，肥肠强大，<a href="https://momentjs.com/" target="_blank" rel="external">英文官方网站链接</a>， <a href="http://momentjs.cn/" target="_blank" rel="external">中文官方链接</a></li>
-<li>rxjs       ——观察者模式，强大的函数式编程插件  <a href="https://segmentfault.com/a/1190000008809168#articleHeader11" target="_blank" rel="external">入门介绍传送</a>，<a href="http://reactivex.io/rxjs/" target="_blank" rel="external">英文官方网站链接</a>，<a href="https://buctwbzs.gitbooks.io/rxjs/content/operators.html" target="_blank" rel="external">推荐非官方中文文档</a></li>
-<li>mock.js    ——一个模拟数据生成器，可以让前端独立于后端进行开发。主要功能：生成随机数据，拦截Ajax,适用场景：后端api未开发法完成，但数据格式已经确定。<a href="http://mockjs.com/" target="_blank" rel="external">官网</a>、<a href="https://github.com/nuysoft/Mock" target="_blank" rel="external">Github</a></li>
-<li>alasql.js  ——客户端数据库操作插件，用户web浏览器js内存中的数据库操作插件，可配合nodejs使用；<a href="http://alasql.org/" target="_blank" rel="external">官网</a>、<a href="https://github.com/agershun/alasql" target="_blank" rel="external">github</a> star:+1910</li>
-<li>lokijs     ——客户端操作数据库插件，alasql.js替代插件，<a href="http://lokijs.org/#/" target="_blank" rel="external">官网</a>、<a href="https://github.com/techfort/LokiJS" target="_blank" rel="external">github</a> star +3，428:</li>
-</ol>
-<h2 id="6-SPA项目的SEO解决方案"><a href="#6-SPA项目的SEO解决方案" class="headerlink" title="6. SPA项目的SEO解决方案"></a>6. SPA项目的SEO解决方案</h2><blockquote>
-<p>目前spa页面的最大缺点莫过于搜索引擎的友好型很差，所以需要慎重考虑使用场景；</p>
-<ul>
-<li>SEO.js ：针对google搜索引擎,使单页面应用可被爬虫爬取的插件，<a href="http://getseojs.com/" target="_blank" rel="external">官网</a></li>
-<li>Fate :百度针对SPA的工具库 <a href="http://fate.baidu.com/" target="_blank" rel="external">官网</a><br><img src="/sources/imgs/baiduFate.png" alt=""></li>
-</ul>
-</blockquote>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">文本</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">file</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/09/09/frontend-skills/">展开全文 >></a>
         </p>
       
 
@@ -1120,11 +653,11 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">component</a>
+                <a href="javascript:void(0)" class="js-tag color5">form</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">form</a>
+                <a href="javascript:void(0)" class="js-tag color5">component</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1145,6 +678,10 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">git</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">secrect</a>
               </li>
              
               <li class="article-tag-list-item">
