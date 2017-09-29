@@ -153,7 +153,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/09/28/html-doc-type/">html中的文档类型</a>
+      <a class="article-title" href="/2017/09/28/html-doc-type/">由html的文档类型引发的ISO文档信息规范</a>
     </h1>
   
 
@@ -166,7 +166,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="由html追问：文档类型定义"><a href="#由html追问：文档类型定义" class="headerlink" title="由html追问：文档类型定义"></a>由html追问：文档类型定义</h2><p><img src="/imgs/html/sgml.png" alt=""></p>
+        <p><img src="/imgs/html/sgml.png" alt=""></p>
 <blockquote>
 <p>作为一个前端开发者，HTML应该是最熟悉不过。打开电脑浏览器，点击鼠标右键，选择查看源码，所看到的就是html文本。</p>
 </blockquote>
@@ -182,47 +182,24 @@
 </blockquote>
 <p>  共8中=3种(html4.01)+3种(html1.0)+1种(html1.1)+1种(html5)</p>
 <ul>
-<li><p>HTML4.01文档类型声明有三种：</p>
-<p>①Strict(严格定义类型):该DTD仅允许使用HTML元素、属性；不允许使用展示性、弃用的元素(如:<code>font</code>)、不允许使用框架集(<code>Frameset</code>)</p>
-<p><code>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.01//EN&quot; &quot;http://www.w3.org/TR/html4/strict.dtd&quot;&gt;</code></p>
-<p>②Transitional(过渡定义类型):该DTD允许使用所有HTML元素、属性，允许是使用展示性、弃用的元素(如:<code>font</code>)；但不允许使用框架集(<code>Frameset</code>);</p>
-<p><code>&lt;!DOCTYOE HTML PUBLIC &quot;-//W3C//DTD HTML 4.01 Transitional//EN&quot; &quot;http://www.w3.org/TR/html4/loose.dtd&quot;&gt;</code></p>
-<p>③Frameset(框架定义类型):该DTD允许使用HTM的所有元素、属性，允许使用展示性、弃用的元素，允许使用框架集(<code>Frameset</code>)</p>
-<p><code>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.01 Frameset//EN&quot; &quot;HTTP://www.w3.org/TR/html4/frameset.dtd&quot;&gt;</code></p>
-</li>
-<li><p>HTML1.0文档类型声明有四种类型：与html4.01不同的是，HTML1.0全部要求以正确的XML格式编写XML,即所有标签元素都必须封闭。</p>
-<p>①Strict(严格定义类型)：允许使用所有的HTML元素和属性；不允许使用展示性、弃用的元素、框架集；</p>
-<p><code>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD/ XHTML 1.0 Strict//EN&quot; &quot;http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd&quot;&gt;</code></p>
-<p>②Transitioal(过渡定义类型)：允许使用所有的HTML元素、属性，允许使用展示型、弃用的元素；但不允许使用框架集；</p>
-<p> <code>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD/ XHTML 1.0 Transitional//EN&quot; &quot;http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd&quot;&gt;</code></p>
-<p>③Frameset(框架定义类型)：允许使用HTML元素、属性、展示性、弃用的元素、框架集；</p>
-<p> <code>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD/ XHTML 1.0 Frameset//EN&quot; &quot;http://www.w3.org/TR/xhtml1/DTD/xhtml1-Frameset.dtd&quot;&gt;</code></p>
-</li>
-<li><p>HTML1.1文档类型声明仅有一种，与HTML1.0类似，但允许添加模型：<br><code>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD/ XHTML1.1//EN&quot; http://www.w3.org/TR/xhtml/DTD/xhtml11.dtd&quot;&gt;</code></p>
-</li>
-<li><p>HTML5不基于SGML,其文档类型声明只有一种<br><code>&lt;!DOCTYPE html&gt;</code></p>
-</li>
+<li>HTML4.01文档类型声明有三种：<br>①Strict(严格定义类型):该DTD仅允许使用HTML元素、属性；不允许使用展示性、弃用的元素(如:<code>font</code>)、不允许使用框架集(<code>Frameset</code>)<br><code>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.01//EN&quot; &quot;http://www.w3.org/TR/html4/strict.dtd&quot;&gt;</code><br>②Transitional(过渡定义类型):该DTD允许使用所有HTML元素、属性，允许是使用展示性、弃用的元素(如:<code>font</code>)；但不允许使用框架集(<code>Frameset</code>);<br><code>&lt;!DOCTYOE HTML PUBLIC &quot;-//W3C//DTD HTML 4.01 Transitional//EN&quot; &quot;http://www.w3.org/TR/html4/loose.dtd&quot;&gt;</code><br>③Frameset(框架定义类型):该DTD允许使用HTM的所有元素、属性，允许使用展示性、弃用的元素，允许使用框架集(<code>Frameset</code>)<br><code>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.01 Frameset//EN&quot; &quot;HTTP://www.w3.org/TR/html4/frameset.dtd&quot;&gt;</code></li>
+<li>HTML1.0文档类型声明有四种类型：与html4.01不同的是，HTML1.0全部要求以正确的XML格式编写XML,即所有标签元素都必须封闭。<br>①Strict(严格定义类型)：允许使用所有的HTML元素和属性；不允许使用展示性、弃用的元素、框架集；<br><code>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD/ XHTML 1.0 Strict//EN&quot; &quot;http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd&quot;&gt;</code><br>②Transitioal(过渡定义类型)：允许使用所有的HTML元素、属性，允许使用展示型、弃用的元素；但不允许使用框架集；<br> <code>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD/ XHTML 1.0 Transitional//EN&quot; &quot;http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd&quot;&gt;</code><br>③Frameset(框架定义类型)：允许使用HTML元素、属性、展示性、弃用的元素、框架集；<br> <code>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD/ XHTML 1.0 Frameset//EN&quot; &quot;http://www.w3.org/TR/xhtml1/DTD/xhtml1-Frameset.dtd&quot;&gt;</code></li>
+<li>HTML1.1文档类型声明仅有一种，与HTML1.0类似，但允许添加模型：<br><code>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD/ XHTML1.1//EN&quot; http://www.w3.org/TR/xhtml/DTD/xhtml11.dtd&quot;&gt;</code></li>
+<li>HTML5不基于SGML,其文档类型声明只有一种<br><code>&lt;!DOCTYPE html&gt;</code></li>
 </ul>
 <blockquote>
 <p>要建立符合标准的网页文档，浏览器能够识别HTML/XHTML文档的类型，并正确的进行识别、解析，html必须采用DOCTYPE声明；如果文档不定义DOCTYPE类型，浏览器按照自己的方式来进行解析渲染的过程可能就会出现差错导致无法正常解析，也就是混乱模式或怪异者模式。</p>
 </blockquote>
 <h4 id="2-SGML、HTML、XML-——标记语言"><a href="#2-SGML、HTML、XML-——标记语言" class="headerlink" title="2. SGML、HTML、XML ——标记语言"></a>2. SGML、HTML、XML ——标记语言</h4><ul>
 <li>SGML:标准通用标记语言，即Standard Generalized Markup Language.<blockquote>
-<p>标准通用标记语言(<a href="https://zh.wikipedia.org/wiki/SGML" target="_blank" rel="external">SGML</a>),是当今常用的超文本格式的<strong>最高层次标准</strong>，是一种跨平台、跨语言的一种可以定义标记语言的<a href="https://zh.wikipedia.org/wiki/%E5%85%83%E8%AA%9E%E8%A8%80" target="_blank" rel="external">元语言</a>，是IOS于1986年发布的一个<strong>信息管理方面的国际标准</strong>（<code>ISO 8879:1986 Information processing -- Text and office systems -- Standard Generalized Markup Language (SGML)</code>）;但由于其强大的适应性，及其复杂性，难以普及。</p>
+<p>标准通用标记语言(<a href="https://zh.wikipedia.org/wiki/SGML" target="_blank" rel="external">SGML</a>),是当今常用的超文本格式的<strong>最高层次标准</strong>，是一种跨平台、跨语言的一种可以定义标记语言的<a href="https://zh.wikipedia.org/wiki/%E5%85%83%E8%AA%9E%E8%A8%80" target="_blank" rel="external">元语言</a>，是IOS于1986年发布的一个<strong>信息管理方面的国际标准</strong>（<code>ISO 8879:1986 Information processing -- Text and office systems -- Standard Generalized Markup Language (SGML)</code>）;但由于其强大的适应性，及其复杂性，难以普及。<br>HTML、XML都是SGML的一种派生。HTML是SGML的一个最成功的应用之一，而XML可以认为是SGML的一个子集；XML的产生便是为了简化SGML，以便于更加通用，比较成功的有语义Web、XHTML、RSS、XML-RPC、SOAP.</p>
 </blockquote>
 </li>
-</ul>
-<blockquote>
-<p>HTML、XML都是SGML的一种派生。HTML是SGML的一个最成功的应用之一，而XML可以认为是SGML的一个子集；XML的产生便是为了简化SGML，以便于更加通用，比较成功的有语义Web、XHTML、RSS、XML-RPC、SOAP.</p>
-</blockquote>
-<ul>
-<li><p>HTML:超文本标记语言，即Hyper Text Markup Language.</p>
-<blockquote>
+<li>HTML:超文本标记语言，即Hyper Text Markup Language.<blockquote>
 <p>超文本标记语言(HTML),衍生于SGML,是一种用于创建网页的标准标记语言。编写HTML文档时，需声明对文档类型进行声明，即本文开篇的两个问题。html与CSS、Javascript语言一起用于创建令人赏心悦目的网页、网页应用程序以及移动应用程序的用户界面。缺点是标记相对少(只有固定的标记)，缺少SGML的柔性和适应性，不能支持特定领域的标记语言。</p>
 </blockquote>
 </li>
-<li><p>XML：可扩展标记语言，即eXtensible Markup Language.</p>
-<blockquote>
+<li>XML：可扩展标记语言，即eXtensible Markup Language.<blockquote>
 <p>可扩展标记语言(XML)，是SGML的一种简化版本；表示一种结构化信息的标准文本格式；同HTML一样，编写XML文档前也需要进行文档类型声明，即XML序言,如<code>&lt;?xml version=&quot;1.0&quot;?&gt;</code>，会告诉解析器或浏览器，这个文件应该按照XML规则进行解析.XML语言的缺点是：不支持分帧(framing),当多条XML消息在TCP上传输时，无法基于XML协议来确定一条XML消息是否结束。</p>
 </blockquote>
 </li>
@@ -717,11 +694,11 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">html</a>
+                <a href="javascript:void(0)" class="js-tag color3">secrect</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">secrect</a>
+                <a href="javascript:void(0)" class="js-tag color5">html</a>
               </li>
              
               <li class="article-tag-list-item">
