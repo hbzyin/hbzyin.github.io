@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="hbzyin&#x2F;blog">
 <meta property="og:description" content="作为一个前端开发者，HTML应该是最熟悉不过。打开电脑浏览器，点击鼠标右键，选择查看源码，所看到的就是html文本。  1. 先来看两个简单的前端问题 1.HTML文档类型声明DCOTYPE的作用是什么？   &amp;lt;!DOCTYPE&amp;gt;声明位于html文档的第一行，位于&amp;lt;html&amp;gt;&amp;lt;/html&amp;gt;标签之前；&amp;lt;!DOCTYPE&amp;gt;声明不是html标签，是用于">
 <meta property="og:image" content="http://yoursite.com/imgs/html/sgml.png">
-<meta property="og:updated_time" content="2017-09-29T17:14:29.000Z">
+<meta property="og:updated_time" content="2017-09-29T17:17:52.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="由html的文档类型引发的ISO文档信息规范">
 <meta name="twitter:description" content="作为一个前端开发者，HTML应该是最熟悉不过。打开电脑浏览器，点击鼠标右键，选择查看源码，所看到的就是html文本。  1. 先来看两个简单的前端问题 1.HTML文档类型声明DCOTYPE的作用是什么？   &amp;lt;!DOCTYPE&amp;gt;声明位于html文档的第一行，位于&amp;lt;html&amp;gt;&amp;lt;/html&amp;gt;标签之前；&amp;lt;!DOCTYPE&amp;gt;声明不是html标签，是用于">
@@ -185,18 +185,25 @@
 <p>  共8中=3种(html4.01)+3种(html1.0)+1种(html1.1)+1种(html5)</p>
 <ul>
 <li><p>HTML4.01文档类型声明有三种：<br>①Strict(严格定义类型):该DTD仅允许使用HTML元素、属性；不允许使用展示性、弃用的元素(如:<code>font</code>)、不允许使用框架集(<code>Frameset</code>)</p>
-<pre><code><figure class="highlight plain"><figcaption><span>HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd"></span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"> </div></pre></td></tr></table></figure>
+<pre><code><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.01//EN&quot; &quot;http://www.w3.org/TR/html4/strict.dtd&quot;&gt;</div></pre></td></tr></table></figure>
 </code></pre><p>②Transitional(过渡定义类型):该DTD允许使用所有HTML元素、属性，允许是使用展示性、弃用的元素(如:<code>font</code>)；但不允许使用框架集(<code>Frameset</code>);</p>
-<pre><code>`&lt;!DOCTYOE HTML PUBLIC &quot;-//W3C//DTD HTML 4.01 Transitional//EN&quot; &quot;http://www.w3.org/TR/html4/loose.dtd&quot;&gt;`
+<pre><code><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;!DOCTYOE HTML PUBLIC &quot;-//W3C//DTD HTML 4.01 Transitional//EN&quot; &quot;http://www.w3.org/TR/html4/loose.dtd&quot;&gt;</div></pre></td></tr></table></figure>
 </code></pre><p>③Frameset(框架定义类型):该DTD允许使用HTM的所有元素、属性，允许使用展示性、弃用的元素，允许使用框架集(<code>Frameset</code>)</p>
-<pre><code>`&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.01 Frameset//EN&quot; &quot;HTTP://www.w3.org/TR/html4/frameset.dtd&quot;&gt;`
+<pre><code><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.01 Frameset//EN&quot; &quot;HTTP://www.w3.org/TR/html4/frameset.dtd&quot;&gt;</div></pre></td></tr></table></figure>
 </code></pre></li>
-<li>HTML1.0文档类型声明有四种类型：与html4.01不同的是，HTML1.0全部要求以正确的XML格式编写XML,即所有标签元素都必须封闭。<br>①Strict(严格定义类型)：允许使用所有的HTML元素和属性；不允许使用展示性、弃用的元素、框架集；<pre><code>`&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD/ XHTML 1.0 Strict//EN&quot; &quot;http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd&quot;&gt;`
-</code></pre>②Transitioal(过渡定义类型)：允许使用所有的HTML元素、属性，允许使用展示型、弃用的元素；但不允许使用框架集；<pre><code>`&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD/ XHTML 1.0 Transitional//EN&quot; &quot;http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd&quot;&gt;`
-</code></pre>③Frameset(框架定义类型)：允许使用HTML元素、属性、展示性、弃用的元素、框架集；<pre><code>`&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD/ XHTML 1.0 Frameset//EN&quot; &quot;http://www.w3.org/TR/xhtml1/DTD/xhtml1-Frameset.dtd&quot;&gt;`
+<li><p>HTML1.0文档类型声明有四种类型：与html4.01不同的是，HTML1.0全部要求以正确的XML格式编写XML,即所有标签元素都必须封闭。<br>①Strict(严格定义类型)：允许使用所有的HTML元素和属性；不允许使用展示性、弃用的元素、框架集；</p>
+<pre><code><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD/ XHTML 1.0 Strict//EN&quot; &quot;http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd&quot;&gt;</div></pre></td></tr></table></figure>
+</code></pre><p>②Transitioal(过渡定义类型)：允许使用所有的HTML元素、属性，允许使用展示型、弃用的元素；但不允许使用框架集；</p>
+<pre><code><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD/ XHTML 1.0 Transitional//EN&quot; &quot;http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd&quot;&gt;</div></pre></td></tr></table></figure>
+</code></pre><p>③Frameset(框架定义类型)：允许使用HTML元素、属性、展示性、弃用的元素、框架集；</p>
+<pre><code><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD/ XHTML 1.0 Frameset//EN&quot; &quot;http://www.w3.org/TR/xhtml1/DTD/xhtml1-Frameset.dtd&quot;&gt;</div></pre></td></tr></table></figure>
 </code></pre></li>
-<li>HTML1.1文档类型声明仅有一种，与HTML1.0类似，但允许添加模型：<br><code>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD/ XHTML1.1//EN&quot; http://www.w3.org/TR/xhtml/DTD/xhtml11.dtd&quot;&gt;</code></li>
-<li>HTML5不基于SGML,其文档类型声明只有一种<br><code>&lt;!DOCTYPE html&gt;</code></li>
+<li><p>HTML1.1文档类型声明仅有一种，与HTML1.0类似，但允许添加模型：</p>
+<pre><code><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD/ XHTML1.1//EN&quot; http://www.w3.org/TR/xhtml/DTD/xhtml11.dtd&quot;&gt;</div></pre></td></tr></table></figure>
+</code></pre></li>
+<li><p>HTML5不基于SGML,其文档类型声明只有一种</p>
+<pre><code><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;!DOCTYPE html&gt;</div></pre></td></tr></table></figure>
+</code></pre></li>
 </ul>
 <blockquote>
 <p>要建立符合标准的网页文档，浏览器能够识别HTML/XHTML文档的类型，并正确的进行识别、解析，html必须采用DOCTYPE声明；如果文档不定义DOCTYPE类型，浏览器按照自己的方式来进行解析渲染的过程可能就会出现差错导致无法正常解析，也就是混乱模式或怪异者模式。</p>
@@ -495,14 +502,6 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">文本</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">file</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">angular</a>
               </li>
              
@@ -511,11 +510,19 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">form</a>
+                <a href="javascript:void(0)" class="js-tag color3">文本</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">file</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">directive</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">form</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -524,22 +531,6 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">cli</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">workflow</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">git</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">secrect</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">bootstrap</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -556,6 +547,22 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">SGML</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">secrect</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">bootstrap</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">workflow</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">git</a>
               </li>
             
             <div class="clearfix"></div>
