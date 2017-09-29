@@ -6,12 +6,12 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>hbzyin/blog</title>
+  <title>Tag: XML | hbzyin/blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="web 前端 | 切图仔 | javascript | css | hbzyin">
 <meta property="og:type" content="website">
 <meta property="og:title" content="hbzyin&#x2F;blog">
-<meta property="og:url" content="http://yoursite.com/page/2/index.html">
+<meta property="og:url" content="http://yoursite.com/tags/XML/index.html">
 <meta property="og:site_name" content="hbzyin&#x2F;blog">
 <meta property="og:description" content="web 前端 | 切图仔 | javascript | css | hbzyin">
 <meta name="twitter:card" content="summary">
@@ -146,794 +146,70 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-web-component" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
+  
     
-      <header class="article-header">
-        
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2017" class="archive-year">2017</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2017/09/28/html-doc-type/" class="archive-article-date">
+  	<time datetime="2017-09-28T00:10:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-28</time>
+</a>
+        </div>
+    	 
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/09/09/web-component/">Ngx-bootstrap组件总结</a>
+      <a class="archive-article-title" href="/2017/09/28/html-doc-type/">由html的文档类型引发的ISO文档信息规范</a>
     </h1>
   
 
-        
-        <a href="/2017/09/09/web-component/" class="archive-article-date">
-  	<time datetime="2017-09-09T05:20:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-09</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <blockquote>
-<p>前端开发会有一些常见的需求，比如输入表单、日期、下拉菜单、表格、提示、弹窗等等，一般项目开发周期都被公司产品、市场等各种因素影响，被不断的压缩。除了极个别的开发大神，以及一些框架开发者，极少出现会自己去从零开始写这些常见的组件。</p>
-<p>而通常做法是引入一个成熟的插件/库来实现；<br><strong>Ngx-bootstrap</strong>便是可供选择的一个组件库，当然你也可以选择比如<a href="https://www.primefaces.org/" target="_blank" rel="external">Prime-NG</a>、<a href="https://material.io/" target="_blank" rel="external">material</a>、<a href="http://www.material-ui.com/" target="_blank" rel="external">material-ui</a>等其他各种优秀的风格组件库，来做为你开发的工具。</p>
-<p>本篇仅以<code>ngx-bootstrap</code>为例，介绍前端开发过程中一些常用的组件。</p>
-</blockquote>
-<p>包括并不限于以下17种：</p>
-<ul>
-<li>提示：tips——用于简短的缩写或特殊名词，用悬浮窗方式进行解释、备注。</li>
-<li>弹窗：popover——点击后显示的隐藏导航、链接或注释。</li>
-<li>消息条/警告：alerts——操作消息提示、或者系统消息列表提示。</li>
-<li><p>模态框：modal——弹窗层对话框，一般用于有序步骤操作。</p>
-</li>
-<li><p>时间选择：timepicker——时间选择器，可针对具体到秒的时间选择，比如定时发送邮件等。</p>
-</li>
-<li><p>日期选择：datepicker——日期选择器，用于日期的选择，时间选择范围为年、月、日，可定制最大最小日期等。</p>
-</li>
-<li><p>下拉菜单：dropdowns——点击按钮弹出隐藏下拉菜单、导航或说明，菜单悬浮。</p>
-</li>
-<li>折叠面板：accordion——点击目标显示出隐藏内容，隐藏内容从属于文档流，会重新绘制dom;</li>
-<li>标签页：tabs——点击标题菜单，切换不同的页面，用于分页显示同一类主题；</li>
-<li>导航条：navBar——页面顶部或者侧边导航栏，用于页面主题内容的跳转控制、页面布局；</li>
-<li><p>轮播图：carousel——图片轮播，一般用于多幅宣传图册的自动循环播放；</p>
-</li>
-<li><p>按钮：button——定制页面按钮的样式风格；</p>
-</li>
-<li>输入表单：imput——定制化页面的输入表单样式风格，用户可自定义；</li>
-<li>表格：sortable——可排序内容，用于列表数据的排序用</li>
-<li>分页：pagination——表格数据的分页展示控件，用于在优化页面展示效果，提升用户体验；</li>
-<li>进度条:progressBar——一般用于数据加载、用户操作进度指示作用，提升用户页面交互体验；</li>
-</ul>
-<p>具体效果图如下</p>
-<ol>
-<li>carousel<br><img src="/imgs/ng-bootstrap/carousel.png" alt=""></li>
-<li>tips<br><img src="/imgs/ng-bootstrap/tooltip.png" alt=""></li>
-<li>popover</li>
-</ol>
-<p><img src="/imgs/ng-bootstrap/popover.png" alt=""></p>
-<ol>
-<li>alertts<br><img src="/imgs/ng-bootstrap/alerts.png" alt=""></li>
-<li>modal<br><img src="/imgs/ng-bootstrap/modal.png" alt=""></li>
-<li>timepicker<br><img src="/imgs/ng-bootstrap/timepicker.png" alt=""></li>
-<li>datepicker<br><img src="/imgs/ng-bootstrap/datepicker.png" alt=""></li>
-<li>pagination<br><img src="/imgs/ng-bootstrap/pagination.png" alt=""></li>
-<li>progressBar<br><img src="/imgs/ng-bootstrap/progressbar.png" alt=""></li>
-<li>tabs<br><img src="/imgs/ng-bootstrap/tabs.png" alt=""></li>
-<li>rating<br><img src="/imgs/ng-bootstrap/rating.png" alt=""></li>
-</ol>
-<p>–不定期更新中….</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
+        <div class="article-info info-on-right">
+          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">component</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">html</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">bootstrap</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">DTD</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">XML</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">SGML</a>
         		</li>
       		
 		</ul>
 	</div>
 
-      
+          
 
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/09/09/web-component/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
+        </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
   
-    <article id="post-frontend-skills" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
+  
+    </div></section>
+  
+
     
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/09/09/frontend-skills/">Front end</a>
-    </h1>
-  
-
-        
-        <a href="/2017/09/09/frontend-skills/" class="archive-article-date">
-  	<time datetime="2017-09-09T05:20:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-09</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="1-设计模式相关"><a href="#1-设计模式相关" class="headerlink" title="1. 设计模式相关"></a>1. 设计模式相关</h1><blockquote>
-<ol>
-<li>响应式/函数式编程：Rxjs-Reactive extention for javascript</li>
-<li>面向对象式编程：   OOP -Object Oriented Programming</li>
-<li>迭代器模式编程：   Iterator Pattern（ES6中可迭代对象：Array、String、Map、Set、DOM data structures）</li>
-</ol>
-</blockquote>
-<h2 id="2-Back-end"><a href="#2-Back-end" class="headerlink" title="2. Back-end"></a>2. Back-end</h2><table>
-<thead>
-<tr>
-<th>序号</th>
-<th>范围</th>
-<th>名称</th>
-<th>作用</th>
-<th>使用场景</th>
-<th>相关信息</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>1</td>
-<td>数据库</td>
-<td>mySQL</td>
-<td>后台数据库</td>
-<td>暂无</td>
-<td><a href="https://www.mysql.com/cn/" target="_blank" rel="external">官网</a></td>
-</tr>
-<tr>
-<td>2</td>
-<td>数据库</td>
-<td>php</td>
-<td>数据库脚本</td>
-<td></td>
-<td><a href="http://php.net/" target="_blank" rel="external">官网</a></td>
-</tr>
-<tr>
-<td>3</td>
-<td>数据库</td>
-<td>Nodejs</td>
-<td>数据库脚本</td>
-<td>事件驱动、非阻塞I/O模型</td>
-<td><a href="https://nodejs.org/zh-cn/" target="_blank" rel="external">官网</a></td>
-</tr>
-</tbody>
-</table>
-<p>  2.1 后端框架</p>
-<table>
-<thead>
-<tr>
-<th>序号</th>
-<th>名 称</th>
-<th>所属语言</th>
-<th>模板引擎</th>
-<th>相关技术</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>1</td>
-<td>Laravel</td>
-<td>php</td>
-<td>blade</td>
-<td></td>
-</tr>
-<tr>
-<td>2</td>
-<td>SpringMVC</td>
-<td>JAVA</td>
-<td>thymeleaf</td>
-<td></td>
-</tr>
-<tr>
-<td>3</td>
-<td>Express</td>
-<td>Nodejs</td>
-<td>jade、ejs、handlerbar</td>
-<td>热部署工具<a href="http://pm2.keymetrics.io/" target="_blank" rel="external">PM2</a>、<a href="http://blog.fens.me/nodejs-server-forever/" target="_blank" rel="external">Forever</a>、strongloopPM</td>
-</tr>
-<tr>
-<td>4</td>
-<td>KOA</td>
-<td>Nodejs</td>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
-<blockquote>
-<p><a href="http://www.cnblogs.com/souvenir/p/6039990.html" target="_blank" rel="external">KOA 、Express、Hapi三大框架对比</a></p>
-</blockquote>
-<h2 id="3-前端构建工具"><a href="#3-前端构建工具" class="headerlink" title="3. 前端构建工具"></a>3. 前端构建工具</h2><table>
-<thead>
-<tr>
-<th>序号</th>
-<th>类别</th>
-<th>名称</th>
-<th>作用(范围)</th>
-<th style="text-align:right">star</th>
-<th>特点</th>
-<th>官网</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>1</td>
-<td>JS包管理器</td>
-<td>npm</td>
-<td>JavaScript包管理器</td>
-<td style="text-align:right">13,284+</td>
-<td></td>
-<td><a href="https://www.npmjs.com/" target="_blank" rel="external">官网</a></td>
-</tr>
-<tr>
-<td>2</td>
-<td>JS包管理器</td>
-<td>yarn</td>
-<td>JavaScript包管理器</td>
-<td style="text-align:right">26,461+</td>
-<td></td>
-<td><a href="https://yarnpkg.com/lang/en/" target="_blank" rel="external">官网</a></td>
-</tr>
-<tr>
-<td>3</td>
-<td>前端项目打包压缩</td>
-<td>webpack</td>
-<td>所有资源</td>
-<td style="text-align:right">30,423+</td>
-<td></td>
-<td><a href="https://webpack.js.org/" target="_blank" rel="external">官网</a></td>
-</tr>
-<tr>
-<td>4</td>
-<td>前端项目打包压缩</td>
-<td>gulp</td>
-<td>js、css、html</td>
-<td style="text-align:right">26,924+</td>
-<td></td>
-<td><a href="https://gulpjs.com/" target="_blank" rel="external">官网</a></td>
-</tr>
-<tr>
-<td>5</td>
-<td>前端项目打包压缩</td>
-<td>grunt</td>
-<td>js、css、html</td>
-<td style="text-align:right">11,508+</td>
-<td></td>
-<td><a href="https://gruntjs.com/" target="_blank" rel="external">官网</a></td>
-</tr>
-<tr>
-<td>6</td>
-<td>前端项目打包压缩</td>
-<td>bower</td>
-<td>js、css、html</td>
-<td style="text-align:right">15,171+</td>
-<td></td>
-<td><a href="https://bower.io/" target="_blank" rel="external">官网</a></td>
-</tr>
-<tr>
-<td>7</td>
-<td>前端项目打包压缩</td>
-<td>browserify</td>
-<td>js、css、html</td>
-<td style="text-align:right">11,201+</td>
-<td></td>
-<td><a href="http://browserify.org/" target="_blank" rel="external">官网</a></td>
-</tr>
-</tbody>
-</table>
-<h2 id="4-Front-end"><a href="#4-Front-end" class="headerlink" title="4. Front-end"></a>4. Front-end</h2><h3 id="4-1-前端框架"><a href="#4-1-前端框架" class="headerlink" title="4.1 前端框架"></a>4.1 前端框架</h3><blockquote>
-<p>不同框架性能对比测试，<a href="https://rawgit.com/krausest/js-framework-benchmark/master/webdriver-ts/table.html" target="_blank" rel="external">传送门</a></p>
-</blockquote>
-<table>
-<thead>
-<tr>
-<th>序号</th>
-<th>名称</th>
-<th>团队</th>
-<th>设计模式</th>
-<th style="text-align:right">star</th>
-<th style="text-align:right">包大小(gzip)</th>
-<th>学习曲线</th>
-<th>相关技术</th>
-<th>相关信息</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>1</td>
-<td>angularjs</td>
-<td>谷歌</td>
-<td>双向数据绑定</td>
-<td style="text-align:right">56,105+</td>
-<td style="text-align:right"></td>
-<td>陡峭</td>
-<td>MVC</td>
-<td><a href="https://angularjs.org/" target="_blank" rel="external">官网</a></td>
-</tr>
-<tr>
-<td>2</td>
-<td>angular</td>
-<td>谷歌</td>
-<td>双向数据绑定</td>
-<td style="text-align:right">26,225+</td>
-<td style="text-align:right">237.41kb/v4.1.3</td>
-<td>陡峭</td>
-<td>MVC、组件化、Rxjs</td>
-<td><a href="https://angular.io/" target="_blank" rel="external">官网</a></td>
-</tr>
-<tr>
-<td>3</td>
-<td>react</td>
-<td>facebook</td>
-<td>单向数据绑定</td>
-<td style="text-align:right">71,926+</td>
-<td style="text-align:right">46.45kb/v15.5.4</td>
-<td>适中</td>
-<td>MVC、组件化、React+Flux+JSX状态存储</td>
-<td><a href="https://facebook.github.io/react/" target="_blank" rel="external">官网</a></td>
-</tr>
-<tr>
-<td>4</td>
-<td>vue.js</td>
-<td>尤雨溪（国内个人)</td>
-<td>双向数据绑定</td>
-<td style="text-align:right">61,363+</td>
-<td style="text-align:right">28.90kb/v2.3.4</td>
-<td>简单</td>
-<td>MVC、组件化、</td>
-<td><a href="https://cn.vuejs.org/" target="_blank" rel="external">官网</a></td>
-</tr>
-<tr>
-<td>5</td>
-<td>Polymer</td>
-<td>谷歌赞助</td>
-<td></td>
-<td style="text-align:right">17,815+</td>
-<td style="text-align:right">129.89kb/v2.13.3</td>
-<td></td>
-<td>组件化，类似vue</td>
-<td><a href="https://www.polymer-project.org/" target="_blank" rel="external">官网</a></td>
-</tr>
-<tr>
-<td>6</td>
-<td>ember</td>
-<td></td>
-<td></td>
-<td style="text-align:right">17,956+</td>
-<td style="text-align:right">129.89kb/v2.13.3</td>
-<td>陡峭</td>
-<td>全能框架、大量约定</td>
-<td><a href="https://www.emberjs.com/" target="_blank" rel="external">官网</a></td>
-</tr>
-<tr>
-<td>7</td>
-<td>Riot.js</td>
-<td></td>
-<td></td>
-<td style="text-align:right">12,042+</td>
-<td style="text-align:right"></td>
-<td></td>
-<td>轻量级</td>
-<td><a href="http://riotjs.com/" target="_blank" rel="external">官网</a></td>
-</tr>
-<tr>
-<td>8</td>
-<td>knockout.js</td>
-<td><em>可学习,不推荐使用</em></td>
-<td></td>
-<td style="text-align:right">8,249+</td>
-<td style="text-align:right"></td>
-<td>适中</td>
-<td>MVVM</td>
-<td><a href="http://knockoutjs.com/" target="_blank" rel="external">官网</a>,兼容IE9,</td>
-</tr>
-</tbody>
-</table>
-<h3 id="4-2-模板引擎技术"><a href="#4-2-模板引擎技术" class="headerlink" title="4.2 模板引擎技术"></a>4.2 模板引擎技术</h3><ul>
-<li>ejs       Javascript模板–<a href="http://ejs.co/" target="_blank" rel="external">官网</a></li>
-<li>jade      js+html模板—–<a href="http://jade-lang.com/" target="_blank" rel="external">官网</a></li>
-<li>blade     php 模板——–<a href="https://laravel.com/docs/5.4/blade" target="_blank" rel="external">官网</a></li>
-<li>Smarty    php 模板——–<a href="https://github.com/smarty-php/smarty" target="_blank" rel="external">官网</a></li>
-<li>thymeleaf JAVA模板——–<a href="http://www.thymeleaf.org/" target="_blank" rel="external">官网</a></li>
-</ul>
-<p>各路模板比拼：<br><img src="/sources/imgs/template.png" alt=""></p>
-<h3 id="4-2-css及icon类库"><a href="#4-2-css及icon类库" class="headerlink" title="4.2 css及icon类库"></a>4.2 css及icon类库</h3><blockquote>
-<p>css样式兼容性测试，<a href="http://caniuse.com/" target="_blank" rel="external">传送门</a></p>
-</blockquote>
-<table>
-<thead>
-<tr>
-<th>序号</th>
-<th>名称</th>
-<th>类别</th>
-<th>说明</th>
-<th>相关信息</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>1</td>
-<td>sass</td>
-<td></td>
-<td>样式文件、CSS预处理器</td>
-<td><a href="http://sass.bootcss.com/" target="_blank" rel="external">官网</a>、<a href="http://www.ruanyifeng.com/blog/2012/06/sass.html" target="_blank" rel="external">入门1</a>、<a href="https://www.oschina.net/question/12_44255" target="_blank" rel="external">入门2</a></td>
-</tr>
-<tr>
-<td>2</td>
-<td>fontawesome</td>
-<td>图标、样式库</td>
-<td>50,716+</td>
-<td><a href="http://fontawesome.io/" target="_blank" rel="external">官网</a>、<a href="http://fontawesome.dashgame.com/" target="_blank" rel="external">中文官网</a></td>
-</tr>
-<tr>
-<td>3</td>
-<td>iconfont</td>
-<td>图标、样式库</td>
-<td>阿里出品</td>
-<td><a href="http://www.iconfont.cn/" target="_blank" rel="external">官网</a></td>
-</tr>
-<tr>
-<td>4</td>
-<td>gliphyicon</td>
-<td>图标、样式库</td>
-<td>Author:Jan Kovarik</td>
-<td><a href="http://glyphicons.com/" target="_blank" rel="external">官网</a></td>
-</tr>
-</tbody>
-</table>
-<h3 id="4-3-动画类库"><a href="#4-3-动画类库" class="headerlink" title="4.3 动画类库"></a>4.3 动画类库</h3><table>
-<thead>
-<tr>
-<th>序号</th>
-<th>名称</th>
-<th style="text-align:right">技术类型</th>
-<th>Star指数</th>
-<th>备注</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>1</td>
-<td>animate.css</td>
-<td style="text-align:right">CSS (55.2kB)</td>
-<td>42,557+</td>
-<td>63种纯CSS过度动画效果</td>
-<td><a href="https://daneden.github.io/animate.css/" target="_blank" rel="external">案例</a></td>
-</tr>
-<tr>
-<td>2</td>
-<td>hover.css</td>
-<td style="text-align:right">CSS</td>
-<td>16,828+</td>
-<td>丰富的悬停效果amazing</td>
-<td><a href="http://ianlunn.github.io/Hover/" target="_blank" rel="external">案例</a></td>
-</tr>
-<tr>
-<td>3</td>
-<td>magic.css</td>
-<td style="text-align:right">CSS (36.5kB)</td>
-<td>4,915+</td>
-<td>丰富的渐变效果</td>
-<td><a href="https://minimamente.com/example/magic_animations/" target="_blank" rel="external">案例</a></td>
-</tr>
-<tr>
-<td>4</td>
-<td>Dyncss.css</td>
-<td style="text-align:right">CSS</td>
-<td>386+</td>
-<td>页面滚动动画</td>
-<td><a href="http://www.vittoriozaccaria.net/dyncss-example/" target="_blank" rel="external">案例</a></td>
-</tr>
-<tr>
-<td>5</td>
-<td>favico.js</td>
-<td style="text-align:right">JavaScript</td>
-<td>7,538+</td>
-<td>添加各种徽章效果</td>
-<td><a href="https://github.com/ejci/favico.js/tree/v0.4.0" target="_blank" rel="external">github</a></td>
-</tr>
-<tr>
-<td>6</td>
-<td>Textillate.js</td>
-<td style="text-align:right">JavaScript</td>
-<td>2,985+</td>
-<td>添加各种文字动画效果</td>
-<td><a href="http://textillate.js.org/" target="_blank" rel="external">案列</a>,依赖:<a href="https://daneden.github.io/animate.css/" target="_blank" rel="external">animate.css</a>、<a href="http://letteringjs.com/" target="_blank" rel="external">lettering.js</a></td>
-</tr>
-<tr>
-<td>7</td>
-<td>bounce.js</td>
-<td style="text-align:right">JavaScript</td>
-<td>5,056+</td>
-<td>提供强大的弹性css动画</td>
-<td><a href="http://bouncejs.com/" target="_blank" rel="external">案例</a></td>
-</tr>
-<tr>
-<td>8</td>
-<td>Move.js</td>
-<td style="text-align:right">JavaScript</td>
-<td>4,042+</td>
-<td>css动画</td>
-<td><a href="http://visionmedia.github.io/move.js/" target="_blank" rel="external">案例</a></td>
-</tr>
-<tr>
-<td>9</td>
-<td>AniJS.js</td>
-<td style="text-align:right">JavaScript</td>
-<td>3,087+</td>
-<td>事件动画效果</td>
-<td><a href="http://anijs.github.io/" target="_blank" rel="external">案例</a></td>
-</tr>
-<tr>
-<td>…</td>
-<td>pace.js</td>
-<td style="text-align:right">JavaScript</td>
-<td>12,053+</td>
-<td>网页交互进度提示：ajax/http进度条</td>
-<td><a href="http://github.hubspot.com/pace/docs/welcome/" target="_blank" rel="external">案例</a></td>
-</tr>
-</tbody>
-</table>
-<h2 id="4-可视化工具"><a href="#4-可视化工具" class="headerlink" title="4 可视化工具"></a>4 可视化工具</h2><table>
-<thead>
-<tr>
-<th>序号</th>
-<th>名称</th>
-<th>团队</th>
-<th>技术基础</th>
-<th style="text-align:right">star指数</th>
-<th>备注</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>1</td>
-<td>D3.js</td>
-<td></td>
-<td></td>
-<td style="text-align:right"></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>2</td>
-<td>hightcharts</td>
-<td>歪果仁</td>
-<td>Javascript</td>
-<td style="text-align:right"></td>
-<td><a href="https://www.highcharts.com/" target="_blank" rel="external">官网</a></td>
-<td></td>
-</tr>
-<tr>
-<td>3</td>
-<td>Chart.js</td>
-<td>google</td>
-<td>js+canvas</td>
-<td style="text-align:right">+30,737</td>
-<td><a href="http://www.chartjs.org/" target="_blank" rel="external">官网</a></td>
-<td></td>
-</tr>
-<tr>
-<td>4</td>
-<td>Echarts2</td>
-<td>百度</td>
-<td>js</td>
-<td style="text-align:right">+18,719</td>
-<td><a href="http://echarts.baidu.com/echarts2/" target="_blank" rel="external">官网</a></td>
-<td></td>
-</tr>
-<tr>
-<td>5</td>
-<td>G2</td>
-<td>阿里—蚂蚁金服</td>
-<td>js</td>
-<td style="text-align:right">+592</td>
-<td><a href="https://antv.alipay.com/" target="_blank" rel="external">官网</a>、<a href="https://github.com/antvis" target="_blank" rel="external">gihub</a></td>
-<td>G6/G2-mobile</td>
-</tr>
-</tbody>
-</table>
-<p><a href="https://www.zhihu.com/question/19929609" target="_blank" rel="external">简单粗暴的动车通道</a></p>
-<h2 id="5-Program-tools"><a href="#5-Program-tools" class="headerlink" title="5. Program tools"></a>5. Program tools</h2><ol>
-<li>Jquery     ——前端入门级别插件库，主要用于调用DOM操作 <a href="https://jquery.com/" target="_blank" rel="external">英文官方网站链接</a>，<a href="http://hemin.cn/jq/" target="_blank" rel="external">中文推荐非官方链接</a></li>
-<li>Underscore ——函数式编程的功能集，提供一系列远超过map、filter、invoke等方法，涵盖函数绑定、js模板、创建索引，强类型测试等，<a href="http://underscorejs.org/" target="_blank" rel="external">英文官方网站链接</a> ，<a href="http://www.bootcss.com/p/underscore/" target="_blank" rel="external">中文官方链接</a></li>
-<li>moment.js  ——JS时间处理插件，肥肠强大，<a href="https://momentjs.com/" target="_blank" rel="external">英文官方网站链接</a>， <a href="http://momentjs.cn/" target="_blank" rel="external">中文官方链接</a></li>
-<li>rxjs       ——观察者模式，强大的函数式编程插件  <a href="https://segmentfault.com/a/1190000008809168#articleHeader11" target="_blank" rel="external">入门介绍传送</a>，<a href="http://reactivex.io/rxjs/" target="_blank" rel="external">英文官方网站链接</a>，<a href="https://buctwbzs.gitbooks.io/rxjs/content/operators.html" target="_blank" rel="external">推荐非官方中文文档</a></li>
-<li>mock.js    ——一个模拟数据生成器，可以让前端独立于后端进行开发。主要功能：生成随机数据，拦截Ajax,适用场景：后端api未开发法完成，但数据格式已经确定。<a href="http://mockjs.com/" target="_blank" rel="external">官网</a>、<a href="https://github.com/nuysoft/Mock" target="_blank" rel="external">Github</a></li>
-<li>alasql.js  ——客户端数据库操作插件，用户web浏览器js内存中的数据库操作插件，可配合nodejs使用；<a href="http://alasql.org/" target="_blank" rel="external">官网</a>、<a href="https://github.com/agershun/alasql" target="_blank" rel="external">github</a> star:+1910</li>
-<li>lokijs     ——客户端操作数据库插件，alasql.js替代插件，<a href="http://lokijs.org/#/" target="_blank" rel="external">官网</a>、<a href="https://github.com/techfort/LokiJS" target="_blank" rel="external">github</a> star +3，428:</li>
-</ol>
-<h2 id="6-SPA项目的SEO解决方案"><a href="#6-SPA项目的SEO解决方案" class="headerlink" title="6. SPA项目的SEO解决方案"></a>6. SPA项目的SEO解决方案</h2><blockquote>
-<p>目前spa页面的最大缺点莫过于搜索引擎的友好型很差，所以需要慎重考虑使用场景；</p>
-<ul>
-<li>SEO.js ：针对google搜索引擎,使单页面应用可被爬虫爬取的插件，<a href="http://getseojs.com/" target="_blank" rel="external">官网</a></li>
-<li>Fate :百度针对SPA的工具库 <a href="http://fate.baidu.com/" target="_blank" rel="external">官网</a><br><img src="/sources/imgs/baiduFate.png" alt=""></li>
-</ul>
-</blockquote>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">文本</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">file</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/09/09/frontend-skills/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-ECMAScript5-API" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/09/09/ECMAScript5-API/">web 文件操作</a>
-    </h1>
-  
-
-        
-        <a href="/2017/09/09/ECMAScript5-API/" class="archive-article-date">
-  	<time datetime="2017-09-09T05:19:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-09</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h4 id="1-Html5-二进制数据操作接口"><a href="#1-Html5-二进制数据操作接口" class="headerlink" title="1. Html5 二进制数据操作接口"></a>1. Html5 二进制数据操作接口</h4><blockquote>
-<p>Javascript中对二进制数据进行操作的API</p>
-<p>1.<code>str.charCodeAt(index)</code>:获取字符串str中某个字符的Unicode编码；</p>
-<p>2.<code>window.Blob</code>：javascript中代表二进制数据的基本对象，html 5中新增对二进制数据进行处理API;<br>一个Blob对象就是一个包含有只读原始数据的类文件对象。<br>Blob对象中的数据并不一定得是JavaScript中的原生形式。<br>File接口基于Blob，继承了Blob的功能,并且扩展支持了用户计算机上的本地文件，<a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Blob" target="_blank" rel="external">官方文档传送门</a>;</p>
-</blockquote>
-<h4 id="2-charCodeAt"><a href="#2-charCodeAt" class="headerlink" title="2.charCodeAt()"></a>2.charCodeAt()</h4><h4 id="3-Blob对象"><a href="#3-Blob对象" class="headerlink" title="3.Blob对象"></a>3.Blob对象</h4>
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">文本</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">file</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/09/09/ECMAScript5-API/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-  
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
-    </nav>
-  
 
 
           </div>
@@ -961,10 +237,10 @@
     <script>
 	var yiliaConfig = {
 		mathjax: false,
-		isHome: true,
+		isHome: false,
 		isPost: false,
 		isArchive: false,
-		isTag: false,
+		isTag: true,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,

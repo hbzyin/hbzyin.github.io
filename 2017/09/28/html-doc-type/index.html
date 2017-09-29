@@ -9,14 +9,14 @@
   <title>由html的文档类型引发的ISO文档信息规范 | hbzyin/blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="作为一个前端开发者，HTML应该是最熟悉不过。打开电脑浏览器，点击鼠标右键，选择查看源码，所看到的就是html文本。  1. 先来看两个简单的前端问题 1.HTML文档类型声明DCOTYPE的作用是什么？   &amp;lt;!DOCTYPE&amp;gt;声明位于html文档的第一行，位于&amp;lt;html&amp;gt;&amp;lt;/html&amp;gt;标签之前；&amp;lt;!DOCTYPE&amp;gt;声明不是html标签，是用于">
-<meta name="keywords" content="html">
+<meta name="keywords" content="html,DTD,XML,SGML">
 <meta property="og:type" content="article">
 <meta property="og:title" content="由html的文档类型引发的ISO文档信息规范">
 <meta property="og:url" content="http://yoursite.com/2017/09/28/html-doc-type/index.html">
 <meta property="og:site_name" content="hbzyin&#x2F;blog">
 <meta property="og:description" content="作为一个前端开发者，HTML应该是最熟悉不过。打开电脑浏览器，点击鼠标右键，选择查看源码，所看到的就是html文本。  1. 先来看两个简单的前端问题 1.HTML文档类型声明DCOTYPE的作用是什么？   &amp;lt;!DOCTYPE&amp;gt;声明位于html文档的第一行，位于&amp;lt;html&amp;gt;&amp;lt;/html&amp;gt;标签之前；&amp;lt;!DOCTYPE&amp;gt;声明不是html标签，是用于">
 <meta property="og:image" content="http://yoursite.com/imgs/html/sgml.png">
-<meta property="og:updated_time" content="2017-09-29T16:56:51.000Z">
+<meta property="og:updated_time" content="2017-09-29T16:59:10.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="由html的文档类型引发的ISO文档信息规范">
 <meta name="twitter:description" content="作为一个前端开发者，HTML应该是最熟悉不过。打开电脑浏览器，点击鼠标右键，选择查看源码，所看到的就是html文本。  1. 先来看两个简单的前端问题 1.HTML文档类型声明DCOTYPE的作用是什么？   &amp;lt;!DOCTYPE&amp;gt;声明位于html文档的第一行，位于&amp;lt;html&amp;gt;&amp;lt;/html&amp;gt;标签之前；&amp;lt;!DOCTYPE&amp;gt;声明不是html标签，是用于">
@@ -219,10 +219,8 @@
 <p>首先插入两个概念<br>   ①XML模式：指用来描述XML结构、约束因素的语言，如XML Schema、XML DTD、XDR、SOX等；<br>   ②XML格式：指XML文档本身所具有的格式；</p>
 </blockquote>
 <ul>
-<li><p>XML DTD: XML的文档类型定义的标准，采用与XML不同格式的语言，对XML文档的模式、格式进行规范描述的一种标准；缺点：XML DTD本身合法性缺少验证机制，需要与XML分开来进行合法性验证；</p>
-</li>
-<li><p>XML Schema:XML的另一种文档类型定义标准，采用与XML相同格式的语言，对XML文档的模式、格式进行规范描述的一种标准；</p>
-</li>
+<li>XML DTD: XML的文档类型定义的标准，采用与XML不同格式的语言，对XML文档的模式、格式进行规范描述的一种标准；缺点：XML DTD本身合法性缺少验证机制，需要与XML分开来进行合法性验证；</li>
+<li>XML Schema:XML的另一种文档类型定义标准，采用与XML相同格式的语言，对XML文档的模式、格式进行规范描述的一种标准；</li>
 </ul>
 <blockquote>
 <p>参考文献</p>
@@ -271,6 +269,18 @@
 			 
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">html</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">DTD</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">XML</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">SGML</a>
         		</li>
       		
 		</ul>
@@ -505,15 +515,31 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">form</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">route</a>
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">form</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">cli</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">html</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">DTD</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">XML</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">SGML</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -525,15 +551,11 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">html</a>
+                <a href="javascript:void(0)" class="js-tag color5">bootstrap</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">secrect</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">bootstrap</a>
               </li>
             
             <div class="clearfix"></div>
