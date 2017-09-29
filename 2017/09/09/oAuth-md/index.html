@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="hbzyin&#x2F;blog">
 <meta property="og:description" content="这段时间公司开发项目用到oAuth2协议，现在做一下梳理。 CORS即Cross Origin Resouce Share，跨域资源共享；是W3C为防止脚本攻击，而制定的安全标准之一，它允许浏览器向跨域服务器发送XMLHttpRequest请求；跨域域问题，伴随而来的就是前端项目中的权限认证问题。  1. 基本逻辑： 跨域请求分为两种：简单请求、非简单请求，两种情景处理具体细节不同，但实现逻辑">
 <meta property="og:image" content="http://images2015.cnblogs.com/blog/1034075/201707/1034075-20170720022456411-1386626362.png">
-<meta property="og:updated_time" content="2017-09-09T07:33:12.000Z">
+<meta property="og:updated_time" content="2017-09-29T15:38:54.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="oAuth 认证机制">
 <meta name="twitter:description" content="这段时间公司开发项目用到oAuth2协议，现在做一下梳理。 CORS即Cross Origin Resouce Share，跨域资源共享；是W3C为防止脚本攻击，而制定的安全标准之一，它允许浏览器向跨域服务器发送XMLHttpRequest请求；跨域域问题，伴随而来的就是前端项目中的权限认证问题。  1. 基本逻辑： 跨域请求分为两种：简单请求、非简单请求，两种情景处理具体细节不同，但实现逻辑">
@@ -174,13 +174,25 @@
 </blockquote>
 <h2 id="1-基本逻辑："><a href="#1-基本逻辑：" class="headerlink" title="1. 基本逻辑："></a>1. 基本逻辑：</h2><blockquote>
 <p>跨域请求分为两种：简单请求、非简单请求，两种情景处理具体细节不同，但实现逻辑相同</p>
-<pre><code>1. 用户使用用户名、密码登录；
-2. 后台校验用户信息；
-3. 跳转至oAuth认证接口，返回token、refresh token、token expires;（此处token一般有有效期）
-4. 用户携带token值与后台DB服务通过http/https交互；
-5. token 值到期后；用户携带refresh token请求oAuth token刷新接口更新token并通过响应发送至客户；
-6. 重复第4、第5步，保证token有效可用状态下，与后台进行交互
-</code></pre></blockquote>
+</blockquote>
+<ul>
+<li><p>简单请求需同时满足以下两个条件：</p>
+<ol>
+<li>请求方法为：<code>GET</code>、<code>HEAD</code>、<code>POST</code>三种其中的一种；</li>
+<li>HTTP头信息不超出一下几个字段：<br>①Accept ②</li>
+</ol>
+</li>
+<li><p>非简单请求：</p>
+<ol>
+<li>用户使用用户名、密码登录；</li>
+<li>后台校验用户信息；</li>
+<li>跳转至oAuth认证接口，返回token、refresh token、token expires;（此处token一般有有效期）</li>
+<li>用户携带token值与后台DB服务通过http/https交互；</li>
+<li>token 值到期后；用户携带refresh token请求oAuth token刷新接口更新token并通过响应发送至客户；</li>
+<li>重复第4、第5步，保证token有效可用状态下，与后台进行交互</li>
+</ol>
+</li>
+</ul>
 <p><img src="http://images2015.cnblogs.com/blog/1034075/201707/1034075-20170720022456411-1386626362.png" alt=""></p>
 <h2 id="oAuth2的协议-里面有两个比较常用的接口"><a href="#oAuth2的协议-里面有两个比较常用的接口" class="headerlink" title="oAuth2的协议.里面有两个比较常用的接口."></a>oAuth2的协议.里面有两个比较常用的接口.</h2><h3 id="1-获取token"><a href="#1-获取token" class="headerlink" title="1. 获取token"></a>1. 获取token</h3><p>接口:  <code>/oauth/token?</code></p>
 <p>参数: (grant_type是写规定好的,其它的两个自定义)</p>
@@ -202,7 +214,7 @@
 </ul>
 <p>样例: <code>http://localhost:9000/oauth/token?client_id=dashboard&amp;client_secret=secret&amp;grant_type=refresh_token&amp;refresh_token=43dca105-627e-4f50-86e8-0c22c2f3abe9</code></p>
 <p>返回结果<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    &quot;access_token&quot;: &quot;0135c92b-12ab-4af9-88f4-97ef85115e71&quot;,</div><div class="line">    &quot;token_type&quot;: &quot;bearer&quot;,</div><div class="line">    &quot;refresh_token&quot;: &quot;75d209b5-a30d-43a8-abcd-850e7fb62e76&quot;,</div><div class="line">    &quot;expires_in&quot;: 3599,</div><div class="line">    &quot;scope&quot;: &quot;read write&quot;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<h3 id="3-oAuth2仅仅是实现跨域请求的一种，还有其他多种方案，如"><a href="#3-oAuth2仅仅是实现跨域请求的一种，还有其他多种方案，如" class="headerlink" title="3. oAuth2仅仅是实现跨域请求的一种，还有其他多种方案，如"></a>3. oAuth2仅仅是实现跨域请求的一种，还有其他多种方案，如</h3><p>jsonp、document.domain、window.name、window.postMessage、CSST(css text Transformation)、flash等。</p>
+<h3 id="3-CORS仅仅是实现跨域请求的一种，还有其他多种方案，如"><a href="#3-CORS仅仅是实现跨域请求的一种，还有其他多种方案，如" class="headerlink" title="3. CORS仅仅是实现跨域请求的一种，还有其他多种方案，如"></a>3. CORS仅仅是实现跨域请求的一种，还有其他多种方案，如</h3><p>jsonp、document.domain、window.name、window.postMessage、CSST(css text Transformation)、flash等。</p>
 <p>–end</p>
 
       
@@ -312,6 +324,15 @@
 
   
 <nav id="article-nav">
+  
+    <a href="/2017/09/28/html-doc-type/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          html中的文档类型
+        
+      </div>
+    </a>
   
   
     <a href="/2017/09/09/git-workflow/" id="article-nav-older" class="article-nav-link-wrap">
@@ -495,6 +516,10 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">git</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">html</a>
               </li>
              
               <li class="article-tag-list-item">

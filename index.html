@@ -146,6 +146,153 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-html-doc-type" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/09/28/html-doc-type/">html中的文档类型</a>
+    </h1>
+  
+
+        
+        <a href="/2017/09/28/html-doc-type/" class="archive-article-date">
+  	<time datetime="2017-09-28T00:10:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-28</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="由html追问：文档类型定义"><a href="#由html追问：文档类型定义" class="headerlink" title="由html追问：文档类型定义"></a>由html追问：文档类型定义</h2><p><img src="/imgs/html/sgml.png" alt=""></p>
+<blockquote>
+<p>作为一个前端开发者，HTML应该是最熟悉不过。打开电脑浏览器，点击鼠标右键，选择查看源码，所看到的就是html文本。</p>
+</blockquote>
+<h4 id="1-先来看两个简单的前端问题"><a href="#1-先来看两个简单的前端问题" class="headerlink" title="1. 先来看两个简单的前端问题"></a>1. 先来看两个简单的前端问题</h4><blockquote>
+<p>1.HTML文档类型声明DCOTYPE的作用是什么？</p>
+</blockquote>
+<ul>
+<li><code>&lt;!DOCTYPE&gt;</code>声明位于html文档的第一行，位于<code>&lt;html&gt;&lt;/html&gt;</code>标签之前；<br><code>&lt;!DOCTYPE&gt;</code>声明不是html标签，是用于告诉web浏览器，解析页面采用哪个HTML版本进行编写的指令；<br><code>&lt;!DOCTYPE&gt;</code>声明对大小写不敏感；</li>
+<li>HTML4及更早版本基于SGML,<code>&lt;!DOCTYPE&gt;</code>声明引用 用于规定标记语言规则的DTD，使得浏览器能正确的显示内容；<br>HTML5不基于SGML,不需要引用添加<code>&lt;!DOCTYPE&gt;</code>声明；</li>
+</ul>
+<blockquote>
+<p>2.HTML文档类型声明有哪几种?</p>
+</blockquote>
+<p>  共8中=3种(html4.01)+3种(html1.0)+1种(html1.1)+1种(html5)</p>
+<ul>
+<li><p>HTML4.01文档类型声明有三种：</p>
+<p>①Strict(严格定义类型):该DTD仅允许使用HTML元素、属性；不允许使用展示性、弃用的元素(如:<code>font</code>)、不允许使用框架集(<code>Frameset</code>)</p>
+<p><code>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.01//EN&quot; &quot;http://www.w3.org/TR/html4/strict.dtd&quot;&gt;</code></p>
+<p>②Transitional(过渡定义类型):该DTD允许使用所有HTML元素、属性，允许是使用展示性、弃用的元素(如:<code>font</code>)；但不允许使用框架集(<code>Frameset</code>);</p>
+<p><code>&lt;!DOCTYOE HTML PUBLIC &quot;-//W3C//DTD HTML 4.01 Transitional//EN&quot; &quot;http://www.w3.org/TR/html4/loose.dtd&quot;&gt;</code></p>
+<p>③Frameset(框架定义类型):该DTD允许使用HTM的所有元素、属性，允许使用展示性、弃用的元素，允许使用框架集(<code>Frameset</code>)</p>
+<p><code>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.01 Frameset//EN&quot; &quot;HTTP://www.w3.org/TR/html4/frameset.dtd&quot;&gt;</code></p>
+</li>
+<li><p>HTML1.0文档类型声明有四种类型：与html4.01不同的是，HTML1.0全部要求以正确的XML格式编写XML,即所有标签元素都必须封闭。</p>
+<p>①Strict(严格定义类型)：允许使用所有的HTML元素和属性；不允许使用展示性、弃用的元素、框架集；</p>
+<p><code>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD/ XHTML 1.0 Strict//EN&quot; &quot;http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd&quot;&gt;</code></p>
+<p>②Transitioal(过渡定义类型)：允许使用所有的HTML元素、属性，允许使用展示型、弃用的元素；但不允许使用框架集；</p>
+<p> <code>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD/ XHTML 1.0 Transitional//EN&quot; &quot;http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd&quot;&gt;</code></p>
+<p>③Frameset(框架定义类型)：允许使用HTML元素、属性、展示性、弃用的元素、框架集；</p>
+<p> <code>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD/ XHTML 1.0 Frameset//EN&quot; &quot;http://www.w3.org/TR/xhtml1/DTD/xhtml1-Frameset.dtd&quot;&gt;</code></p>
+</li>
+<li><p>HTML1.1文档类型声明仅有一种，与HTML1.0类似，但允许添加模型：<br><code>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD/ XHTML1.1//EN&quot; http://www.w3.org/TR/xhtml/DTD/xhtml11.dtd&quot;&gt;</code></p>
+</li>
+<li><p>HTML5不基于SGML,其文档类型声明只有一种<br><code>&lt;!DOCTYPE html&gt;</code></p>
+</li>
+</ul>
+<blockquote>
+<p>要建立符合标准的网页文档，浏览器能够识别HTML/XHTML文档的类型，并正确的进行识别、解析，html必须采用DOCTYPE声明；如果文档不定义DOCTYPE类型，浏览器按照自己的方式来进行解析渲染的过程可能就会出现差错导致无法正常解析，也就是混乱模式或怪异者模式。</p>
+</blockquote>
+<h4 id="2-SGML、HTML、XML-——标记语言"><a href="#2-SGML、HTML、XML-——标记语言" class="headerlink" title="2. SGML、HTML、XML ——标记语言"></a>2. SGML、HTML、XML ——标记语言</h4><ul>
+<li>SGML:标准通用标记语言，即Standard Generalized Markup Language.<blockquote>
+<p>标准通用标记语言(<a href="https://zh.wikipedia.org/wiki/SGML" target="_blank" rel="external">SGML</a>),是当今常用的超文本格式的<strong>最高层次标准</strong>，是一种跨平台、跨语言的一种可以定义标记语言的<a href="https://zh.wikipedia.org/wiki/%E5%85%83%E8%AA%9E%E8%A8%80" target="_blank" rel="external">元语言</a>，是IOS于1986年发布的一个<strong>信息管理方面的国际标准</strong>（<code>ISO 8879:1986 Information processing -- Text and office systems -- Standard Generalized Markup Language (SGML)</code>）;但由于其强大的适应性，及其复杂性，难以普及。</p>
+</blockquote>
+</li>
+</ul>
+<blockquote>
+<p>HTML、XML都是SGML的一种派生。HTML是SGML的一个最成功的应用之一，而XML可以认为是SGML的一个子集；XML的产生便是为了简化SGML，以便于更加通用，比较成功的有语义Web、XHTML、RSS、XML-RPC、SOAP.</p>
+</blockquote>
+<ul>
+<li><p>HTML:超文本标记语言，即Hyper Text Markup Language.</p>
+<blockquote>
+<p>超文本标记语言(HTML),衍生于SGML,是一种用于创建网页的标准标记语言。编写HTML文档时，需声明对文档类型进行声明，即本文开篇的两个问题。html与CSS、Javascript语言一起用于创建令人赏心悦目的网页、网页应用程序以及移动应用程序的用户界面。缺点是标记相对少(只有固定的标记)，缺少SGML的柔性和适应性，不能支持特定领域的标记语言。</p>
+</blockquote>
+</li>
+<li><p>XML：可扩展标记语言，即eXtensible Markup Language.</p>
+<blockquote>
+<p>可扩展标记语言(XML)，是SGML的一种简化版本；表示一种结构化信息的标准文本格式；同HTML一样，编写XML文档前也需要进行文档类型声明，即XML序言,如<code>&lt;?xml version=&quot;1.0&quot;?&gt;</code>，会告诉解析器或浏览器，这个文件应该按照XML规则进行解析.XML语言的缺点是：不支持分帧(framing),当多条XML消息在TCP上传输时，无法基于XML协议来确定一条XML消息是否结束。</p>
+</blockquote>
+</li>
+</ul>
+<h5 id="3-XML-DTD-与XML-Schema-——文档类型-VS-文档格式"><a href="#3-XML-DTD-与XML-Schema-——文档类型-VS-文档格式" class="headerlink" title="3. XML DTD 与XML Schema ——文档类型 VS 文档格式"></a>3. XML DTD 与XML Schema ——文档类型 VS 文档格式</h5><ul>
+<li><p>XML DTD:</p>
+</li>
+<li><p>XML Schema:</p>
+</li>
+</ul>
+<blockquote>
+<p>参考文献</p>
+<ul>
+<li>1.<a href="https://zh.wikipedia.org/wiki/SGML" target="_blank" rel="external">SGML–维基百科</a></li>
+<li>2.<a href="https://www.ibm.com/developerworks/cn/xml/x-sd/index.html" target="_blank" rel="external">XML Schema 与 XML DTD的技术比较与分析</a></li>
+</ul>
+</blockquote>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">html</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/09/28/html-doc-type/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-oAuth-md" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -172,13 +319,25 @@
 </blockquote>
 <h2 id="1-基本逻辑："><a href="#1-基本逻辑：" class="headerlink" title="1. 基本逻辑："></a>1. 基本逻辑：</h2><blockquote>
 <p>跨域请求分为两种：简单请求、非简单请求，两种情景处理具体细节不同，但实现逻辑相同</p>
-<pre><code>1. 用户使用用户名、密码登录；
-2. 后台校验用户信息；
-3. 跳转至oAuth认证接口，返回token、refresh token、token expires;（此处token一般有有效期）
-4. 用户携带token值与后台DB服务通过http/https交互；
-5. token 值到期后；用户携带refresh token请求oAuth token刷新接口更新token并通过响应发送至客户；
-6. 重复第4、第5步，保证token有效可用状态下，与后台进行交互
-</code></pre></blockquote>
+</blockquote>
+<ul>
+<li><p>简单请求需同时满足以下两个条件：</p>
+<ol>
+<li>请求方法为：<code>GET</code>、<code>HEAD</code>、<code>POST</code>三种其中的一种；</li>
+<li>HTTP头信息不超出一下几个字段：<br>①Accept ②</li>
+</ol>
+</li>
+<li><p>非简单请求：</p>
+<ol>
+<li>用户使用用户名、密码登录；</li>
+<li>后台校验用户信息；</li>
+<li>跳转至oAuth认证接口，返回token、refresh token、token expires;（此处token一般有有效期）</li>
+<li>用户携带token值与后台DB服务通过http/https交互；</li>
+<li>token 值到期后；用户携带refresh token请求oAuth token刷新接口更新token并通过响应发送至客户；</li>
+<li>重复第4、第5步，保证token有效可用状态下，与后台进行交互</li>
+</ol>
+</li>
+</ul>
 <p><img src="http://images2015.cnblogs.com/blog/1034075/201707/1034075-20170720022456411-1386626362.png" alt=""></p>
 <h2 id="oAuth2的协议-里面有两个比较常用的接口"><a href="#oAuth2的协议-里面有两个比较常用的接口" class="headerlink" title="oAuth2的协议.里面有两个比较常用的接口."></a>oAuth2的协议.里面有两个比较常用的接口.</h2><h3 id="1-获取token"><a href="#1-获取token" class="headerlink" title="1. 获取token"></a>1. 获取token</h3><p>接口:  <code>/oauth/token?</code></p>
 <p>参数: (grant_type是写规定好的,其它的两个自定义)</p>
@@ -200,7 +359,7 @@
 </ul>
 <p>样例: <code>http://localhost:9000/oauth/token?client_id=dashboard&amp;client_secret=secret&amp;grant_type=refresh_token&amp;refresh_token=43dca105-627e-4f50-86e8-0c22c2f3abe9</code></p>
 <p>返回结果<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    &quot;access_token&quot;: &quot;0135c92b-12ab-4af9-88f4-97ef85115e71&quot;,</div><div class="line">    &quot;token_type&quot;: &quot;bearer&quot;,</div><div class="line">    &quot;refresh_token&quot;: &quot;75d209b5-a30d-43a8-abcd-850e7fb62e76&quot;,</div><div class="line">    &quot;expires_in&quot;: 3599,</div><div class="line">    &quot;scope&quot;: &quot;read write&quot;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<h3 id="3-oAuth2仅仅是实现跨域请求的一种，还有其他多种方案，如"><a href="#3-oAuth2仅仅是实现跨域请求的一种，还有其他多种方案，如" class="headerlink" title="3. oAuth2仅仅是实现跨域请求的一种，还有其他多种方案，如"></a>3. oAuth2仅仅是实现跨域请求的一种，还有其他多种方案，如</h3><p>jsonp、document.domain、window.name、window.postMessage、CSST(css text Transformation)、flash等。</p>
+<h3 id="3-CORS仅仅是实现跨域请求的一种，还有其他多种方案，如"><a href="#3-CORS仅仅是实现跨域请求的一种，还有其他多种方案，如" class="headerlink" title="3. CORS仅仅是实现跨域请求的一种，还有其他多种方案，如"></a>3. CORS仅仅是实现跨域请求的一种，还有其他多种方案，如</h3><p>jsonp、document.domain、window.name、window.postMessage、CSST(css text Transformation)、flash等。</p>
 <p>–end</p>
 
       
@@ -415,134 +574,9 @@
 
 
   
-    <article id="post-web-component" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/09/09/web-component/">Ngx-bootstrap组件总结</a>
-    </h1>
-  
-
-        
-        <a href="/2017/09/09/web-component/" class="archive-article-date">
-  	<time datetime="2017-09-09T05:20:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-09</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <blockquote>
-<p>前端开发会有一些常见的需求，比如输入表单、日期、下拉菜单、表格、提示、弹窗等等，一般项目开发周期都被公司产品、市场等各种因素影响，被不断的压缩。除了极个别的开发大神，以及一些框架开发者，极少出现会自己去从零开始写这些常见的组件。</p>
-<p>而通常做法是引入一个成熟的插件/库来实现；<br><strong>Ngx-bootstrap</strong>便是可供选择的一个组件库，当然你也可以选择比如<a href="https://www.primefaces.org/" target="_blank" rel="external">Prime-NG</a>、<a href="https://material.io/" target="_blank" rel="external">material</a>、<a href="http://www.material-ui.com/" target="_blank" rel="external">material-ui</a>等其他各种优秀的风格组件库，来做为你开发的工具。</p>
-<p>本篇仅以<code>ngx-bootstrap</code>为例，介绍前端开发过程中一些常用的组件。</p>
-</blockquote>
-<p>包括并不限于以下17种：</p>
-<ul>
-<li>提示：tips——用于简短的缩写或特殊名词，用悬浮窗方式进行解释、备注。</li>
-<li>弹窗：popover——点击后显示的隐藏导航、链接或注释。</li>
-<li>消息条/警告：alerts——操作消息提示、或者系统消息列表提示。</li>
-<li><p>模态框：modal——弹窗层对话框，一般用于有序步骤操作。</p>
-</li>
-<li><p>时间选择：timepicker——时间选择器，可针对具体到秒的时间选择，比如定时发送邮件等。</p>
-</li>
-<li><p>日期选择：datepicker——日期选择器，用于日期的选择，时间选择范围为年、月、日，可定制最大最小日期等。</p>
-</li>
-<li><p>下拉菜单：dropdowns——点击按钮弹出隐藏下拉菜单、导航或说明，菜单悬浮。</p>
-</li>
-<li>折叠面板：accordion——点击目标显示出隐藏内容，隐藏内容从属于文档流，会重新绘制dom;</li>
-<li>标签页：tabs——点击标题菜单，切换不同的页面，用于分页显示同一类主题；</li>
-<li>导航条：navBar——页面顶部或者侧边导航栏，用于页面主题内容的跳转控制、页面布局；</li>
-<li><p>轮播图：carousel——图片轮播，一般用于多幅宣传图册的自动循环播放；</p>
-</li>
-<li><p>按钮：button——定制页面按钮的样式风格；</p>
-</li>
-<li>输入表单：imput——定制化页面的输入表单样式风格，用户可自定义；</li>
-<li>表格：sortable——可排序内容，用于列表数据的排序用</li>
-<li>分页：pagination——表格数据的分页展示控件，用于在优化页面展示效果，提升用户体验；</li>
-<li>进度条:progressBar——一般用于数据加载、用户操作进度指示作用，提升用户页面交互体验；</li>
-</ul>
-<p>具体效果图如下</p>
-<ol>
-<li>carousel<br><img src="/imgs/ng-bootstrap/carousel.png" alt=""></li>
-<li>tips<br><img src="/imgs/ng-bootstrap/tooltip.png" alt=""></li>
-<li>popover</li>
-</ol>
-<p><img src="/imgs/ng-bootstrap/popover.png" alt=""></p>
-<ol>
-<li>alertts<br><img src="/imgs/ng-bootstrap/alerts.png" alt=""></li>
-<li>modal<br><img src="/imgs/ng-bootstrap/modal.png" alt=""></li>
-<li>timepicker<br><img src="/imgs/ng-bootstrap/timepicker.png" alt=""></li>
-<li>datepicker<br><img src="/imgs/ng-bootstrap/datepicker.png" alt=""></li>
-<li>pagination<br><img src="/imgs/ng-bootstrap/pagination.png" alt=""></li>
-<li>progressBar<br><img src="/imgs/ng-bootstrap/progressbar.png" alt=""></li>
-<li>tabs<br><img src="/imgs/ng-bootstrap/tabs.png" alt=""></li>
-<li>rating<br><img src="/imgs/ng-bootstrap/rating.png" alt=""></li>
-</ol>
-<p>–不定期更新中….</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">component</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">bootstrap</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/09/09/web-component/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
     </nav>
   
 
@@ -680,6 +714,10 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">git</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">html</a>
               </li>
              
               <li class="article-tag-list-item">
