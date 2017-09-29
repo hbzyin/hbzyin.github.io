@@ -146,6 +146,114 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-angularCLI" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/09/09/angularCLI/">Angular2 cli</a>
+    </h1>
+  
+
+        
+        <a href="/2017/09/09/angularCLI/" class="archive-article-date">
+  	<time datetime="2017-09-09T05:18:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-09</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>相信不少同学已入坑angular,开始了angular2的慢慢长路，那么这些关于angular2项目自动化构建工具，<br>你应该不会错过吧，Angular-cli</p>
+<h3 id="1-创建一个新项目"><a href="#1-创建一个新项目" class="headerlink" title="1.创建一个新项目"></a>1.创建一个新项目</h3><ul>
+<li><code>ng new project-name</code>      创建一个新的项目,并自动安装依赖包,项目名称为：<strong>projec-name</strong></li>
+<li><code>ng new project-name -si</code>   创建一个新的项目，并跳过node依赖包自动安装（<code>-si</code>即<code>--skip-install</code>）</li>
+</ul>
+<p>创建完成后项目的目录结构如下：<br><img src="sources/imgs/angular-cli/ng-new0.png" alt=""><br><img src="sources/imgs/angular-cli/app-files.png" alt=""></p>
+<h3 id="2-创建组件"><a href="#2-创建组件" class="headerlink" title="2.创建组件"></a>2.创建组件</h3><ul>
+<li><code>ng g c component1</code>                           创建一个组件component1,同时创建相应的.html、.spc.ts、.css文件，</li>
+<li><code>ng g c component2 --is</code>                      创建一个组件component2,同时创建相应的.html、.spc.ts文件，采用内联式样式文件；</li>
+<li><code>ng g c component2/component3 --is -flat</code>     创建一个组件component3,采用内联式样式;</li>
+<li><code>ng g c component2/component4 --is --it -flat</code>创建一个组件component4,采用内联式样式、内联式模板;</li>
+</ul>
+<p>如下图所示：</p>
+<p>①<code>ng g c component1</code><br><img src="sources/imgs/angular-cli/ng-g-c-1.png" alt=""><br>②<code>ng g c component2 --is</code> (<code>--is</code>即<code>-inline -style</code>)<br><img src="sources/imgs/angular-cli/ng-g-c-2.png" alt=""><br>③<code>ng g c component2/component3 --is -flat</code>  <code>-flat</code>组件在当前文件夹下不新建目录<br><img src="sources/imgs/angular-cli/ng-g-c-3.png" alt=""><br>④<code>ng g c component2/component4 --is --it -flat</code>  (<code>--it</code>即：<code>-inline -template</code>)<br><img src="sources/imgs/angular-cli/ng-g-c-4.png" alt=""></p>
+<h3 id="3-创建模块"><a href="#3-创建模块" class="headerlink" title="3.创建模块"></a>3.创建模块</h3><ul>
+<li><code>ng g m core-module</code>       创建一个模块，模块名称 <strong>CoreModuleModule</strong>;</li>
+<li><code>ng g m module2 --routing</code> 创建一个模块，模块名称 <strong>Module2Module</strong>,<em>采用外联路由文件</em>;</li>
+</ul>
+<p>如下图：</p>
+<p>①<code>ng g m core-module</code><br><img src="sources/imgs/angular-cli/ng-g-m-1.png" alt=""><br>②<code>ng g m module2 --routing</code>       <code>--routing</code> 同时新建单独路由文件<br><img src="sources/imgs/angular-cli/ng-g-m-2.png" alt=""></p>
+<h3 id="4-创建类"><a href="#4-创建类" class="headerlink" title="4.创建类"></a>4.创建类</h3><ul>
+<li><code>ng g class class1</code>   创建一个类，类名<strong>Class1</strong></li>
+<li><code>ng g class class2 --spec</code>   创建一个类，类名<strong>Class2</strong></li>
+</ul>
+<p>如下图：</p>
+<p>①<code>ng g class class1</code><br><img src="sources/imgs/angular-cli/ng-g-class-1.png" alt=""><br>②<code>ng g class class2 --spec</code>  同时创建.spec.ts文件<br><img src="sources/imgs/angular-cli/ng-g-class-2.png" alt=""></p>
+<h3 id="5-创建可枚举类"><a href="#5-创建可枚举类" class="headerlink" title="5.创建可枚举类"></a>5.创建可枚举类</h3><ul>
+<li><code>ng g enum enum1</code> 创建一个可枚举类，类名<strong>Enum1</strong> 文件路径：<code>app/enum1.enum.ts</code></li>
+</ul>
+<p>如下图</p>
+<p>①<code>ng g enum enum1</code><br><img src="sources/imgs/angular-cli/ng-g-enum.png" alt=""></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">angular</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">cli</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/09/09/angularCLI/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-angular-view-Encapsulation" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -268,114 +376,6 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2017/09/09/angular-view-Encapsulation/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-angularCLI" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/09/09/angularCLI/">Angular2 cli</a>
-    </h1>
-  
-
-        
-        <a href="/2017/09/09/angularCLI/" class="archive-article-date">
-  	<time datetime="2017-09-09T05:18:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-09</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>相信不少同学已入坑angular,开始了angular2的慢慢长路，那么这些关于angular2项目自动化构建工具，<br>你应该不会错过吧，Angular-cli</p>
-<h3 id="1-创建一个新项目"><a href="#1-创建一个新项目" class="headerlink" title="1.创建一个新项目"></a>1.创建一个新项目</h3><ul>
-<li><code>ng new project-name</code>      创建一个新的项目,并自动安装依赖包,项目名称为：<strong>projec-name</strong></li>
-<li><code>ng new project-name -si</code>   创建一个新的项目，并跳过node依赖包自动安装（<code>-si</code>即<code>--skip-install</code>）</li>
-</ul>
-<p>创建完成后项目的目录结构如下：<br><img src="sources/imgs/angular-cli/ng-new0.png" alt=""><br><img src="sources/imgs/angular-cli/app-files.png" alt=""></p>
-<h3 id="2-创建组件"><a href="#2-创建组件" class="headerlink" title="2.创建组件"></a>2.创建组件</h3><ul>
-<li><code>ng g c component1</code>                           创建一个组件component1,同时创建相应的.html、.spc.ts、.css文件，</li>
-<li><code>ng g c component2 --is</code>                      创建一个组件component2,同时创建相应的.html、.spc.ts文件，采用内联式样式文件；</li>
-<li><code>ng g c component2/component3 --is -flat</code>     创建一个组件component3,采用内联式样式;</li>
-<li><code>ng g c component2/component4 --is --it -flat</code>创建一个组件component4,采用内联式样式、内联式模板;</li>
-</ul>
-<p>如下图所示：</p>
-<p>①<code>ng g c component1</code><br><img src="sources/imgs/angular-cli/ng-g-c-1.png" alt=""><br>②<code>ng g c component2 --is</code> (<code>--is</code>即<code>-inline -style</code>)<br><img src="sources/imgs/angular-cli/ng-g-c-2.png" alt=""><br>③<code>ng g c component2/component3 --is -flat</code>  <code>-flat</code>组件在当前文件夹下不新建目录<br><img src="sources/imgs/angular-cli/ng-g-c-3.png" alt=""><br>④<code>ng g c component2/component4 --is --it -flat</code>  (<code>--it</code>即：<code>-inline -template</code>)<br><img src="sources/imgs/angular-cli/ng-g-c-4.png" alt=""></p>
-<h3 id="3-创建模块"><a href="#3-创建模块" class="headerlink" title="3.创建模块"></a>3.创建模块</h3><ul>
-<li><code>ng g m core-module</code>       创建一个模块，模块名称 <strong>CoreModuleModule</strong>;</li>
-<li><code>ng g m module2 --routing</code> 创建一个模块，模块名称 <strong>Module2Module</strong>,<em>采用外联路由文件</em>;</li>
-</ul>
-<p>如下图：</p>
-<p>①<code>ng g m core-module</code><br><img src="sources/imgs/angular-cli/ng-g-m-1.png" alt=""><br>②<code>ng g m module2 --routing</code>       <code>--routing</code> 同时新建单独路由文件<br><img src="sources/imgs/angular-cli/ng-g-m-2.png" alt=""></p>
-<h3 id="4-创建类"><a href="#4-创建类" class="headerlink" title="4.创建类"></a>4.创建类</h3><ul>
-<li><code>ng g class class1</code>   创建一个类，类名<strong>Class1</strong></li>
-<li><code>ng g class class2 --spec</code>   创建一个类，类名<strong>Class2</strong></li>
-</ul>
-<p>如下图：</p>
-<p>①<code>ng g class class1</code><br><img src="sources/imgs/angular-cli/ng-g-class-1.png" alt=""><br>②<code>ng g class class2 --spec</code>  同时创建.spec.ts文件<br><img src="sources/imgs/angular-cli/ng-g-class-2.png" alt=""></p>
-<h3 id="5-创建可枚举类"><a href="#5-创建可枚举类" class="headerlink" title="5.创建可枚举类"></a>5.创建可枚举类</h3><ul>
-<li><code>ng g enum enum1</code> 创建一个可枚举类，类名<strong>Enum1</strong> 文件路径：<code>app/enum1.enum.ts</code></li>
-</ul>
-<p>如下图</p>
-<p>①<code>ng g enum enum1</code><br><img src="sources/imgs/angular-cli/ng-g-enum.png" alt=""></p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">angular</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">cli</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/09/09/angularCLI/">展开全文 >></a>
         </p>
       
 
@@ -687,6 +687,10 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">form</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">directive</a>
               </li>
              
@@ -695,11 +699,23 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">form</a>
+                <a href="javascript:void(0)" class="js-tag color4">cli</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">cli</a>
+                <a href="javascript:void(0)" class="js-tag color4">workflow</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">git</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">secrect</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">bootstrap</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -716,22 +732,6 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">SGML</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">workflow</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">git</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">bootstrap</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">secrect</a>
               </li>
             
             <div class="clearfix"></div>
