@@ -6,23 +6,23 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>oAuth 认证机制 | hbzyin/blog</title>
+  <title>oAuth 认证机制 | hbzyin-blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="这段时间公司开发项目用到oAuth2协议，现在做一下梳理。 CORS即Cross Origin Resouce Share，跨域资源共享；是W3C为防止脚本攻击，而制定的安全标准之一，它允许浏览器向跨域服务器发送XMLHttpRequest请求；跨域域问题，伴随而来的就是前端项目中的权限认证问题。  1. 基本逻辑： CORS跨域请求分为两种：简单请求、非简单请求，两种情景处理具体细节不同，但">
+  <meta name="description" content="这段时间公司开发项目用到oAuth2协议，现在做一下梳理。 CORS即Cross Origin Resouce Share，跨域资源共享；是W3C为防止脚本攻击，而制定的安全标准之一，它允许浏览器向跨域服务器发送XMLHttpRequest请求；跨域域问题，伴随而来的就是前端项目中的权限认证问题。">
 <meta name="keywords" content="secrect">
 <meta property="og:type" content="article">
 <meta property="og:title" content="oAuth 认证机制">
 <meta property="og:url" content="http://yoursite.com/2017/09/09/oAuth-md/index.html">
-<meta property="og:site_name" content="hbzyin&#x2F;blog">
-<meta property="og:description" content="这段时间公司开发项目用到oAuth2协议，现在做一下梳理。 CORS即Cross Origin Resouce Share，跨域资源共享；是W3C为防止脚本攻击，而制定的安全标准之一，它允许浏览器向跨域服务器发送XMLHttpRequest请求；跨域域问题，伴随而来的就是前端项目中的权限认证问题。  1. 基本逻辑： CORS跨域请求分为两种：简单请求、非简单请求，两种情景处理具体细节不同，但">
+<meta property="og:site_name" content="hbzyin-blog">
+<meta property="og:description" content="这段时间公司开发项目用到oAuth2协议，现在做一下梳理。 CORS即Cross Origin Resouce Share，跨域资源共享；是W3C为防止脚本攻击，而制定的安全标准之一，它允许浏览器向跨域服务器发送XMLHttpRequest请求；跨域域问题，伴随而来的就是前端项目中的权限认证问题。">
 <meta property="og:image" content="http://images2015.cnblogs.com/blog/1034075/201707/1034075-20170720022456411-1386626362.png">
-<meta property="og:updated_time" content="2017-09-29T17:31:44.000Z">
+<meta property="og:updated_time" content="2017-09-30T07:50:52.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="oAuth 认证机制">
-<meta name="twitter:description" content="这段时间公司开发项目用到oAuth2协议，现在做一下梳理。 CORS即Cross Origin Resouce Share，跨域资源共享；是W3C为防止脚本攻击，而制定的安全标准之一，它允许浏览器向跨域服务器发送XMLHttpRequest请求；跨域域问题，伴随而来的就是前端项目中的权限认证问题。  1. 基本逻辑： CORS跨域请求分为两种：简单请求、非简单请求，两种情景处理具体细节不同，但">
+<meta name="twitter:description" content="这段时间公司开发项目用到oAuth2协议，现在做一下梳理。 CORS即Cross Origin Resouce Share，跨域资源共享；是W3C为防止脚本攻击，而制定的安全标准之一，它允许浏览器向跨域服务器发送XMLHttpRequest请求；跨域域问题，伴随而来的就是前端项目中的权限认证问题。">
 <meta name="twitter:image" content="http://images2015.cnblogs.com/blog/1034075/201707/1034075-20170720022456411-1386626362.png">
   
-    <link rel="alternative" href="/atom.xml" title="hbzyin/blog" type="application/atom+xml">
+    <link rel="alternative" href="/atom.xml" title="hbzyin-blog" type="application/atom+xml">
   
   
   <link rel="stylesheet" type="text/css" href="/./main.507b3a.css">
@@ -172,6 +172,7 @@
 <p> 这段时间公司开发项目用到oAuth2协议，现在做一下梳理。</p>
 <p>CORS即Cross Origin Resouce Share，跨域资源共享；是W3C为防止脚本攻击，而制定的安全标准之一，它允许浏览器向跨域服务器发送XMLHttpRequest请求；<br>跨域域问题，伴随而来的就是前端项目中的权限认证问题。</p>
 </blockquote>
+<a id="more"></a>
 <h2 id="1-基本逻辑："><a href="#1-基本逻辑：" class="headerlink" title="1. 基本逻辑："></a>1. 基本逻辑：</h2><blockquote>
 <p>CORS跨域请求分为两种：简单请求、非简单请求，两种情景处理具体细节不同，但实现逻辑相同</p>
 </blockquote>
@@ -510,11 +511,11 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">form</a>
+                <a href="javascript:void(0)" class="js-tag color1">route</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">route</a>
+                <a href="javascript:void(0)" class="js-tag color5">form</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -527,6 +528,10 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">git</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">bootstrap</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -547,10 +552,6 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">secrect</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">bootstrap</a>
               </li>
             
             <div class="clearfix"></div>

@@ -6,26 +6,26 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>workflow--项目工作流程 | hbzyin/blog</title>
+  <title>workflow--项目工作流程 | hbzyin-blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="&amp;emsp;&amp;emsp;在软件开发的过程中，项目团队必然会使用版本控制系统，比如CVS、SVN(集中式版本控制系统)、GIT(分布式版本控制系统)。版本控制系统选定后，紧接着为了提高团队的协同开发效率，就需要选择一种适合当前团队、或者适合当前项目的开发流程。这里以主流的git版本控制系统为例，介绍常见的3种工作流：①Git flow ②Github flow ③Gitlab Flow &amp;emsp;">
+  <meta name="description" content="&amp;emsp;&amp;emsp;在软件开发的过程中，项目团队必然会使用版本控制系统，比如CVS、SVN(集中式版本控制系统)、GIT(分布式版本控制系统)。版本控制系统选定后，紧接着为了提高团队的协同开发效率，就需要选择一种适合当前团队、或者适合当前项目的开发流程。这里以主流的git版本控制系统为例，介绍常见的3种工作流：①Git flow ②Github flow ③Gitlab Flow">
 <meta name="keywords" content="workflow,git">
 <meta property="og:type" content="article">
 <meta property="og:title" content="workflow--项目工作流程">
 <meta property="og:url" content="http://yoursite.com/2017/09/09/git-workflow/index.html">
-<meta property="og:site_name" content="hbzyin&#x2F;blog">
-<meta property="og:description" content="&amp;emsp;&amp;emsp;在软件开发的过程中，项目团队必然会使用版本控制系统，比如CVS、SVN(集中式版本控制系统)、GIT(分布式版本控制系统)。版本控制系统选定后，紧接着为了提高团队的协同开发效率，就需要选择一种适合当前团队、或者适合当前项目的开发流程。这里以主流的git版本控制系统为例，介绍常见的3种工作流：①Git flow ②Github flow ③Gitlab Flow &amp;emsp;">
+<meta property="og:site_name" content="hbzyin-blog">
+<meta property="og:description" content="&amp;emsp;&amp;emsp;在软件开发的过程中，项目团队必然会使用版本控制系统，比如CVS、SVN(集中式版本控制系统)、GIT(分布式版本控制系统)。版本控制系统选定后，紧接着为了提高团队的协同开发效率，就需要选择一种适合当前团队、或者适合当前项目的开发流程。这里以主流的git版本控制系统为例，介绍常见的3种工作流：①Git flow ②Github flow ③Gitlab Flow">
 <meta property="og:image" content="http://yoursite.com/imgs/workflow/git-workflow.png">
 <meta property="og:image" content="http://yoursite.com/imgs/workflow/github-workflow.png">
 <meta property="og:image" content="http://yoursite.com/imgs/workflow/gitlab-workflow-continue.png">
 <meta property="og:image" content="http://yoursite.com/imgs/workflow/gitlab-workflow-release.png">
-<meta property="og:updated_time" content="2017-09-09T06:14:31.000Z">
+<meta property="og:updated_time" content="2017-09-30T07:52:38.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="workflow--项目工作流程">
-<meta name="twitter:description" content="&amp;emsp;&amp;emsp;在软件开发的过程中，项目团队必然会使用版本控制系统，比如CVS、SVN(集中式版本控制系统)、GIT(分布式版本控制系统)。版本控制系统选定后，紧接着为了提高团队的协同开发效率，就需要选择一种适合当前团队、或者适合当前项目的开发流程。这里以主流的git版本控制系统为例，介绍常见的3种工作流：①Git flow ②Github flow ③Gitlab Flow &amp;emsp;">
+<meta name="twitter:description" content="&amp;emsp;&amp;emsp;在软件开发的过程中，项目团队必然会使用版本控制系统，比如CVS、SVN(集中式版本控制系统)、GIT(分布式版本控制系统)。版本控制系统选定后，紧接着为了提高团队的协同开发效率，就需要选择一种适合当前团队、或者适合当前项目的开发流程。这里以主流的git版本控制系统为例，介绍常见的3种工作流：①Git flow ②Github flow ③Gitlab Flow">
 <meta name="twitter:image" content="http://yoursite.com/imgs/workflow/git-workflow.png">
   
-    <link rel="alternative" href="/atom.xml" title="hbzyin/blog" type="application/atom+xml">
+    <link rel="alternative" href="/atom.xml" title="hbzyin-blog" type="application/atom+xml">
   
   
   <link rel="stylesheet" type="text/css" href="/./main.507b3a.css">
@@ -172,6 +172,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>&emsp;&emsp;在软件开发的过程中，项目团队必然会使用版本控制系统，比如CVS、SVN(集中式版本控制系统)、GIT(分布式版本控制系统)。<br>版本控制系统选定后，紧接着为了提高团队的协同开发效率，就需要选择一种适合当前团队、或者适合当前项目的开发流程。<br>这里以主流的git版本控制系统为例，介绍常见的3种工作流：<strong>①Git flow ②Github flow ③Gitlab Flow</strong></p>
+<a id="more"></a>
 <p>&emsp;&emsp;本文的三种工作流程，都属于功能驱动式开发(Featrue-driven development,简称FDD)范畴，FDD即项目开发的起点是需求，维护master主分支，切分出功能分支(feature branch)、补丁分支(hotfix branch);<br>完成开发后，功能分支、补丁分支合并到主分支，同时被删除。</p>
 <ul>
 <li><p>Git workflow</p>
@@ -541,11 +542,11 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">form</a>
+                <a href="javascript:void(0)" class="js-tag color1">route</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">route</a>
+                <a href="javascript:void(0)" class="js-tag color5">form</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -558,6 +559,10 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">git</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">bootstrap</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -578,10 +583,6 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">secrect</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">bootstrap</a>
               </li>
             
             <div class="clearfix"></div>

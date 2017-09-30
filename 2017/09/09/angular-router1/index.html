@@ -6,21 +6,21 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Angular   路由导航简介 | hbzyin/blog</title>
+  <title>Angular   路由导航简介 | hbzyin-blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="剧情透露 1.浏览器默认路由 2.Angular2 路由及导航  1、浏览器路由模式  浏览器默认的导航模式主要有三种：  ①点击页面链接，跳转至相应页面； ②输入url,点击确认，跳转至相应页面； ③点击浏览器前进后退箭头，进行页面的跳转；  关于浏览器url跳转原理，参靠这两篇：1.在浏览器地址栏输入一个URL后回车，背后会进行哪些技术步骤？2.输入网址之后发生的事。 2、Angular2 的">
+  <meta name="description" content="剧情透露 1.浏览器默认路由 2.Angular2 路由及导航  1、浏览器路由模式  浏览器默认的导航模式主要有三种：  ①点击页面链接，跳转至相应页面； ②输入url,点击确认，跳转至相应页面； ③点击浏览器前进后退箭头，进行页面的跳转；">
 <meta name="keywords" content="angular,route">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Angular   路由导航简介">
 <meta property="og:url" content="http://yoursite.com/2017/09/09/angular-router1/index.html">
-<meta property="og:site_name" content="hbzyin&#x2F;blog">
-<meta property="og:description" content="剧情透露 1.浏览器默认路由 2.Angular2 路由及导航  1、浏览器路由模式  浏览器默认的导航模式主要有三种：  ①点击页面链接，跳转至相应页面； ②输入url,点击确认，跳转至相应页面； ③点击浏览器前进后退箭头，进行页面的跳转；  关于浏览器url跳转原理，参靠这两篇：1.在浏览器地址栏输入一个URL后回车，背后会进行哪些技术步骤？2.输入网址之后发生的事。 2、Angular2 的">
-<meta property="og:updated_time" content="2017-09-09T05:14:44.000Z">
+<meta property="og:site_name" content="hbzyin-blog">
+<meta property="og:description" content="剧情透露 1.浏览器默认路由 2.Angular2 路由及导航  1、浏览器路由模式  浏览器默认的导航模式主要有三种：  ①点击页面链接，跳转至相应页面； ②输入url,点击确认，跳转至相应页面； ③点击浏览器前进后退箭头，进行页面的跳转；">
+<meta property="og:updated_time" content="2017-09-30T07:53:46.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Angular   路由导航简介">
-<meta name="twitter:description" content="剧情透露 1.浏览器默认路由 2.Angular2 路由及导航  1、浏览器路由模式  浏览器默认的导航模式主要有三种：  ①点击页面链接，跳转至相应页面； ②输入url,点击确认，跳转至相应页面； ③点击浏览器前进后退箭头，进行页面的跳转；  关于浏览器url跳转原理，参靠这两篇：1.在浏览器地址栏输入一个URL后回车，背后会进行哪些技术步骤？2.输入网址之后发生的事。 2、Angular2 的">
+<meta name="twitter:description" content="剧情透露 1.浏览器默认路由 2.Angular2 路由及导航  1、浏览器路由模式  浏览器默认的导航模式主要有三种：  ①点击页面链接，跳转至相应页面； ②输入url,点击确认，跳转至相应页面； ③点击浏览器前进后退箭头，进行页面的跳转；">
   
-    <link rel="alternative" href="/atom.xml" title="hbzyin/blog" type="application/atom+xml">
+    <link rel="alternative" href="/atom.xml" title="hbzyin-blog" type="application/atom+xml">
   
   
   <link rel="stylesheet" type="text/css" href="/./main.507b3a.css">
@@ -176,6 +176,7 @@
 <li>②输入url,点击确认，跳转至相应页面；</li>
 <li>③点击浏览器前进后退箭头，进行页面的跳转；</li>
 </ul>
+<a id="more"></a>
 <p>关于浏览器url跳转原理，参靠这两篇：<br><a href="https://www.zhihu.com/question/34873227" target="_blank" rel="external">1.在浏览器地址栏输入一个URL后回车，背后会进行哪些技术步骤？</a><br><a href="https://www.zybuluo.com/yangfch3/note/113028" target="_blank" rel="external">2.输入网址之后发生的事。</a></p>
 <h4 id="2、Angular2-的路由导航"><a href="#2、Angular2-的路由导航" class="headerlink" title="2、Angular2 的路由导航"></a>2、Angular2 的路由导航</h4><p>以下内容默认读者对Angular2项目已有初步探索，熟悉angular2的项目目录结构：</p>
 <h5 id="1-概述"><a href="#1-概述" class="headerlink" title="1.概述"></a>1.概述</h5><p>Angular2默认采用支持html5浏览器的history.pushState进行导航，同时也支持老式的hash(#)风格导航；<br>使用Angular2的路由功能简单来说分以下几个步骤：</p>
@@ -482,11 +483,11 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">form</a>
+                <a href="javascript:void(0)" class="js-tag color1">route</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">route</a>
+                <a href="javascript:void(0)" class="js-tag color5">form</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -499,6 +500,10 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">git</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">bootstrap</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -519,10 +524,6 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">secrect</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">bootstrap</a>
               </li>
             
             <div class="clearfix"></div>

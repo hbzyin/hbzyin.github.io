@@ -6,19 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>hbzyin/blog</title>
+  <title>hbzyin-blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="web 前端 | 切图仔 | javascript | css | hbzyin">
 <meta property="og:type" content="website">
-<meta property="og:title" content="hbzyin&#x2F;blog">
+<meta property="og:title" content="hbzyin-blog">
 <meta property="og:url" content="http://yoursite.com/page/3/index.html">
-<meta property="og:site_name" content="hbzyin&#x2F;blog">
+<meta property="og:site_name" content="hbzyin-blog">
 <meta property="og:description" content="web 前端 | 切图仔 | javascript | css | hbzyin">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="hbzyin&#x2F;blog">
+<meta name="twitter:title" content="hbzyin-blog">
 <meta name="twitter:description" content="web 前端 | 切图仔 | javascript | css | hbzyin">
   
-    <link rel="alternative" href="/atom.xml" title="hbzyin/blog" type="application/atom+xml">
+    <link rel="alternative" href="/atom.xml" title="hbzyin-blog" type="application/atom+xml">
   
   
   <link rel="stylesheet" type="text/css" href="/./main.507b3a.css">
@@ -146,157 +146,6 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-angular-view-Encapsulation" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/09/09/angular-view-Encapsulation/">Angular2 组件视图/样式封装机制</a>
-    </h1>
-  
-
-        
-        <a href="/2017/09/09/angular-view-Encapsulation/" class="archive-article-date">
-  	<time datetime="2017-09-09T05:18:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-09</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <blockquote>
-<p>尽管css的意思是<strong>层叠样式表</strong>，但有时候我们并不需要”层叠”。既然angular采用了组件化的设计模式，那么<br>我们能不能采用组件化的方式，为某个组件提供特定的局部（组件级别）个性样式而不影响到页面的其他部分，答案是肯定的。</p>
-</blockquote>
-<h3 id="1-标准html中样式的引入方式："><a href="#1-标准html中样式的引入方式：" class="headerlink" title="1.标准html中样式的引入方式："></a>1.标准html中样式的引入方式：</h3><ol>
-<li>内嵌样式：直接在元素标签内设置css,如下栗子：<br><code>&lt;div style=&quot;background-color:red&quot;&gt;内联样式&lt;/div&gt;</code></li>
-<li><p>标签样式：采用<code>style</code>标签元素设定，如下栗子：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;style&gt; </div><div class="line">  .nav-bar&#123;font-size:14px;&#125;</div><div class="line">&lt;/style&gt;`</div></pre></td></tr></table></figure>
-</li>
-<li><p>链接引入样式:<br> <code>&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;style.css&quot;&gt;</code></p>
-</li>
-<li><p>导入样式:</p>
- <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;style&gt;</div><div class="line">     @import url(../xx/style.css);</div><div class="line">&lt;/style&gt;</div></pre></td></tr></table></figure>
-<h3 id="2-angular中样式引用方式："><a href="#2-angular中样式引用方式：" class="headerlink" title="2.angular中样式引用方式："></a>2.angular中样式引用方式：</h3></li>
-<li>全局样式引入<ol>
-<li>配置文件设置：.angular.cli.json文件中设置:`”apps”:{<pre><code>&quot;styles&quot;: [&quot;scss/style.scss&quot;],
-&quot;scripts&quot;:[...]
-</code></pre>   }` </li>
-<li>入口文件引入：index.html文件中：<code>&lt;link href=&quot;assets/css/font-awesome.min.css&quot; rel=&quot;stylesheet&quot;&gt;</code></li>
-<li>入口文件样式块：<code>&lt;style&gt;.nav-bar{font-size:12px;}&lt;/style&gt;</code></li>
-</ol>
-</li>
-<li>组件级别引入：<ol>
-<li>组件内联：<code>styles:&quot;.nav-bar{font-size:16px;}</code></li>
-<li>组件外联：<code>styleUrls:[&#39;./session.component.scss&#39;]</code></li>
-</ol>
-</li>
-<li><p>标签级别样式：<code>&lt;div style=&quot;font-color:red&quot;&gt;&lt;/div&gt;</code></p>
-<h3 id="3-shadow-DOM"><a href="#3-shadow-DOM" class="headerlink" title="3. shadow DOM"></a>3. shadow DOM</h3><h5 id="3-1：开发angular项目时，假如我们在配置文件-angular-cli-json、组件内联-外联、标签内，多处都设置了同样的样式，页面改如何展示？"><a href="#3-1：开发angular项目时，假如我们在配置文件-angular-cli-json、组件内联-外联、标签内，多处都设置了同样的样式，页面改如何展示？" class="headerlink" title="3.1：开发angular项目时，假如我们在配置文件.angular.cli.json、组件内联/外联、标签内，多处都设置了同样的样式，页面改如何展示？"></a>3.1：开发angular项目时，假如我们在配置文件.angular.cli.json、组件内联/外联、标签内，多处都设置了同样的样式，页面改如何展示？</h5><p>让我们先来预测一下结果：<br>a.假如三处引入的样式都没有采用<code>!important</code>,那么根据优先级，页面的样式也就是标签内嵌样式的结果；<br>b.假如三处引入的样式具有javascript模式的变量作用域概念，那么页面的样式应该是最小子组件覆盖父层组件样式；<br>c.假如三处引入样式具有样式重写效果，那么，将按照样式的定义先后顺序，最后定义的样式覆盖先定义的样式；</p>
-<blockquote>
-<p>令人兴奋的是，上面三种我们预测的效果，angular都有实现的技术：你所需要做的仅仅是在组件定义时加上一条元数据：<code>encapsulation:ViewEncapsulation.Emulate/Native/None</code><br>而这些神奇的功能效果，背后所支撑的技术就是目前组件化前端框架的基础：<strong>Shadow Dom</strong>.</p>
-</blockquote>
-<h5 id="3-2-Shadow-DOM"><a href="#3-2-Shadow-DOM" class="headerlink" title="3.2 Shadow DOM"></a>3.2 Shadow DOM</h5><p>什么是shadow dom技术？<br>简单来说，就是浏览器标准中开放给开发者用来自定义 html标签元素的API,接口也极其简单：<code>Element.createShadowRoot()</code>;</p>
-<p>Shadow DOM允许开发者在页面的DOM树结构里面，插入自定义的DOM元素子树，DOM元素子树的内容、页面样式、javascript均与宿主DOM树相互独立.</p>
-<p><strong><em>没错，这就是当今2017年前端最流行的组件化设计思想，得以实现的技术基础！！！</em></strong><br>刨根问底，请用力戳破==&gt;<br><a href="https://developer.mozilla.org/zh-CN/docs/Web/Web_Components/%E5%BD%B1%E5%AD%90_DOM" target="_blank" rel="external">MDN文档</a>、<br><a href="https://aotu.io/notes/2016/06/24/Shadow-DOM/index.html" target="_blank" rel="external">参考文章</a>。</p>
-<h3 id="4-angular视图封装"><a href="#4-angular视图封装" class="headerlink" title="4. angular视图封装"></a>4. angular视图封装</h3><p>——————<code>encapsulation:ViewEncapsulation.Emulate/Native/Native</code><br>下面我们来依次看看angular是如何来实现这三个神奇的效果：</p>
-</li>
-</ol>
-<ul>
-<li><strong>Emulate</strong>：这是angular2默认配置方式，即：shadow DOM仿真方式，默认将组件样式、内容封装在组件的上下文环境中；</li>
-<li><strong>Native</strong>: 即：原生Shadow DOM的配置方式，采用此种配置时，angular将完全采用MDN标准的Shadow DOM将子组件封装为子DOM树；</li>
-<li><p><strong>None</strong>  : 无Shadow DOM配置方式，采用此种配置时，angular2将完全不采用Shadow DOM技术，而是将子组件按照标准html方式渗透、暴露给页面其他元素；</p>
-<p>为此我们看一下才用三种不同配置时，浏览器开发者模式下页面html代码的差异：<br>创建一个最简单的angular项目；并在引入的全局样式文件style.scss、及app组件内联样式中分别定义一个<code>.test</code>的样式类目录结构如下<br>为了便于区分，我们在全局样式定义前加上一行注释<code>/* global styles  */</code>;</p>
-<p><img src="/imgs/angular-advanced/project.structure.png" alt=""></p>
-<p><img src="/imgs/angular-advanced/viewEncapsulation.emulate.png" alt=""></p>
-<p><img src="/imgs/angular-advanced/global.scss.png" alt=""></p>
-</li>
-</ul>
-<p> ① 默认配置方式——<code>Emulate</code>，由于我们在app组件中并未定义<code>ecapsulation</code>meata元素，此时为默认配置方式，打开浏览器，我们可以看到页面结构如下:<br> 可以清楚的看到，我们在app组件中的页面元素div段落(红色方框3)，并且多出来一个<code>_ngcontent-c0</code>属性；<br> 同时在<code>head</code>标签里面可以看到有两个<code>style</code>样式标签；两个<code>style</code>样式标签内都是对.test样式类进行定义；<br> 所不同的是（方框1）为<code>.test</code>，方框2为<code>.test[_ngcontent-c0]</code>,细心的同学可能已经发现，</p>
-<blockquote>
-<ol>
-<li>这两个样式类，分别对应我们之前设置的全局scss样式及app组件级别的样式；</li>
-<li>页面的div元素尺寸采用了全局的样式，而在app组件内部样式中，我们并没有设置尺寸相关的样式；<br>   说明采用emulate配置方式，会继承全局的可继承的样式；  </li>
-<li>页面div元素的背景色和边框色都采用了app组件内部定义的样式，我们在全局及app组件内部两处都定义了背景色、边框的样式；<br>   说明采用emulate配置方式，子组件会重写全局的样式；</li>
-</ol>
-</blockquote>
-<pre><code>结合上面三点，我们就不难理解，这个`_ngcontent-c0`的属性正是angular2为了识别封装的组件，自动添加的，
-</code></pre><p> 子组件可以继承并重写全局/父组件的演示，这就是angular的<strong>仿真Shadow DOM技术</strong>；*<br> <img src="/imgs/angular-advanced/viewEncapsulation.emulate.png" alt=""></p>
-<p> <img src="/imgs/angular-advanced/html.emulate.png" alt=""></p>
-<p> ② 原生配置方式——<code>Shadow DOM</code>,在app组件的装饰器内添加<code>encapsulation:ViewEncapsulate.Native</code>,再次运行项目，打开浏览器，如下：<br>   此时，a.页面的内容元素没有变，但相比较①没有了属性<code>_ngcontent-c0</code>，同时在外层多了一个<code>#shadow-root(open)</code>的标签，这个正是标准的Shadow DOM技术；<br>   b.全局样式的标签位置和内容都没有变化（图中红色方框①）；c.app组件级别的样式不仅位置、样式类选择器都发生了变化：1）位置由<code>head</code>头部转移到 <code>#shadow-root(opne)</code>标签内部；<br>   2）样式类没有添加<code>_ngcontent-c0</code>类似的angular框架属性；<br>   此种原声shadow dom的配置方式，就是我们在本文第3节中提到的<em>原生Shadow DOM</em>；</p>
-<blockquote>
-<ol>
-<li>此处div元素采用浏览器默认的尺寸样式，没有采用全局的尺寸样式；说明，此处子组件已无安全与福组件/全局样式隔离，不受全局样式影响；</li>
-<li>此处div元素背景色、边框均采用子组件app设置的样式，说明此时，子组件可自由定义局部样式属性；<br><img src="/imgs/angular-advanced/viewEncapsulation.native.png" alt=""></li>
-</ol>
-</blockquote>
-<p>   <img src="/imgs/angular-advanced/html.native.png" alt=""></p>
-<p> ③ 无Shadow DOM配置方————在app组件的装饰器内添加<code>encapsulation:ViewEncapsulate.None</code>,再次运行项目，打开浏览器，如下：</p>
-<p> 此时页面元素的显示效果与仿真DOM方式的配置一模一样；html代码与仿真DOM配置方式下也极为相似；我们看一下与<code>emulate</code>配置方式的不同之处：</p>
-<blockquote>
-<p>app子组件中配置的<code>.test</code>类样式没有angular2自动添加的组件识别属性<code>_ngcontent-c0</code>；<br> <img src="/imgs/angular-advanced/viewEncapsulation.none.png" alt=""></p>
-</blockquote>
-<p> <img src="/imgs/angular-advanced/html.none.png" alt=""></p>
-<p> 这两天为了写这篇小博文，晚上花了一点时间，仔细想来，经典的技术/API很有可能给你打开一扇通向神奇的道路，现在前端如此火热的Shaodow DOM技术，其实在浏览器最初就已经成为标准了，我们常见的video就是这种技术实现的；<br> 其实这种封装的思想在软件编程中已经是中所周知的思想了，但要真正运用到实际开发中，你才能真正的深入理解经典思想的精妙之处；</p>
-<p>——————强行End</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">angular</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">route</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/09/09/angular-view-Encapsulation/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
     <article id="post-angularCLI" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -318,37 +167,9 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>相信不少同学已入坑angular,开始了angular2的慢慢长路，那么这些关于angular2项目自动化构建工具，<br>你应该不会错过吧，Angular-cli</p>
-<h3 id="1-创建一个新项目"><a href="#1-创建一个新项目" class="headerlink" title="1.创建一个新项目"></a>1.创建一个新项目</h3><ul>
-<li><code>ng new project-name</code>      创建一个新的项目,并自动安装依赖包,项目名称为：<strong>projec-name</strong></li>
-<li><code>ng new project-name -si</code>   创建一个新的项目，并跳过node依赖包自动安装（<code>-si</code>即<code>--skip-install</code>）</li>
-</ul>
-<p>创建完成后项目的目录结构如下：<br><img src="sources/imgs/angular-cli/ng-new0.png" alt=""><br><img src="sources/imgs/angular-cli/app-files.png" alt=""></p>
-<h3 id="2-创建组件"><a href="#2-创建组件" class="headerlink" title="2.创建组件"></a>2.创建组件</h3><ul>
-<li><code>ng g c component1</code>                           创建一个组件component1,同时创建相应的.html、.spc.ts、.css文件，</li>
-<li><code>ng g c component2 --is</code>                      创建一个组件component2,同时创建相应的.html、.spc.ts文件，采用内联式样式文件；</li>
-<li><code>ng g c component2/component3 --is -flat</code>     创建一个组件component3,采用内联式样式;</li>
-<li><code>ng g c component2/component4 --is --it -flat</code>创建一个组件component4,采用内联式样式、内联式模板;</li>
-</ul>
-<p>如下图所示：</p>
-<p>①<code>ng g c component1</code><br><img src="sources/imgs/angular-cli/ng-g-c-1.png" alt=""><br>②<code>ng g c component2 --is</code> (<code>--is</code>即<code>-inline -style</code>)<br><img src="sources/imgs/angular-cli/ng-g-c-2.png" alt=""><br>③<code>ng g c component2/component3 --is -flat</code>  <code>-flat</code>组件在当前文件夹下不新建目录<br><img src="sources/imgs/angular-cli/ng-g-c-3.png" alt=""><br>④<code>ng g c component2/component4 --is --it -flat</code>  (<code>--it</code>即：<code>-inline -template</code>)<br><img src="sources/imgs/angular-cli/ng-g-c-4.png" alt=""></p>
-<h3 id="3-创建模块"><a href="#3-创建模块" class="headerlink" title="3.创建模块"></a>3.创建模块</h3><ul>
-<li><code>ng g m core-module</code>       创建一个模块，模块名称 <strong>CoreModuleModule</strong>;</li>
-<li><code>ng g m module2 --routing</code> 创建一个模块，模块名称 <strong>Module2Module</strong>,<em>采用外联路由文件</em>;</li>
-</ul>
-<p>如下图：</p>
-<p>①<code>ng g m core-module</code><br><img src="sources/imgs/angular-cli/ng-g-m-1.png" alt=""><br>②<code>ng g m module2 --routing</code>       <code>--routing</code> 同时新建单独路由文件<br><img src="sources/imgs/angular-cli/ng-g-m-2.png" alt=""></p>
-<h3 id="4-创建类"><a href="#4-创建类" class="headerlink" title="4.创建类"></a>4.创建类</h3><ul>
-<li><code>ng g class class1</code>   创建一个类，类名<strong>Class1</strong></li>
-<li><code>ng g class class2 --spec</code>   创建一个类，类名<strong>Class2</strong></li>
-</ul>
-<p>如下图：</p>
-<p>①<code>ng g class class1</code><br><img src="sources/imgs/angular-cli/ng-g-class-1.png" alt=""><br>②<code>ng g class class2 --spec</code>  同时创建.spec.ts文件<br><img src="sources/imgs/angular-cli/ng-g-class-2.png" alt=""></p>
-<h3 id="5-创建可枚举类"><a href="#5-创建可枚举类" class="headerlink" title="5.创建可枚举类"></a>5.创建可枚举类</h3><ul>
-<li><code>ng g enum enum1</code> 创建一个可枚举类，类名<strong>Enum1</strong> 文件路径：<code>app/enum1.enum.ts</code></li>
-</ul>
-<p>如下图</p>
-<p>①<code>ng g enum enum1</code><br><img src="sources/imgs/angular-cli/ng-g-enum.png" alt=""></p>
-
+        
+          <a class="article-more-a" href="/2017/09/09/angularCLI/#more">more >></a>
+        
       
 
       
@@ -405,6 +226,88 @@
 
 
   
+    <article id="post-angular-view-Encapsulation" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/09/09/angular-view-Encapsulation/">Angular2 组件视图/样式封装机制</a>
+    </h1>
+  
+
+        
+        <a href="/2017/09/09/angular-view-Encapsulation/" class="archive-article-date">
+  	<time datetime="2017-09-09T05:18:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-09</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>尽管css的意思是<strong>层叠样式表</strong>，但有时候我们并不需要”层叠”。既然angular采用了组件化的设计模式，那么<br>我们能不能采用组件化的方式，为某个组件提供特定的局部（组件级别）个性样式而不影响到页面的其他部分，答案是肯定的。</p>
+</blockquote>
+        
+          <a class="article-more-a" href="/2017/09/09/angular-view-Encapsulation/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">angular</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">route</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/09/09/angular-view-Encapsulation/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-angular-router2" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -426,92 +329,12 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h3 id="预警"><a href="#预警" class="headerlink" title="预警"></a>预警</h3><blockquote>
-<p>1.导航方式</p>
-<p>2.参数路由</p>
+<p>1.导航方式：angular的路由导航有那些方式，各自如何实现</p>
+<p>2.参数路由：angular路由导航时候如何携带参数</p>
 </blockquote>
-<h4 id="1-导航方式"><a href="#1-导航方式" class="headerlink" title="1. 导航方式"></a>1. 导航方式</h4><p>ngular2主要有两种导航方式：</p>
-<p>①链接式导航：页面设置导航链接，点击后跳转至相应页面；如：</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">routerLink</span>=<span class="string">[</span>'/<span class="attr">home</span>']&gt;</span>click here to go to home page<span class="tag">&lt;/<span class="name">a</span>&gt;</span></div></pre></td></tr></table></figure>
-<p>②命令式导航：设置点击事件，在组件内进行逻辑页面跳转;如：<br><figure class="highlight typescript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@Component</span>(&#123;</div><div class="line">  template:<span class="string">`</span></div><div class="line"><span class="string">  &lt;button (click)="goHome()"&gt;主页面&lt;button&gt; //页面跳转事件</span></div><div class="line"><span class="string">  `</span>,</div><div class="line">  ...</div><div class="line">&#125;)</div><div class="line"><span class="keyword">export</span> <span class="keyword">class</span> AppComponent <span class="keyword">implements</span> OnInit(&#123;</div><div class="line">  <span class="keyword">constructor</span>(<span class="params"></span>)&#123;&#125;;</div><div class="line">  ngInit():<span class="built_in">void</span>&#123;&#125;</div><div class="line">  goDetail():<span class="built_in">void</span>&#123;                        <span class="comment">//跳转处理函数  </span></div><div class="line">    <span class="keyword">this</span>.router.navigate([<span class="string">'/home'</span>]);</div><div class="line">  &#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure></p>
-<h4 id="2-路由传参导航"><a href="#2-路由传参导航" class="headerlink" title="2. 路由传参导航"></a>2. 路由传参导航</h4><p>加入我们现在有一个订单列表页面，需要查看每个订单的详情，改如何导航哪？<br>a.我们可以为每个订单设置一个连接；b.设置路由跳转规则，导航是带上区别订单的关键字段；<br>是的，没错，angular2就是采用方式2进行导航的；</p>
-<p> 在开始进行参数导航之前，让我们先来了看几个angular2的路由服务的相关术语：</p>
-<table>
-<thead>
-<tr>
-<th>序号</th>
-<th>类别</th>
-<th style="text-align:left">部件</th>
-<th>名称</th>
-<th>作用</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>1</td>
-<td></td>
-<td style="text-align:left">Route</td>
-<td>路由</td>
-<td>定义路由器如何根据URL模式来导航到组件，大多数都由路径和组件类构成</td>
-</tr>
-<tr>
-<td>2</td>
-<td>组件</td>
-<td style="text-align:left">Router</td>
-<td>路由器</td>
-<td>为激活的url显示对应的组件，负责从一个页面/组件，导航到另一个页面/组件</td>
-</tr>
-<tr>
-<td>3</td>
-<td>常量</td>
-<td style="text-align:left">Routes</td>
-<td>路由数组</td>
-<td>定义一个路由数组，每一个都会把一个URL路径映射到一个组件</td>
-</tr>
-<tr>
-<td>4</td>
-<td>模块</td>
-<td style="text-align:left">RouterModule</td>
-<td>路由器模块</td>
-<td>用于提供所需的服务提供商，提供进行导航的指令</td>
-</tr>
-<tr>
-<td>5</td>
-<td>指令</td>
-<td style="text-align:left">RouterLink</td>
-<td>路由链接</td>
-<td><code>[routerLink]=[&#39;str&#39;]</code>用于把可点击的html元素绑定到路由</td>
-</tr>
-<tr>
-<td>6</td>
-<td>指令</td>
-<td style="text-align:left">RouterOutlet</td>
-<td>路由插座</td>
-<td><code>&lt;router-outlet&gt;</code>用来标记路由该在哪里显示视图</td>
-</tr>
-<tr>
-<td>7</td>
-<td>指令</td>
-<td style="text-align:left">RouterLinkActive</td>
-<td>活动的路由链接</td>
-<td>当html元素上的routerLink变为激活或非激活状态时，该指令为相应元素添加或移除css类</td>
-</tr>
-<tr>
-<td>8</td>
-<td>方法</td>
-<td style="text-align:left">RouterState</td>
-<td>路由器状态</td>
-<td>路由器的当前状态包含了一颗由程序中激活的路由构成的树，，提供一些用于遍历路有数的快捷方法</td>
-</tr>
-<tr>
-<td>9</td>
-<td>服务</td>
-<td style="text-align:left">Activedroute</td>
-<td>激活的路由</td>
-<td>为每个路由组件提供一个服务，包含特定的路由信息，如：路由参数、静态数据、解析数据、全局查询参数、群居碎片</td>
-</tr>
-</tbody>
-</table>
-
+        
+          <a class="article-more-a" href="/2017/09/09/angular-router2/#more">more >></a>
+        
       
 
       
@@ -691,11 +514,11 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">form</a>
+                <a href="javascript:void(0)" class="js-tag color1">route</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">route</a>
+                <a href="javascript:void(0)" class="js-tag color5">form</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -708,6 +531,10 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">git</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">bootstrap</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -728,10 +555,6 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">secrect</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">bootstrap</a>
               </li>
             
             <div class="clearfix"></div>

@@ -6,19 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>hbzyin/blog</title>
+  <title>hbzyin-blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="web 前端 | 切图仔 | javascript | css | hbzyin">
 <meta property="og:type" content="website">
-<meta property="og:title" content="hbzyin&#x2F;blog">
+<meta property="og:title" content="hbzyin-blog">
 <meta property="og:url" content="http://yoursite.com/index.html">
-<meta property="og:site_name" content="hbzyin&#x2F;blog">
+<meta property="og:site_name" content="hbzyin-blog">
 <meta property="og:description" content="web 前端 | 切图仔 | javascript | css | hbzyin">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="hbzyin&#x2F;blog">
+<meta name="twitter:title" content="hbzyin-blog">
 <meta name="twitter:description" content="web 前端 | 切图仔 | javascript | css | hbzyin">
   
-    <link rel="alternative" href="/atom.xml" title="hbzyin/blog" type="application/atom+xml">
+    <link rel="alternative" href="/atom.xml" title="hbzyin-blog" type="application/atom+xml">
   
   
   <link rel="stylesheet" type="text/css" href="/./main.507b3a.css">
@@ -166,75 +166,10 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p><img src="/imgs/html/sgml.png" alt=""></p>
-<blockquote>
-<p>作为一个前端开发者，HTML应该是最熟悉不过。打开电脑浏览器，点击鼠标右键，选择查看源码，所看到的就是html文本。</p>
-</blockquote>
-<h4 id="1-先来看两个简单的前端问题"><a href="#1-先来看两个简单的前端问题" class="headerlink" title="1. 先来看两个简单的前端问题"></a>1. 先来看两个简单的前端问题</h4><blockquote>
-<p>1.HTML文档类型声明DCOTYPE的作用是什么？</p>
-</blockquote>
-<ul>
-<li><code>&lt;!DOCTYPE&gt;</code>声明位于html文档的第一行，位于<code>&lt;html&gt;&lt;/html&gt;</code>标签之前；<br><code>&lt;!DOCTYPE&gt;</code>声明不是html标签，是用于告诉web浏览器，解析页面采用哪个HTML版本进行编写的指令；<br><code>&lt;!DOCTYPE&gt;</code>声明对大小写不敏感；</li>
-<li>HTML4及更早版本基于SGML,<code>&lt;!DOCTYPE&gt;</code>声明引用 用于规定标记语言规则的DTD，使得浏览器能正确的显示内容；<br>HTML5不基于SGML,不需要引用添加<code>&lt;!DOCTYPE&gt;</code>声明；</li>
-</ul>
-<blockquote>
-<p>2.HTML文档类型声明有哪几种?</p>
-</blockquote>
-<p>  共8中=3种(html4.01)+3种(html1.0)+1种(html1.1)+1种(html5)</p>
-<ul>
-<li><p>HTML4.01文档类型声明有三种：<br>①Strict(严格定义类型):该DTD仅允许使用HTML元素、属性；不允许使用展示性、弃用的元素(如:<code>font</code>)、不允许使用框架集(<code>Frameset</code>)</p>
-<pre><code><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.01//EN&quot; &quot;http://www.w3.org/TR/html4/strict.dtd&quot;&gt;</div></pre></td></tr></table></figure>
-</code></pre><p>②Transitional(过渡定义类型):该DTD允许使用所有HTML元素、属性，允许是使用展示性、弃用的元素(如:<code>font</code>)；但不允许使用框架集(<code>Frameset</code>);</p>
-<pre><code><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;!DOCTYOE HTML PUBLIC &quot;-//W3C//DTD HTML 4.01 Transitional//EN&quot; &quot;http://www.w3.org/TR/html4/loose.dtd&quot;&gt;</div></pre></td></tr></table></figure>
-</code></pre><p>③Frameset(框架定义类型):该DTD允许使用HTM的所有元素、属性，允许使用展示性、弃用的元素，允许使用框架集(<code>Frameset</code>)</p>
-<pre><code><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.01 Frameset//EN&quot; &quot;HTTP://www.w3.org/TR/html4/frameset.dtd&quot;&gt;</div></pre></td></tr></table></figure>
-</code></pre></li>
-<li><p>HTML1.0文档类型声明有四种类型：与html4.01不同的是，HTML1.0全部要求以正确的XML格式编写XML,即所有标签元素都必须封闭。<br>①Strict(严格定义类型)：允许使用所有的HTML元素和属性；不允许使用展示性、弃用的元素、框架集；</p>
-<pre><code><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD/ XHTML 1.0 Strict//EN&quot; &quot;http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd&quot;&gt;</div></pre></td></tr></table></figure>
-</code></pre><p>②Transitioal(过渡定义类型)：允许使用所有的HTML元素、属性，允许使用展示型、弃用的元素；但不允许使用框架集；</p>
-<pre><code><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD/ XHTML 1.0 Transitional//EN&quot; &quot;http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd&quot;&gt;</div></pre></td></tr></table></figure>
-</code></pre><p>③Frameset(框架定义类型)：允许使用HTML元素、属性、展示性、弃用的元素、框架集；</p>
-<pre><code><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD/ XHTML 1.0 Frameset//EN&quot; &quot;http://www.w3.org/TR/xhtml1/DTD/xhtml1-Frameset.dtd&quot;&gt;</div></pre></td></tr></table></figure>
-</code></pre></li>
-<li><p>HTML1.1文档类型声明仅有一种，与HTML1.0类似，但允许添加模型：</p>
-<pre><code><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD/ XHTML1.1//EN&quot; http://www.w3.org/TR/xhtml/DTD/xhtml11.dtd&quot;&gt;</div></pre></td></tr></table></figure>
-</code></pre></li>
-<li><p>HTML5不基于SGML,其文档类型声明只有一种</p>
-<pre><code><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;!DOCTYPE html&gt;</div></pre></td></tr></table></figure>
-</code></pre></li>
-</ul>
-<blockquote>
-<p>要建立符合标准的网页文档，浏览器能够识别HTML/XHTML文档的类型，并正确的进行识别、解析，html必须采用DOCTYPE声明；如果文档不定义DOCTYPE类型，浏览器按照自己的方式来进行解析渲染的过程可能就会出现差错导致无法正常解析，也就是混乱模式或怪异者模式。</p>
-</blockquote>
-<h4 id="2-SGML、HTML、XML-——标记语言"><a href="#2-SGML、HTML、XML-——标记语言" class="headerlink" title="2. SGML、HTML、XML ——标记语言"></a>2. SGML、HTML、XML ——标记语言</h4><ul>
-<li>SGML:标准通用标记语言，即Standard Generalized Markup Language.<blockquote>
-<p>标准通用标记语言(<a href="https://zh.wikipedia.org/wiki/SGML" target="_blank" rel="external">SGML</a>),是当今常用的超文本格式的<strong>最高层次标准</strong>，是一种跨平台、跨语言的一种可以定义标记语言的<a href="https://zh.wikipedia.org/wiki/%E5%85%83%E8%AA%9E%E8%A8%80" target="_blank" rel="external">元语言</a>，是IOS于1986年发布的一个<strong>信息管理方面的国际标准</strong>（<code>ISO 8879:1986 Information processing -- Text and office systems -- Standard Generalized Markup Language (SGML)</code>）;但由于其强大的适应性，及其复杂性，难以普及。<br>HTML、XML都是SGML的一种派生。HTML是SGML的一个最成功的应用之一，而XML可以认为是SGML的一个子集；XML的产生便是为了简化SGML，以便于更加通用，比较成功的有语义Web、XHTML、RSS、XML-RPC、SOAP.</p>
-</blockquote>
-</li>
-<li>HTML:超文本标记语言，即Hyper Text Markup Language.<blockquote>
-<p>超文本标记语言(HTML),衍生于SGML,是一种用于创建网页的标准标记语言。编写HTML文档时，需声明对文档类型进行声明，即本文开篇的两个问题。html与CSS、Javascript语言一起用于创建令人赏心悦目的网页、网页应用程序以及移动应用程序的用户界面。缺点是标记相对少(只有固定的标记)，缺少SGML的柔性和适应性，不能支持特定领域的标记语言。</p>
-</blockquote>
-</li>
-<li>XML：可扩展标记语言，即eXtensible Markup Language.<blockquote>
-<p>可扩展标记语言(XML)，是SGML的一种简化版本；表示一种结构化信息的标准文本格式；同HTML一样，编写XML文档前也需要进行文档类型声明，即XML序言,如<code>&lt;?xml version=&quot;1.0&quot;?&gt;</code>，会告诉解析器或浏览器，这个文件应该按照XML规则进行解析.XML语言的缺点是：不支持分帧(framing),当多条XML消息在TCP上传输时，无法基于XML协议来确定一条XML消息是否结束。</p>
-</blockquote>
-</li>
-</ul>
-<h5 id="3-XML-DTD-与XML-Schema-——文档类型-VS-文档格式"><a href="#3-XML-DTD-与XML-Schema-——文档类型-VS-文档格式" class="headerlink" title="3. XML DTD 与XML Schema ——文档类型 VS 文档格式"></a>3. XML DTD 与XML Schema ——文档类型 VS 文档格式</h5><blockquote>
-<p>首先插入两个概念<br>   ①XML模式：指用来描述XML结构、约束因素的语言，如XML Schema、XML DTD、XDR、SOX等；<br>   ②XML格式：指XML文档本身所具有的格式；</p>
-</blockquote>
-<ul>
-<li>XML DTD: XML的文档类型定义的标准，采用与XML不同格式的语言，对XML文档的模式、格式进行规范描述的一种标准；缺点：XML DTD本身合法性缺少验证机制，需要与XML分开来进行合法性验证；</li>
-<li>XML Schema:XML的另一种文档类型定义标准，采用与XML相同格式的语言，对XML文档的模式、格式进行规范描述的一种标准；</li>
-</ul>
-<blockquote>
-<p>参考文献</p>
-<ul>
-<li>1.<a href="https://zh.wikipedia.org/wiki/SGML" target="_blank" rel="external">SGML–维基百科</a></li>
-<li>2.<a href="https://www.ibm.com/developerworks/cn/xml/x-sd/index.html" target="_blank" rel="external">XML Schema 与 XML DTD的技术比较与分析</a></li>
-</ul>
-</blockquote>
-
+        <p> 作为一个前端开发者，HTML应该是最熟悉不过。打开电脑浏览器，点击鼠标右键，选择查看源码，所看到的就是html文本。那么文档类型定义声明有哪几种，各有什么作用，HTML、XML、SGML各是什么，DTD、DOCTYPE又是什么？</p>
+        
+          <a class="article-more-a" href="/2017/09/28/html-doc-type/#more">more >></a>
+        
       
 
       
@@ -323,62 +258,9 @@
 <p> 这段时间公司开发项目用到oAuth2协议，现在做一下梳理。</p>
 <p>CORS即Cross Origin Resouce Share，跨域资源共享；是W3C为防止脚本攻击，而制定的安全标准之一，它允许浏览器向跨域服务器发送XMLHttpRequest请求；<br>跨域域问题，伴随而来的就是前端项目中的权限认证问题。</p>
 </blockquote>
-<h2 id="1-基本逻辑："><a href="#1-基本逻辑：" class="headerlink" title="1. 基本逻辑："></a>1. 基本逻辑：</h2><blockquote>
-<p>CORS跨域请求分为两种：简单请求、非简单请求，两种情景处理具体细节不同，但实现逻辑相同</p>
-</blockquote>
-<ul>
-<li><p>简单请求需同时满足以下两个条件：</p>
-<ol>
-<li>请求方法为：<code>GET</code>、<code>HEAD</code>、<code>POST</code>三种其中的一种；</li>
-<li>HTTP头信息不超出一下几个字段：<br>①Accept ②Accept-Language ③Last-Event-ID ④Content ⑤Content-Type：只限三种：application/x-www-form-urlencoded、muiltipart/form-data、text/plain</li>
-<li><p>简单请求流程：<br>①浏览器检测到请求为跨域请求时，便在请求头上加上字段<code>Origin</code>，指明发出跨域请求的源；<br>②服务器端检测到跨域请求头信息中，<code>Origin</code>是否在许可范围内：<br>③若请求源在允许范围，返回响应，响应头上添加以下几个字段：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">Access-Control-Allow-Origin:http://api.beta.com //服务器应许跨域白名单</div><div class="line">Access-Control-Allow-Credentials:true           //允许跨域请求携带cookie</div><div class="line">Access-Control-Expose-Headers:Custom-header     //允许客户端请求时携带自定义头字段</div><div class="line">Conten-Type:text/html;chartset=utf-8            //允许返回数据类型</div></pre></td></tr></table></figure>
-<p>④若跨域请求源不在允许范围内，服务器会返回一个XMLHttpRequest错误信息，该错误不能被http错误处理机制捕获，因为其状态码为200.</p>
-</li>
-</ol>
-</li>
-<li><p>非简单请求：</p>
-<ol>
-<li>非简单请求，通常是对服务器有特殊需求的请求，</li>
-<li>非简单请求发送前，浏览器会自动发送一次预检请求，请求方法为Option</li>
-<li>预检请求通过后，后续步骤同简单请求</li>
-</ol>
-</li>
-<li><p>oAuth2认证逻辑步骤</p>
-<ol>
-<li>用户使用用户名、密码登录；</li>
-<li>后台校验用户信息；</li>
-<li>跳转至oAuth认证接口，返回token、refresh token、token expires;（此处token一般有有效期）</li>
-<li>用户携带token值与后台DB服务通过http/https交互；</li>
-<li>token 值到期后；用户携带refresh token请求oAuth token刷新接口更新token并通过响应发送至客户；</li>
-<li>重复第4、第5步，保证token有效可用状态下，与后台进行交互</li>
-</ol>
-</li>
-</ul>
-<p><img src="http://images2015.cnblogs.com/blog/1034075/201707/1034075-20170720022456411-1386626362.png" alt=""></p>
-<h2 id="oAuth2的协议-里面有两个比较常用的接口"><a href="#oAuth2的协议-里面有两个比较常用的接口" class="headerlink" title="oAuth2的协议.里面有两个比较常用的接口."></a>oAuth2的协议.里面有两个比较常用的接口.</h2><h3 id="1-获取token"><a href="#1-获取token" class="headerlink" title="1. 获取token"></a>1. 获取token</h3><p>接口:  <code>/oauth/token?</code></p>
-<p>参数: (grant_type是写规定好的,其它的两个自定义)</p>
-<ul>
-<li>grant_type=password</li>
-<li>username=development@sometech.com</li>
-<li>password=oQd-BfT-cer-7LP</li>
-</ul>
-<p>完整的样例:<code>http://localhost:9000/oauth/token?grant_type=password&amp;username=development@sometech.com&amp;password=oQd-BfT-cer-7LP</code></p>
-<p>返回结果样例:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    &quot;access_token&quot;: &quot;beeaa54e-8391-4de0-8ba6-ce145b3fb812&quot;,</div><div class="line">    &quot;token_type&quot;: &quot;bearer&quot;,</div><div class="line">    &quot;refresh_token&quot;: &quot;8129769a-d804-46c7-856a-3bacd409b650&quot;,</div><div class="line">    &quot;expires_in&quot;: 3599,</div><div class="line">    &quot;scope&quot;: &quot;read write&quot;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h3 id="2-刷新token"><a href="#2-刷新token" class="headerlink" title="2. 刷新token"></a>2. 刷新token</h3><p>接口:<code>http://localhost:9000/oauth/token?</code></p>
-<p>参数:(refresh_token是根据1中的来定的.其它参数是固定的)</p>
-<ul>
-<li>client_id=dashboard</li>
-<li>client_secret=secret</li>
-<li>grant_type=refresh_token</li>
-<li>refresh_token=43dca105-627e-4f50-86e8-0c22c2f3abe9</li>
-</ul>
-<p>样例: <code>http://localhost:9000/oauth/token?client_id=dashboard&amp;client_secret=secret&amp;grant_type=refresh_token&amp;refresh_token=43dca105-627e-4f50-86e8-0c22c2f3abe9</code></p>
-<p>返回结果<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    &quot;access_token&quot;: &quot;0135c92b-12ab-4af9-88f4-97ef85115e71&quot;,</div><div class="line">    &quot;token_type&quot;: &quot;bearer&quot;,</div><div class="line">    &quot;refresh_token&quot;: &quot;75d209b5-a30d-43a8-abcd-850e7fb62e76&quot;,</div><div class="line">    &quot;expires_in&quot;: 3599,</div><div class="line">    &quot;scope&quot;: &quot;read write&quot;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<h3 id="3-CORS仅仅是实现跨域请求的一种，还有其他多种方案，如"><a href="#3-CORS仅仅是实现跨域请求的一种，还有其他多种方案，如" class="headerlink" title="3. CORS仅仅是实现跨域请求的一种，还有其他多种方案，如"></a>3. CORS仅仅是实现跨域请求的一种，还有其他多种方案，如</h3><p>jsonp、document.domain、window.name、window.postMessage、CSST(css text Transformation)、flash等。</p>
-<p>–end</p>
-
+        
+          <a class="article-more-a" href="/2017/09/09/oAuth-md/#more">more >></a>
+        
       
 
       
@@ -452,89 +334,9 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>&emsp;&emsp;在软件开发的过程中，项目团队必然会使用版本控制系统，比如CVS、SVN(集中式版本控制系统)、GIT(分布式版本控制系统)。<br>版本控制系统选定后，紧接着为了提高团队的协同开发效率，就需要选择一种适合当前团队、或者适合当前项目的开发流程。<br>这里以主流的git版本控制系统为例，介绍常见的3种工作流：<strong>①Git flow ②Github flow ③Gitlab Flow</strong></p>
-<p>&emsp;&emsp;本文的三种工作流程，都属于功能驱动式开发(Featrue-driven development,简称FDD)范畴，FDD即项目开发的起点是需求，维护master主分支，切分出功能分支(feature branch)、补丁分支(hotfix branch);<br>完成开发后，功能分支、补丁分支合并到主分支，同时被删除。</p>
-<ul>
-<li><p>Git workflow</p>
-<blockquote>
-<p>优点：流程清晰，版本清晰,理解简单</p>
-<p>缺点：长期维护两个主分支，不便于持续发布；分支切换频繁</p>
-<p>使用场景：定期发布，长期维护，如：游戏开发项目、底层服务程序</p>
-<p>简介：维护2+3+个branch</p>
-<ol>
-<li><p>长期维护2个分支master、develop分支 :</p>
-<p><code>master branch  : 用于发布、生产部署，时刻保持最稳定生产版本，并标注版本号(Tag);</code></p>
-<p><code>develop branch : 用于日常开发维护，时刻存放最新开发版本，每次发开功能是从次分支拉出新的feature分支进行开发。</code></p>
-</li>
-<li><p>开发、发布维护3个临时分支，功能开发、部署完成之后便被删除</p>
-<p><code>release branch : 用于正是发布前预发布，进行文档及版本元信息更新。合并到master分支完成正是发布后，便将该分支合更新并到develop分支，删除该分支；</code></p>
-<p><code>hotfix branch  : 用于发布后紧急bug修复，或热修复，从master分支拉出。完成bug修复后便合并到master分支，同时将更新合并到develop分支，删除该分支；</code></p>
-<p><code>featureXXX branch : 用于新功能开发，当需要开发新功能时，从develop分支中拉出，用于开发新功能。开发完成后，便合并到develop分支并被删除；</code></p>
-</li>
-</ol>
-<p>3.Git workflow 具体工作流程图如下：</p>
-</blockquote>
-<div align="center"><br>   <img src="/imgs/workflow/git-workflow.png" width="620" height="400" alt="具体工作流程图如下"><br></div>
-
-
-</li>
-</ul>
-<ul>
-<li><p>Github workflow</p>
-<blockquote>
-<p>优点：简单、适合频繁发布版本</p>
-<p>缺点：版本概念模糊</p>
-<p>使用场景：不定期持续发布、热发布，如：网站开发</p>
-<p>简介：github.com 使用的工作流程、git flow精简版</p>
-<ol>
-<li><p>长期维护1个分支；</p>
-<p><code>master branch   : 用于发布、功能更新，时刻保持最新版本、稳定版本、随时可发布；</code></p>
-</li>
-<li><p>短期维护1+开发分支；</p>
-<p><code>featureXX branch : 用于开发新功能；从master分支拉出。功能开发完成后，向master分支发送pull request请求(简称PR)，合并请求被master branch允许后，该分支被删除；</code></p>
-</li>
-<li><p>Github Flow工作流程示意图如下</p>
-</li>
-</ol>
-</blockquote>
-</li>
-</ul>
-<div align="center"><br>    <img src="/imgs/workflow/github-workflow.png" width="900" height="400" alt="具体工作流程图如下"><br></div>
-
-
-
-
-<ul>
-<li><p>Gitlab workflow</p>
-<blockquote>
-<p>优点：兼容Git Flow 和Github Flow 两种模式</p>
-<p>特点：<strong>上游优先</strong> —— 只有上游分支采纳的版本变化，才会应用到其他分之；</p>
-<p>简介： 持续发布模式 + 版本发布模式</p>
-<ol>
-<li><p>持续发布模式</p>
-<p><code>master branch         : 开发环境分支，用于开发功能使用，是其他所有分支的上游分支。该分支更新的代码会向下应用到其他环境分支；</code></p>
-<p><code>pre-production branch : 预发环境分支，用于预发布测试，从master分支拉出，同时是production分支的上游。</code></p>
-<p><code>production branch     : 生产环境分支，用于生产发布，从pre-production分支拉出，是pre-production分支的下游。</code></p>
-<p><code>featureX/fixX branch  : 开发功能/修复bug分支，用于开发/修复bug,从master分支拉出，是master分支的上游。该分支开发完成后，先合并到mster分支，确认没有问题后；再cherry-pick到pre-production分支；pre-production分支也确认没有问题再cherry-pick到production分支。</code></p>
-</li>
-<li><p>版本发布模式</p>
-<p><code>master branch : 开发环境分支，用于开发功能使用，是其他所有分支的上游分支。该分支更新的代码会向下应用到其他环境分支；</code><br><code>Version-x branch : 发布版本分支，从master分支拉出，用于发布不同版本。</code><br><code>featureX/fixX branch  : 开发功能/修复bug分支，用于开发/修复bug,从master分支拉出，是master分支的上游。该分支开发完成后，先合并到mster分支，确认没有问题后；再cherry-pick到相对应的version-x分支。</code></p>
-</li>
-<li><p>两种工作模式的流程示意图</p>
-</li>
-</ol>
-</blockquote>
-<div align="center"><br> <img src="/imgs/workflow/gitlab-workflow-continue.png" width="400" height="400" alt="具体工作流程图如下"><br> <img src="/imgs/workflow/gitlab-workflow-release.png" width="400" height="400" alt="具体工作流程图如下"><br></div>
-
-</li>
-</ul>
-<blockquote>
-<p>参考文章：</p>
-</blockquote>
-<p>1.Git workflow 参考： <a href="https://danielkummer.github.io/git-flow-cheatsheet/" target="_blank" rel="external">git flow cheatsheet</a> 、<a href="https://www.git-tower.com/learn/git/ebook/en/desktop-gui/advanced-topics/git-flow" target="_blank" rel="external">Git tower</a></p>
-<p>2.Github workflow 参考：<a href="https://guides.github.com/" target="_blank" rel="external">github guide</a></p>
-<p>3.Gitlab workflow 参考：<a href="https://about.gitlab.com/2014/09/29/gitlab-flow/" target="_blank" rel="external">gitlab flow</a>、<a href="https://about.gitlab.com/2016/10/25/gitlab-workflow-an-overview/" target="_blank" rel="external">gitlab workflow</a></p>
-<p>4.版本控制系统入门介绍,参考： <a href="https://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000/001374027586935cf69c53637d8458c9aec27dd546a6cd6000" target="_blank" rel="external">Subversion VS Git</a></p>
-
+        
+          <a class="article-more-a" href="/2017/09/09/git-workflow/#more">more >></a>
+        
       
 
       
@@ -714,11 +516,11 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">form</a>
+                <a href="javascript:void(0)" class="js-tag color1">route</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">route</a>
+                <a href="javascript:void(0)" class="js-tag color5">form</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -731,6 +533,10 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">git</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">bootstrap</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -751,10 +557,6 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">secrect</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">bootstrap</a>
               </li>
             
             <div class="clearfix"></div>
