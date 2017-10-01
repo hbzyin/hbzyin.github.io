@@ -5,30 +5,30 @@
   
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <link rel="dns-prefetch" href="http://yoursite.com">
+  <link rel="dns-prefetch" href="http://hbzyin.win">
   <title>Angular2 组件视图/样式封装机制 | hbzyin-blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="尽管css的意思是层叠样式表，但有时候我们并不需要”层叠”。既然angular采用了组件化的设计模式，那么我们能不能采用组件化的方式，为某个组件提供特定的局部（组件级别）个性样式而不影响到页面的其他部分，答案是肯定的。">
 <meta name="keywords" content="angular,route">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Angular2 组件视图&#x2F;样式封装机制">
-<meta property="og:url" content="http://yoursite.com/2017/09/09/angular-view-Encapsulation/index.html">
+<meta property="og:url" content="http://hbzyin.win/2017/09/09/angular-view-Encapsulation/index.html">
 <meta property="og:site_name" content="hbzyin-blog">
 <meta property="og:description" content="尽管css的意思是层叠样式表，但有时候我们并不需要”层叠”。既然angular采用了组件化的设计模式，那么我们能不能采用组件化的方式，为某个组件提供特定的局部（组件级别）个性样式而不影响到页面的其他部分，答案是肯定的。">
-<meta property="og:image" content="http://yoursite.com/imgs/angular-advanced/project.structure.png">
-<meta property="og:image" content="http://yoursite.com/imgs/angular-advanced/viewEncapsulation.emulate.png">
-<meta property="og:image" content="http://yoursite.com/imgs/angular-advanced/global.scss.png">
-<meta property="og:image" content="http://yoursite.com/imgs/angular-advanced/viewEncapsulation.emulate.png">
-<meta property="og:image" content="http://yoursite.com/imgs/angular-advanced/html.emulate.png">
-<meta property="og:image" content="http://yoursite.com/imgs/angular-advanced/viewEncapsulation.native.png">
-<meta property="og:image" content="http://yoursite.com/imgs/angular-advanced/html.native.png">
-<meta property="og:image" content="http://yoursite.com/imgs/angular-advanced/viewEncapsulation.none.png">
-<meta property="og:image" content="http://yoursite.com/imgs/angular-advanced/html.none.png">
+<meta property="og:image" content="http://hbzyin.win/imgs/angular-advanced/project.structure.png">
+<meta property="og:image" content="http://hbzyin.win/imgs/angular-advanced/viewEncapsulation.emulate.png">
+<meta property="og:image" content="http://hbzyin.win/imgs/angular-advanced/global.scss.png">
+<meta property="og:image" content="http://hbzyin.win/imgs/angular-advanced/viewEncapsulation.emulate.png">
+<meta property="og:image" content="http://hbzyin.win/imgs/angular-advanced/html.emulate.png">
+<meta property="og:image" content="http://hbzyin.win/imgs/angular-advanced/viewEncapsulation.native.png">
+<meta property="og:image" content="http://hbzyin.win/imgs/angular-advanced/html.native.png">
+<meta property="og:image" content="http://hbzyin.win/imgs/angular-advanced/viewEncapsulation.none.png">
+<meta property="og:image" content="http://hbzyin.win/imgs/angular-advanced/html.none.png">
 <meta property="og:updated_time" content="2017-09-30T07:56:24.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Angular2 组件视图&#x2F;样式封装机制">
 <meta name="twitter:description" content="尽管css的意思是层叠样式表，但有时候我们并不需要”层叠”。既然angular采用了组件化的设计模式，那么我们能不能采用组件化的方式，为某个组件提供特定的局部（组件级别）个性样式而不影响到页面的其他部分，答案是肯定的。">
-<meta name="twitter:image" content="http://yoursite.com/imgs/angular-advanced/project.structure.png">
+<meta name="twitter:image" content="http://hbzyin.win/imgs/angular-advanced/project.structure.png">
   
     <link rel="alternative" href="/atom.xml" title="hbzyin-blog" type="application/atom+xml">
   
@@ -43,6 +43,16 @@
   
 
   
+<script>
+var _hmt = _hmt || [];
+(function() {
+	var hm = document.createElement("script");
+	hm.src = "https://hm.baidu.com/hm.js?57c2a28311a4985d72e5769d4905eed1";
+	var s = document.getElementsByTagName("script")[0]; 
+	s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
 
 </head>
 
@@ -350,7 +360,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/09/09/angular-view-Encapsulation/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://hbzyin.win/2017/09/09/angular-view-Encapsulation/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -364,18 +374,18 @@
   
 <nav id="article-nav">
   
-    <a href="/2017/09/09/ECMAScript5-API/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2017/09/09/angularCLI/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          web 文件操作
+          Angular2 cli
         
       </div>
     </a>
   
   
-    <a href="/2017/09/09/angularCLI/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Angular2 cli</div>
+    <a href="/2017/09/09/angular-router2/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Angular2 导航方式</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -534,19 +544,15 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">directive</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">form</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">route</a>
+                <a href="javascript:void(0)" class="js-tag color5">directive</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">cli</a>
+                <a href="javascript:void(0)" class="js-tag color1">route</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -555,6 +561,14 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">git</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">cli</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">secrect</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -571,10 +585,6 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">SGML</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">secrect</a>
               </li>
              
               <li class="article-tag-list-item">
