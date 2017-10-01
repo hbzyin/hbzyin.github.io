@@ -6,17 +6,21 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://hbzyin.win">
-  <title>Archives | hbzyin-blog</title>
+  <title>oAuth 认证机制 | hbzyin-blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="web 前端 | 切图仔 | javascript | css | hbzyin">
-<meta property="og:type" content="website">
-<meta property="og:title" content="hbzyin-blog">
-<meta property="og:url" content="http://hbzyin.win/archives/index.html">
+  <meta name="description" content="这段时间公司开发项目用到oAuth2协议，现在做一下梳理。 CORS即Cross Origin Resouce Share，跨域资源共享；是W3C为防止脚本攻击，而制定的安全标准之一，它允许浏览器向跨域服务器发送XMLHttpRequest请求；跨域域问题，伴随而来的就是前端项目中的权限认证问题。">
+<meta name="keywords" content="secrect">
+<meta property="og:type" content="article">
+<meta property="og:title" content="oAuth 认证机制">
+<meta property="og:url" content="http://hbzyin.win/2017/09/09/oAuth-md/index.html">
 <meta property="og:site_name" content="hbzyin-blog">
-<meta property="og:description" content="web 前端 | 切图仔 | javascript | css | hbzyin">
+<meta property="og:description" content="这段时间公司开发项目用到oAuth2协议，现在做一下梳理。 CORS即Cross Origin Resouce Share，跨域资源共享；是W3C为防止脚本攻击，而制定的安全标准之一，它允许浏览器向跨域服务器发送XMLHttpRequest请求；跨域域问题，伴随而来的就是前端项目中的权限认证问题。">
+<meta property="og:image" content="http://images2015.cnblogs.com/blog/1034075/201707/1034075-20170720022456411-1386626362.png">
+<meta property="og:updated_time" content="2017-09-30T07:50:52.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="hbzyin-blog">
-<meta name="twitter:description" content="web 前端 | 切图仔 | javascript | css | hbzyin">
+<meta name="twitter:title" content="oAuth 认证机制">
+<meta name="twitter:description" content="这段时间公司开发项目用到oAuth2协议，现在做一下梳理。 CORS即Cross Origin Resouce Share，跨域资源共享；是W3C为防止脚本攻击，而制定的安全标准之一，它允许浏览器向跨域服务器发送XMLHttpRequest请求；跨域域问题，伴随而来的就是前端项目中的权限认证问题。">
+<meta name="twitter:image" content="http://images2015.cnblogs.com/blog/1034075/201707/1034075-20170720022456411-1386626362.png">
   
     <link rel="alternative" href="/atom.xml" title="hbzyin-blog" type="application/atom+xml">
   
@@ -157,86 +161,120 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-oAuth-md" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/09/28/html-doc-type/" class="archive-article-date">
-  	<time datetime="2017-09-28T00:10:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-28</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/09/28/html-doc-type/">由html的文档类型引发的ISO文档信息规范</a>
+    <h1 class="article-title" itemprop="name">
+      oAuth 认证机制
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">html</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">DTD</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">XML</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">SGML</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/09/09/oAuth-md/" class="archive-article-date">
+        
+        <a href="/2017/09/09/oAuth-md/" class="archive-article-date">
   	<time datetime="2017-09-09T07:31:39.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-09</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/09/09/oAuth-md/">oAuth 认证机制</a>
-    </h1>
-  
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p> 这段时间公司开发项目用到oAuth2协议，现在做一下梳理。</p>
+<p>CORS即Cross Origin Resouce Share，跨域资源共享；是W3C为防止脚本攻击，而制定的安全标准之一，它允许浏览器向跨域服务器发送XMLHttpRequest请求；<br>跨域域问题，伴随而来的就是前端项目中的权限认证问题。</p>
+</blockquote>
+<a id="more"></a>
+<h2 id="1-基本逻辑："><a href="#1-基本逻辑：" class="headerlink" title="1. 基本逻辑："></a>1. 基本逻辑：</h2><blockquote>
+<p>CORS跨域请求分为两种：简单请求、非简单请求，两种情景处理具体细节不同，但实现逻辑相同</p>
+</blockquote>
+<ul>
+<li><p>简单请求需同时满足以下两个条件：</p>
+<ol>
+<li>请求方法为：<code>GET</code>、<code>HEAD</code>、<code>POST</code>三种其中的一种；</li>
+<li>HTTP头信息不超出一下几个字段：<br>①Accept ②Accept-Language ③Last-Event-ID ④Content ⑤Content-Type：只限三种：application/x-www-form-urlencoded、muiltipart/form-data、text/plain</li>
+<li><p>简单请求流程：<br>①浏览器检测到请求为跨域请求时，便在请求头上加上字段<code>Origin</code>，指明发出跨域请求的源；<br>②服务器端检测到跨域请求头信息中，<code>Origin</code>是否在许可范围内：<br>③若请求源在允许范围，返回响应，响应头上添加以下几个字段：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">Access-Control-Allow-Origin:http://api.beta.com //服务器应许跨域白名单</div><div class="line">Access-Control-Allow-Credentials:true           //允许跨域请求携带cookie</div><div class="line">Access-Control-Expose-Headers:Custom-header     //允许客户端请求时携带自定义头字段</div><div class="line">Conten-Type:text/html;chartset=utf-8            //允许返回数据类型</div></pre></td></tr></table></figure>
+<p>④若跨域请求源不在允许范围内，服务器会返回一个XMLHttpRequest错误信息，该错误不能被http错误处理机制捕获，因为其状态码为200.</p>
+</li>
+</ol>
+</li>
+<li><p>非简单请求：</p>
+<ol>
+<li>非简单请求，通常是对服务器有特殊需求的请求，</li>
+<li>非简单请求发送前，浏览器会自动发送一次预检请求，请求方法为Option</li>
+<li>预检请求通过后，后续步骤同简单请求</li>
+</ol>
+</li>
+<li><p>oAuth2认证逻辑步骤</p>
+<ol>
+<li>用户使用用户名、密码登录；</li>
+<li>后台校验用户信息；</li>
+<li>跳转至oAuth认证接口，返回token、refresh token、token expires;（此处token一般有有效期）</li>
+<li>用户携带token值与后台DB服务通过http/https交互；</li>
+<li>token 值到期后；用户携带refresh token请求oAuth token刷新接口更新token并通过响应发送至客户；</li>
+<li>重复第4、第5步，保证token有效可用状态下，与后台进行交互</li>
+</ol>
+</li>
+</ul>
+<p><img src="http://images2015.cnblogs.com/blog/1034075/201707/1034075-20170720022456411-1386626362.png" alt=""></p>
+<h2 id="oAuth2的协议-里面有两个比较常用的接口"><a href="#oAuth2的协议-里面有两个比较常用的接口" class="headerlink" title="oAuth2的协议.里面有两个比较常用的接口."></a>oAuth2的协议.里面有两个比较常用的接口.</h2><h3 id="1-获取token"><a href="#1-获取token" class="headerlink" title="1. 获取token"></a>1. 获取token</h3><p>接口:  <code>/oauth/token?</code></p>
+<p>参数: (grant_type是写规定好的,其它的两个自定义)</p>
+<ul>
+<li>grant_type=password</li>
+<li>username=development@sometech.com</li>
+<li>password=oQd-BfT-cer-7LP</li>
+</ul>
+<p>完整的样例:<code>http://localhost:9000/oauth/token?grant_type=password&amp;username=development@sometech.com&amp;password=oQd-BfT-cer-7LP</code></p>
+<p>返回结果样例:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    &quot;access_token&quot;: &quot;beeaa54e-8391-4de0-8ba6-ce145b3fb812&quot;,</div><div class="line">    &quot;token_type&quot;: &quot;bearer&quot;,</div><div class="line">    &quot;refresh_token&quot;: &quot;8129769a-d804-46c7-856a-3bacd409b650&quot;,</div><div class="line">    &quot;expires_in&quot;: 3599,</div><div class="line">    &quot;scope&quot;: &quot;read write&quot;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="2-刷新token"><a href="#2-刷新token" class="headerlink" title="2. 刷新token"></a>2. 刷新token</h3><p>接口:<code>http://localhost:9000/oauth/token?</code></p>
+<p>参数:(refresh_token是根据1中的来定的.其它参数是固定的)</p>
+<ul>
+<li>client_id=dashboard</li>
+<li>client_secret=secret</li>
+<li>grant_type=refresh_token</li>
+<li>refresh_token=43dca105-627e-4f50-86e8-0c22c2f3abe9</li>
+</ul>
+<p>样例: <code>http://localhost:9000/oauth/token?client_id=dashboard&amp;client_secret=secret&amp;grant_type=refresh_token&amp;refresh_token=43dca105-627e-4f50-86e8-0c22c2f3abe9</code></p>
+<p>返回结果<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    &quot;access_token&quot;: &quot;0135c92b-12ab-4af9-88f4-97ef85115e71&quot;,</div><div class="line">    &quot;token_type&quot;: &quot;bearer&quot;,</div><div class="line">    &quot;refresh_token&quot;: &quot;75d209b5-a30d-43a8-abcd-850e7fb62e76&quot;,</div><div class="line">    &quot;expires_in&quot;: 3599,</div><div class="line">    &quot;scope&quot;: &quot;read write&quot;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h3 id="3-CORS仅仅是实现跨域请求的一种，还有其他多种方案，如"><a href="#3-CORS仅仅是实现跨域请求的一种，还有其他多种方案，如" class="headerlink" title="3. CORS仅仅是实现跨域请求的一种，还有其他多种方案，如"></a>3. CORS仅仅是实现跨域请求的一种，还有其他多种方案，如</h3><p>jsonp、document.domain、window.name、window.postMessage、CSST(css text Transformation)、flash等。</p>
+<p>–end</p>
 
-        <div class="article-info info-on-right">
-          
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你的鼓励。<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/imgs/weixin.jpg">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -248,148 +286,114 @@ var _hmt = _hmt || [];
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://hbzyin.win/2017/09/09/oAuth-md/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/09/09/git-workflow/" class="archive-article-date">
-  	<time datetime="2017-09-09T06:13:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-09</time>
-</a>
+<nav id="article-nav">
+  
+    <a href="/2017/09/28/html-doc-type/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          由html的文档类型引发的ISO文档信息规范
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/09/09/git-workflow/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">workflow--项目工作流程</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/09/09/git-workflow/">workflow--项目工作流程</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">workflow</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">git</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/09/09/web-component/" class="archive-article-date">
-  	<time datetime="2017-09-09T05:20:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-09</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/09/09/web-component/">Ngx-bootstrap组件总结</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">component</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">bootstrap</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/09/09/frontend-skills/" class="archive-article-date">
-  	<time datetime="2017-09-09T05:20:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-09</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/09/09/frontend-skills/">Front end</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">文本</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">file</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/archives/page/2/">2</a><a class="page-number" href="/archives/page/3/">3</a><a class="extend next" rel="next" href="/archives/page/2/">Next &raquo;</a>
-    </nav>
   
 
 
@@ -419,8 +423,8 @@ var _hmt = _hmt || [];
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,

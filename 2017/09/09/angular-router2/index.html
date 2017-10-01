@@ -6,17 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://hbzyin.win">
-  <title>Archives | hbzyin-blog</title>
+  <title>Angular2 导航方式 | hbzyin-blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="web 前端 | 切图仔 | javascript | css | hbzyin">
-<meta property="og:type" content="website">
-<meta property="og:title" content="hbzyin-blog">
-<meta property="og:url" content="http://hbzyin.win/archives/index.html">
+  <meta name="description" content="预警 1.导航方式：angular的路由导航有那些方式，各自如何实现 2.参数路由：angular路由导航时候如何携带参数">
+<meta name="keywords" content="angular,route">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Angular2 导航方式">
+<meta property="og:url" content="http://hbzyin.win/2017/09/09/angular-router2/index.html">
 <meta property="og:site_name" content="hbzyin-blog">
-<meta property="og:description" content="web 前端 | 切图仔 | javascript | css | hbzyin">
+<meta property="og:description" content="预警 1.导航方式：angular的路由导航有那些方式，各自如何实现 2.参数路由：angular路由导航时候如何携带参数">
+<meta property="og:updated_time" content="2017-09-30T07:54:52.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="hbzyin-blog">
-<meta name="twitter:description" content="web 前端 | 切图仔 | javascript | css | hbzyin">
+<meta name="twitter:title" content="Angular2 导航方式">
+<meta name="twitter:description" content="预警 1.导航方式：angular的路由导航有那些方式，各自如何实现 2.参数路由：angular路由导航时候如何携带参数">
   
     <link rel="alternative" href="/atom.xml" title="hbzyin-blog" type="application/atom+xml">
   
@@ -157,239 +159,270 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-angular-router2" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Angular2 导航方式
+    </h1>
+  
+
+        
+        <a href="/2017/09/09/angular-router2/" class="archive-article-date">
+  	<time datetime="2017-09-09T05:17:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-09</time>
+</a>
+        
+      </header>
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="预警"><a href="#预警" class="headerlink" title="预警"></a>预警</h3><blockquote>
+<p>1.导航方式：angular的路由导航有那些方式，各自如何实现</p>
+<p>2.参数路由：angular路由导航时候如何携带参数</p>
+</blockquote>
+<a id="more"></a>
+<h4 id="1-导航方式"><a href="#1-导航方式" class="headerlink" title="1. 导航方式"></a>1. 导航方式</h4><p>ngular2主要有两种导航方式：</p>
+<p>①链接式导航：页面设置导航链接，点击后跳转至相应页面；如：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">routerLink</span>=<span class="string">[</span>'/<span class="attr">home</span>']&gt;</span>click here to go to home page<span class="tag">&lt;/<span class="name">a</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>②命令式导航：设置点击事件，在组件内进行逻辑页面跳转;如：<br><figure class="highlight typescript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@Component</span>(&#123;</div><div class="line">  template:<span class="string">`</span></div><div class="line"><span class="string">  &lt;button (click)="goHome()"&gt;主页面&lt;button&gt; //页面跳转事件</span></div><div class="line"><span class="string">  `</span>,</div><div class="line">  ...</div><div class="line">&#125;)</div><div class="line"><span class="keyword">export</span> <span class="keyword">class</span> AppComponent <span class="keyword">implements</span> OnInit(&#123;</div><div class="line">  <span class="keyword">constructor</span>(<span class="params"></span>)&#123;&#125;;</div><div class="line">  ngInit():<span class="built_in">void</span>&#123;&#125;</div><div class="line">  goDetail():<span class="built_in">void</span>&#123;                        <span class="comment">//跳转处理函数  </span></div><div class="line">    <span class="keyword">this</span>.router.navigate([<span class="string">'/home'</span>]);</div><div class="line">  &#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure></p>
+<h4 id="2-路由传参导航"><a href="#2-路由传参导航" class="headerlink" title="2. 路由传参导航"></a>2. 路由传参导航</h4><p>加入我们现在有一个订单列表页面，需要查看每个订单的详情，改如何导航哪？<br>a.我们可以为每个订单设置一个连接；b.设置路由跳转规则，导航是带上区别订单的关键字段；<br>是的，没错，angular2就是采用方式2进行导航的；</p>
+<p> 在开始进行参数导航之前，让我们先来了看几个angular2的路由服务的相关术语：</p>
+<table>
+<thead>
+<tr>
+<th>序号</th>
+<th>类别</th>
+<th style="text-align:left">部件</th>
+<th>名称</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td></td>
+<td style="text-align:left">Route</td>
+<td>路由</td>
+<td>定义路由器如何根据URL模式来导航到组件，大多数都由路径和组件类构成</td>
+</tr>
+<tr>
+<td>2</td>
+<td>组件</td>
+<td style="text-align:left">Router</td>
+<td>路由器</td>
+<td>为激活的url显示对应的组件，负责从一个页面/组件，导航到另一个页面/组件</td>
+</tr>
+<tr>
+<td>3</td>
+<td>常量</td>
+<td style="text-align:left">Routes</td>
+<td>路由数组</td>
+<td>定义一个路由数组，每一个都会把一个URL路径映射到一个组件</td>
+</tr>
+<tr>
+<td>4</td>
+<td>模块</td>
+<td style="text-align:left">RouterModule</td>
+<td>路由器模块</td>
+<td>用于提供所需的服务提供商，提供进行导航的指令</td>
+</tr>
+<tr>
+<td>5</td>
+<td>指令</td>
+<td style="text-align:left">RouterLink</td>
+<td>路由链接</td>
+<td><code>[routerLink]=[&#39;str&#39;]</code>用于把可点击的html元素绑定到路由</td>
+</tr>
+<tr>
+<td>6</td>
+<td>指令</td>
+<td style="text-align:left">RouterOutlet</td>
+<td>路由插座</td>
+<td><code>&lt;router-outlet&gt;</code>用来标记路由该在哪里显示视图</td>
+</tr>
+<tr>
+<td>7</td>
+<td>指令</td>
+<td style="text-align:left">RouterLinkActive</td>
+<td>活动的路由链接</td>
+<td>当html元素上的routerLink变为激活或非激活状态时，该指令为相应元素添加或移除css类</td>
+</tr>
+<tr>
+<td>8</td>
+<td>方法</td>
+<td style="text-align:left">RouterState</td>
+<td>路由器状态</td>
+<td>路由器的当前状态包含了一颗由程序中激活的路由构成的树，，提供一些用于遍历路有数的快捷方法</td>
+</tr>
+<tr>
+<td>9</td>
+<td>服务</td>
+<td style="text-align:left">Activedroute</td>
+<td>激活的路由</td>
+<td>为每个路由组件提供一个服务，包含特定的路由信息，如：路由参数、静态数据、解析数据、全局查询参数、群居碎片</td>
+</tr>
+</tbody>
+</table>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你的鼓励。<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/imgs/weixin.jpg">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/09/28/html-doc-type/" class="archive-article-date">
-  	<time datetime="2017-09-28T00:10:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-28</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/09/28/html-doc-type/">由html的文档类型引发的ISO文档信息规范</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">html</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">angular</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">DTD</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">XML</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">SGML</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">route</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://hbzyin.win/2017/09/09/angular-router2/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/09/09/oAuth-md/" class="archive-article-date">
-  	<time datetime="2017-09-09T07:31:39.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-09</time>
-</a>
+<nav id="article-nav">
+  
+    <a href="/2017/09/09/angular-view-Encapsulation/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          Angular2 组件视图/样式封装机制
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/09/09/angular-router1/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Angular   路由导航简介</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/09/09/oAuth-md/">oAuth 认证机制</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">secrect</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/09/09/git-workflow/" class="archive-article-date">
-  	<time datetime="2017-09-09T06:13:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-09</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/09/09/git-workflow/">workflow--项目工作流程</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">workflow</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">git</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/09/09/web-component/" class="archive-article-date">
-  	<time datetime="2017-09-09T05:20:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-09</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/09/09/web-component/">Ngx-bootstrap组件总结</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">component</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">bootstrap</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/09/09/frontend-skills/" class="archive-article-date">
-  	<time datetime="2017-09-09T05:20:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-09</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/09/09/frontend-skills/">Front end</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">文本</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">file</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/archives/page/2/">2</a><a class="page-number" href="/archives/page/3/">3</a><a class="extend next" rel="next" href="/archives/page/2/">Next &raquo;</a>
-    </nav>
   
 
 
@@ -419,8 +452,8 @@ var _hmt = _hmt || [];
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,

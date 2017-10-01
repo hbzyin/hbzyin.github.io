@@ -6,17 +6,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://hbzyin.win">
-  <title>Archives | hbzyin-blog</title>
+  <title>Angular 指令 | hbzyin-blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="web 前端 | 切图仔 | javascript | css | hbzyin">
-<meta property="og:type" content="website">
-<meta property="og:title" content="hbzyin-blog">
-<meta property="og:url" content="http://hbzyin.win/archives/index.html">
+  <meta name="description" content="Angular的设计核心理念是数据绑定、组件化. 请时刻牢记这句话！ 按照惯例，先来剧情透露：  angular指令种类 angular内置ngif指令 &amp;lt;template&amp;gt;标签 *ngIf语法糖 学习自定义一个指令">
+<meta name="keywords" content="angular,directive">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Angular 指令">
+<meta property="og:url" content="http://hbzyin.win/2017/09/09/angular-directive1/index.html">
 <meta property="og:site_name" content="hbzyin-blog">
-<meta property="og:description" content="web 前端 | 切图仔 | javascript | css | hbzyin">
+<meta property="og:description" content="Angular的设计核心理念是数据绑定、组件化. 请时刻牢记这句话！ 按照惯例，先来剧情透露：  angular指令种类 angular内置ngif指令 &amp;lt;template&amp;gt;标签 *ngIf语法糖 学习自定义一个指令">
+<meta property="og:image" content="http://hbzyin.win/2017/09/09/angular-directive1/imgs/angular-cli/page1.png">
+<meta property="og:image" content="http://hbzyin.win/2017/09/09/angular-directive1/imgs/angular-cli/code1.png">
+<meta property="og:updated_time" content="2017-09-30T07:53:24.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="hbzyin-blog">
-<meta name="twitter:description" content="web 前端 | 切图仔 | javascript | css | hbzyin">
+<meta name="twitter:title" content="Angular 指令">
+<meta name="twitter:description" content="Angular的设计核心理念是数据绑定、组件化. 请时刻牢记这句话！ 按照惯例，先来剧情透露：  angular指令种类 angular内置ngif指令 &amp;lt;template&amp;gt;标签 *ngIf语法糖 学习自定义一个指令">
+<meta name="twitter:image" content="http://hbzyin.win/2017/09/09/angular-directive1/imgs/angular-cli/page1.png">
   
     <link rel="alternative" href="/atom.xml" title="hbzyin-blog" type="application/atom+xml">
   
@@ -157,239 +162,222 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-angular-directive1" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Angular 指令
+    </h1>
+  
+
+        
+        <a href="/2017/09/09/angular-directive1/" class="archive-article-date">
+  	<time datetime="2017-09-09T05:14:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-09</time>
+</a>
+        
+      </header>
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><strong>Angular的设计核心理念是数据绑定、组件化.</strong> 请时刻牢记这句话！</p>
+<p>按照惯例，先来剧情透露：</p>
+<ul>
+<li>angular指令种类</li>
+<li>angular内置ngif指令</li>
+<li><code>&lt;template&gt;</code>标签</li>
+<li><code>*ngIf</code>语法糖</li>
+<li>学习自定义一个指令</li>
+</ul>
+<a id="more"></a>
+<h3 id="1-angular指令种类"><a href="#1-angular指令种类" class="headerlink" title="1.angular指令种类"></a>1.angular指令种类</h3><p>Angular的指令分为以下三种：</p>
+<ul>
+<li>组件</li>
+<li>属性指令</li>
+<li>结构指令</li>
+</ul>
+<p>① 组件</p>
+<blockquote>
+<p>Angular应用是由一个个的组件（component）构成的;组件是由html模板、组件类构成。<br>html模板实现页面的展示内容，组件类用来控制视图的展示形式。每一个组件都以@Component装饰器函数开始，该函数接受一个元数据对象参数，<br>这个元素苏描述了html模板与组件类如何协同工作的。</p>
+</blockquote>
+<p>②属性指令</p>
+<blockquote>
+<p>属性指令用于改变元素的外观和行为。如内置的<code>ngClass</code>、<code>ngStyle</code>指令。</p>
+</blockquote>
+<p>③结构指令</p>
+<blockquote>
+<p>结构指令通过添加或删除DOM元素来改变DOM布局。如内置的<code>ngIf</code>、<code>ngSwitch</code>、<code>ngFor</code>等指令。</p>
+</blockquote>
+<p><strong><em>下面我们主要针对<code>ngIf</code>来谈一下angular的一部分优缺点。</em></strong></p>
+<p>先看一个栗子：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&lt;p *ngIf=&quot;true&quot;&gt;</div><div class="line">This information1 is displayed if condition is true.</div><div class="line">&lt;/p&gt;</div><div class="line">&lt;p *ngIf=&quot;!true&quot;&gt;</div><div class="line">Tihs information2 is deleted if condition is true.</div><div class="line">&lt;/p&gt;</div></pre></td></tr></table></figure></p>
+<p>打开浏览器及开发工具，效果如下;<br><img src="imgs/angular-cli/page1.png" alt=""><br><img src="imgs/angular-cli/code1.png" alt=""></p>
+<p>我们看到dom树里面只有一个段落，也就是说第二个段落被*ngIf指令从DOM树种移除了，当然我们也可以通过设置元素节点css属性display:none将其隐藏。<br>在彻底明白angular底层是如何实现这一功能的，我们还有必要来看看html的一个不常用标签元素<code>&lt;template&gt;</code><br>html5的<code>template</code>标签，允许开发者在里面添加一些代码段，这些代码段这页面初始化时不会被渲染，但可以被Javascript语句操作，并渲染在页面；<br>下面是angular2,   <code>ngIf</code>代码的两种使用方法：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">&lt;!--(A)*语法糖 *ngIf paragraph--&gt;</div><div class="line">&lt;p *ngIf=&quot;condition&quot;&gt;This will show if condition is true.&lt;/p&gt;</div><div class="line">&lt;!--(B)template标签 [ngIf] with template--&gt;</div><div class="line">&lt;template [ngIf]=&quot;condition&quot;&gt;</div><div class="line">  &lt;p&gt;This will show if condition is true.&lt;/p&gt;</div><div class="line">&lt;/template&gt;</div><div class="line"></div><div class="line">//ps.通常我们采用第一种书写方式（A）： angular内部会将风格(A)转换成(B)</div></pre></td></tr></table></figure></p>
+<p>为什么angular将其从DOM树种删除，而不是隐藏，我们先来看看两者之间的区别：</p>
+<p>①元素隐藏：元素仍在页面DOM树里面存在，仍然实时监听着页面的事件，如果绑定了数据，angular会继续对其进行动态监测；<br>②元素删除：元素彻底从页面DOM树消失，不会对页面的事件、数据及渲染造成任何影响；</p>
+<p>我们之前说过，angular设计的核心理念之一便是数据绑定，就像官网所说： </p>
+<blockquote>
+<p>最小化初始化的成本，并考虑把状态缓存在一个半生的服务中。</p>
+</blockquote>
+<p>angular核心对数据进行自动检测；dom元素的操作、数据脏值检测，这两件事都是非常消耗cpu内存的，<br>angular吸取了angular1数据绑定的负面经验，采用了第一种方案。无疑这对于数据动态监听来说效率提高了很多，但仍不能说这是一个最好的实践方法。<br>作为一个开发者，在自定义新的指令时，我们同样面临着这种取舍，需要仔细考量添加元素、删除元素及销毁组件的成本和效率。</p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你的鼓励。<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/imgs/weixin.jpg">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/09/28/html-doc-type/" class="archive-article-date">
-  	<time datetime="2017-09-28T00:10:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-28</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/09/28/html-doc-type/">由html的文档类型引发的ISO文档信息规范</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">html</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">angular</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">DTD</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">XML</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">SGML</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">directive</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://hbzyin.win/2017/09/09/angular-directive1/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/09/09/oAuth-md/" class="archive-article-date">
-  	<time datetime="2017-09-09T07:31:39.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-09</time>
-</a>
+<nav id="article-nav">
+  
+    <a href="/2017/09/09/angular-forms1/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          Angular  表单模块
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/06/09/angular-component-class/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">angular component元数据</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/09/09/oAuth-md/">oAuth 认证机制</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">secrect</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/09/09/git-workflow/" class="archive-article-date">
-  	<time datetime="2017-09-09T06:13:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-09</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/09/09/git-workflow/">workflow--项目工作流程</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">workflow</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">git</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/09/09/web-component/" class="archive-article-date">
-  	<time datetime="2017-09-09T05:20:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-09</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/09/09/web-component/">Ngx-bootstrap组件总结</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">component</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">bootstrap</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/09/09/frontend-skills/" class="archive-article-date">
-  	<time datetime="2017-09-09T05:20:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-09</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/09/09/frontend-skills/">Front end</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">文本</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">file</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/archives/page/2/">2</a><a class="page-number" href="/archives/page/3/">3</a><a class="extend next" rel="next" href="/archives/page/2/">Next &raquo;</a>
-    </nav>
   
 
 
@@ -419,8 +407,8 @@ var _hmt = _hmt || [];
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,

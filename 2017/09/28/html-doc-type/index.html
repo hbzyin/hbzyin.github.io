@@ -6,17 +6,21 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://hbzyin.win">
-  <title>Archives | hbzyin-blog</title>
+  <title>由html的文档类型引发的ISO文档信息规范 | hbzyin-blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="web 前端 | 切图仔 | javascript | css | hbzyin">
-<meta property="og:type" content="website">
-<meta property="og:title" content="hbzyin-blog">
-<meta property="og:url" content="http://hbzyin.win/archives/index.html">
+  <meta name="description" content="作为一个前端开发者，HTML应该是最熟悉不过。打开电脑浏览器，点击鼠标右键，选择查看源码，所看到的就是html文本。那么文档类型定义声明有哪几种，各有什么作用，HTML、XML、SGML各是什么，DTD、DOCTYPE又是什么？">
+<meta name="keywords" content="html,DTD,XML,SGML">
+<meta property="og:type" content="article">
+<meta property="og:title" content="由html的文档类型引发的ISO文档信息规范">
+<meta property="og:url" content="http://hbzyin.win/2017/09/28/html-doc-type/index.html">
 <meta property="og:site_name" content="hbzyin-blog">
-<meta property="og:description" content="web 前端 | 切图仔 | javascript | css | hbzyin">
+<meta property="og:description" content="作为一个前端开发者，HTML应该是最熟悉不过。打开电脑浏览器，点击鼠标右键，选择查看源码，所看到的就是html文本。那么文档类型定义声明有哪几种，各有什么作用，HTML、XML、SGML各是什么，DTD、DOCTYPE又是什么？">
+<meta property="og:image" content="http://hbzyin.win/imgs/html/sgml.png">
+<meta property="og:updated_time" content="2017-10-01T05:29:59.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="hbzyin-blog">
-<meta name="twitter:description" content="web 前端 | 切图仔 | javascript | css | hbzyin">
+<meta name="twitter:title" content="由html的文档类型引发的ISO文档信息规范">
+<meta name="twitter:description" content="作为一个前端开发者，HTML应该是最熟悉不过。打开电脑浏览器，点击鼠标右键，选择查看源码，所看到的就是html文本。那么文档类型定义声明有哪几种，各有什么作用，HTML、XML、SGML各是什么，DTD、DOCTYPE又是什么？">
+<meta name="twitter:image" content="http://hbzyin.win/imgs/html/sgml.png">
   
     <link rel="alternative" href="/atom.xml" title="hbzyin-blog" type="application/atom+xml">
   
@@ -157,36 +161,127 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-html-doc-type" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/09/28/html-doc-type/" class="archive-article-date">
-  	<time datetime="2017-09-28T00:10:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-28</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/09/28/html-doc-type/">由html的文档类型引发的ISO文档信息规范</a>
+    <h1 class="article-title" itemprop="name">
+      由html的文档类型引发的ISO文档信息规范
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2017/09/28/html-doc-type/" class="archive-article-date">
+  	<time datetime="2017-09-28T00:10:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-28</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p> 作为一个前端开发者，HTML应该是最熟悉不过。打开电脑浏览器，点击鼠标右键，选择查看源码，所看到的就是html文本。那么文档类型定义声明有哪几种，各有什么作用，HTML、XML、SGML各是什么，DTD、DOCTYPE又是什么？</p>
+<a id="more"></a>
+<p><img src="/imgs/html/sgml.png" alt=""></p>
+<h4 id="1-先来看两个简单的前端问题"><a href="#1-先来看两个简单的前端问题" class="headerlink" title="1. 先来看两个简单的前端问题"></a>1. 先来看两个简单的前端问题</h4><blockquote>
+<p>1.HTML文档类型声明DCOTYPE的作用是什么？</p>
+</blockquote>
+<ul>
+<li><code>&lt;!DOCTYPE&gt;</code>声明位于html文档的第一行，位于<code>&lt;html&gt;&lt;/html&gt;</code>标签之前；<br><code>&lt;!DOCTYPE&gt;</code>声明不是html标签，是用于告诉web浏览器，解析页面采用哪个HTML版本进行编写的指令；<br><code>&lt;!DOCTYPE&gt;</code>声明对大小写不敏感；</li>
+<li>HTML4及更早版本基于SGML,<code>&lt;!DOCTYPE&gt;</code>声明引用 用于规定标记语言规则的DTD，使得浏览器能正确的显示内容；<br>HTML5不基于SGML,不需要引用添加<code>&lt;!DOCTYPE&gt;</code>声明；</li>
+</ul>
+<blockquote>
+<p>2.HTML文档类型声明有哪几种?</p>
+</blockquote>
+<p>  共8中=3种(html4.01)+3种(html1.0)+1种(html1.1)+1种(html5)</p>
+<ul>
+<li><p>HTML4.01文档类型声明有三种：<br>①Strict(严格定义类型):该DTD仅允许使用HTML元素、属性；不允许使用展示性、弃用的元素(如:<code>font</code>)、不允许使用框架集(<code>Frameset</code>)</p>
+<pre><code><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.01//EN&quot; &quot;http://www.w3.org/TR/html4/strict.dtd&quot;&gt;</div></pre></td></tr></table></figure>
+</code></pre><p>②Transitional(过渡定义类型):该DTD允许使用所有HTML元素、属性，允许是使用展示性、弃用的元素(如:<code>font</code>)；但不允许使用框架集(<code>Frameset</code>);</p>
+<pre><code><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;!DOCTYOE HTML PUBLIC &quot;-//W3C//DTD HTML 4.01 Transitional//EN&quot; &quot;http://www.w3.org/TR/html4/loose.dtd&quot;&gt;</div></pre></td></tr></table></figure>
+</code></pre><p>③Frameset(框架定义类型):该DTD允许使用HTM的所有元素、属性，允许使用展示性、弃用的元素，允许使用框架集(<code>Frameset</code>)</p>
+<pre><code><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.01 Frameset//EN&quot; &quot;HTTP://www.w3.org/TR/html4/frameset.dtd&quot;&gt;</div></pre></td></tr></table></figure>
+</code></pre></li>
+<li><p>HTML1.0文档类型声明有四种类型：与html4.01不同的是，HTML1.0全部要求以正确的XML格式编写XML,即所有标签元素都必须封闭。<br>①Strict(严格定义类型)：允许使用所有的HTML元素和属性；不允许使用展示性、弃用的元素、框架集；</p>
+<pre><code><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD/ XHTML 1.0 Strict//EN&quot; &quot;http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd&quot;&gt;</div></pre></td></tr></table></figure>
+</code></pre><p>②Transitioal(过渡定义类型)：允许使用所有的HTML元素、属性，允许使用展示型、弃用的元素；但不允许使用框架集；</p>
+<pre><code><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD/ XHTML 1.0 Transitional//EN&quot; &quot;http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd&quot;&gt;</div></pre></td></tr></table></figure>
+</code></pre><p>③Frameset(框架定义类型)：允许使用HTML元素、属性、展示性、弃用的元素、框架集；</p>
+<pre><code><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD/ XHTML 1.0 Frameset//EN&quot; &quot;http://www.w3.org/TR/xhtml1/DTD/xhtml1-Frameset.dtd&quot;&gt;</div></pre></td></tr></table></figure>
+</code></pre></li>
+<li><p>HTML1.1文档类型声明仅有一种，与HTML1.0类似，但允许添加模型：</p>
+<pre><code><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD/ XHTML1.1//EN&quot; http://www.w3.org/TR/xhtml/DTD/xhtml11.dtd&quot;&gt;</div></pre></td></tr></table></figure>
+</code></pre></li>
+<li><p>HTML5不基于SGML,其文档类型声明只有一种</p>
+<pre><code><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;!DOCTYPE html&gt;</div></pre></td></tr></table></figure>
+</code></pre></li>
+</ul>
+<blockquote>
+<p>要建立符合标准的网页文档，浏览器能够识别HTML/XHTML文档的类型，并正确的进行识别、解析，html必须采用DOCTYPE声明；如果文档不定义DOCTYPE类型，浏览器按照自己的方式来进行解析渲染的过程可能就会出现差错导致无法正常解析，也就是混乱模式或怪异者模式。</p>
+</blockquote>
+<h4 id="2-SGML、HTML、XML-——标记语言"><a href="#2-SGML、HTML、XML-——标记语言" class="headerlink" title="2. SGML、HTML、XML ——标记语言"></a>2. SGML、HTML、XML ——标记语言</h4><ul>
+<li>SGML:标准通用标记语言，即Standard Generalized Markup Language.<blockquote>
+<p>标准通用标记语言(<a href="https://zh.wikipedia.org/wiki/SGML" target="_blank" rel="external">SGML</a>),是当今常用的超文本格式的<strong>最高层次标准</strong>，是一种跨平台、跨语言的一种可以定义标记语言的<a href="https://zh.wikipedia.org/wiki/%E5%85%83%E8%AA%9E%E8%A8%80" target="_blank" rel="external">元语言</a>，是IOS于1986年发布的一个<strong>信息管理方面的国际标准</strong>（<code>ISO 8879:1986 Information processing -- Text and office systems -- Standard Generalized Markup Language (SGML)</code>）;但由于其强大的适应性，及其复杂性，难以普及。<br>HTML、XML都是SGML的一种派生。HTML是SGML的一个最成功的应用之一，而XML可以认为是SGML的一个子集；XML的产生便是为了简化SGML，以便于更加通用，比较成功的有语义Web、XHTML、RSS、XML-RPC、SOAP.</p>
+</blockquote>
+</li>
+<li>HTML:超文本标记语言，即Hyper Text Markup Language.<blockquote>
+<p>超文本标记语言(HTML),衍生于SGML,是一种用于创建网页的标准标记语言。编写HTML文档时，需声明对文档类型进行声明，即本文开篇的两个问题。html与CSS、Javascript语言一起用于创建令人赏心悦目的网页、网页应用程序以及移动应用程序的用户界面。缺点是标记相对少(只有固定的标记)，缺少SGML的柔性和适应性，不能支持特定领域的标记语言。</p>
+</blockquote>
+</li>
+<li>XML：可扩展标记语言，即eXtensible Markup Language.<blockquote>
+<p>可扩展标记语言(XML)，是SGML的一种简化版本；表示一种结构化信息的标准文本格式；同HTML一样，编写XML文档前也需要进行文档类型声明，即XML序言,如<code>&lt;?xml version=&quot;1.0&quot;?&gt;</code>，会告诉解析器或浏览器，这个文件应该按照XML规则进行解析.XML语言的缺点是：不支持分帧(framing),当多条XML消息在TCP上传输时，无法基于XML协议来确定一条XML消息是否结束。</p>
+</blockquote>
+</li>
+</ul>
+<h5 id="3-XML-DTD-与XML-Schema-——文档类型-VS-文档格式"><a href="#3-XML-DTD-与XML-Schema-——文档类型-VS-文档格式" class="headerlink" title="3. XML DTD 与XML Schema ——文档类型 VS 文档格式"></a>3. XML DTD 与XML Schema ——文档类型 VS 文档格式</h5><blockquote>
+<p>首先插入两个概念<br>   ①XML模式：指用来描述XML结构、约束因素的语言，如XML Schema、XML DTD、XDR、SOX等；<br>   ②XML格式：指XML文档本身所具有的格式；</p>
+</blockquote>
+<ul>
+<li>XML DTD: XML的文档类型定义的标准，采用与XML不同格式的语言，对XML文档的模式、格式进行规范描述的一种标准；缺点：XML DTD本身合法性缺少验证机制，需要与XML分开来进行合法性验证；</li>
+<li>XML Schema:XML的另一种文档类型定义标准，采用与XML相同格式的语言，对XML文档的模式、格式进行规范描述的一种标准；</li>
+</ul>
+<blockquote>
+<p>参考文献</p>
+<ul>
+<li>1.<a href="https://zh.wikipedia.org/wiki/SGML" target="_blank" rel="external">SGML–维基百科</a></li>
+<li>2.<a href="https://www.ibm.com/developerworks/cn/xml/x-sd/index.html" target="_blank" rel="external">XML Schema 与 XML DTD的技术比较与分析</a></li>
+</ul>
+</blockquote>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你的鼓励。<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/imgs/weixin.jpg">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -210,186 +305,105 @@ var _hmt = _hmt || [];
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://hbzyin.win/2017/09/28/html-doc-type/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/09/09/oAuth-md/" class="archive-article-date">
-  	<time datetime="2017-09-09T07:31:39.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-09</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2017/09/09/oAuth-md/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">oAuth 认证机制</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/09/09/oAuth-md/">oAuth 认证机制</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">secrect</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/09/09/git-workflow/" class="archive-article-date">
-  	<time datetime="2017-09-09T06:13:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-09</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/09/09/git-workflow/">workflow--项目工作流程</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">workflow</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">git</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/09/09/web-component/" class="archive-article-date">
-  	<time datetime="2017-09-09T05:20:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-09</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/09/09/web-component/">Ngx-bootstrap组件总结</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">component</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">bootstrap</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/09/09/frontend-skills/" class="archive-article-date">
-  	<time datetime="2017-09-09T05:20:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-09</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/09/09/frontend-skills/">Front end</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">文本</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">file</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/archives/page/2/">2</a><a class="page-number" href="/archives/page/3/">3</a><a class="extend next" rel="next" href="/archives/page/2/">Next &raquo;</a>
-    </nav>
   
 
 
@@ -419,8 +433,8 @@ var _hmt = _hmt || [];
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
